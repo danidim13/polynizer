@@ -82,4 +82,19 @@ CREATE TABLE Procesa
 	  VersionProcesado varchar(10),
 	  PRIMARY KEY (CorreoUsuario, IDCancion)			
 	);
+	
+CREATE TABLE Compra (
+Correo varchar(50) not null,
+Fecha date not null,
+Hora time not null,
+NumTokens int not null
+	Check (NumTokens > 0) ,
+PrecioToken float not null
+	Check (PrecioToken > 0),
+
+Primary key (Correo, Fecha, Hora),
+Foreign key (Correo) references Usuario(Correo)
+on delete cascade,
+
+);
 
