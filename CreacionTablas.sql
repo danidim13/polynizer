@@ -27,8 +27,8 @@ create table Pais
 	)
 
 -- Referencias para el ID
--- https://stackoverflow.com/questions/427180/how-to-create-a-guid-uuid-using-the-iphone-sdk
--- https://developer.apple.com/documentation/foundation/nsuuid
+--https://stackoverflow.com/questions/427180/how-to-create-a-guid-uuid-using-the-iphone-sdk
+--https://developer.apple.com/documentation/foundation/nsuuid
 -- on update cascade fk correo
 create table Dispositivo
 	( UUID				uniqueidentifier	not null,
@@ -73,7 +73,7 @@ CREATE TABLE Metadato
 	  Valor varchar(400),
 	  Primary Key (IDCancion)
 	);
--- https://es.answers.yahoo.com/question/index?qid=20100328161617AASDMa3
+--https://es.answers.yahoo.com/question/index?qid=20100328161617AASDMa3
 
 CREATE TABLE Procesa
 	( CorreoUsuario correo_t not null FOREIGN KEY REFERENCES Usuario (Correo) ON UPDATE CASCADE,
@@ -97,4 +97,15 @@ Foreign key (Correo) references Usuario(Correo)
 on delete cascade,
 
 );
+
+
+--Procedimientos Almacenados
+
+/*Devuelve en el entero @Cantidad la cantidad de canciones procesadas relacionadas al correo del usuario*/
+GO
+CREATE PROCEDURE CantidadCancionesProcesadasUsuario @Correo varchar(50), @Cantidad int output
+as
+select @Cantidad = count (*)
+from Procesa P
+where P.CorreoUsuario =  @Correo 
 
