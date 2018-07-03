@@ -1,0 +1,9 @@
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe.config
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.pdb
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csprojResolveAssemblyReference.cache
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.LoginWindow.resources
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Properties.Resources.resources
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.GenerateResource.Cache
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
+C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
