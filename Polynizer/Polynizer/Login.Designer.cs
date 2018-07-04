@@ -35,15 +35,17 @@
             this.labelContraseñaText = new System.Windows.Forms.Label();
             this.textBoxCorreoUsuario = new System.Windows.Forms.TextBox();
             this.textBoxContraseñaUsuario = new System.Windows.Forms.TextBox();
+            this.buttonIngresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelTextoBienvenida
             // 
             this.labelTextoBienvenida.AutoSize = true;
             this.labelTextoBienvenida.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTextoBienvenida.Location = new System.Drawing.Point(50, 53);
+            this.labelTextoBienvenida.Location = new System.Drawing.Point(33, 34);
+            this.labelTextoBienvenida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTextoBienvenida.Name = "labelTextoBienvenida";
-            this.labelTextoBienvenida.Size = new System.Drawing.Size(699, 37);
+            this.labelTextoBienvenida.Size = new System.Drawing.Size(464, 26);
             this.labelTextoBienvenida.TabIndex = 0;
             this.labelTextoBienvenida.Text = "Bienvenido al sistema de datos de Polynizer.";
             // 
@@ -51,9 +53,10 @@
             // 
             this.labelIngresarDatos.AutoSize = true;
             this.labelIngresarDatos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIngresarDatos.Location = new System.Drawing.Point(52, 127);
+            this.labelIngresarDatos.Location = new System.Drawing.Point(35, 83);
+            this.labelIngresarDatos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIngresarDatos.Name = "labelIngresarDatos";
-            this.labelIngresarDatos.Size = new System.Drawing.Size(471, 27);
+            this.labelIngresarDatos.Size = new System.Drawing.Size(301, 18);
             this.labelIngresarDatos.TabIndex = 1;
             this.labelIngresarDatos.Text = "Ingrese su correo de usuario y contraseña.";
             // 
@@ -61,9 +64,10 @@
             // 
             this.labelContactarAdmin.AutoSize = true;
             this.labelContactarAdmin.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContactarAdmin.Location = new System.Drawing.Point(54, 351);
+            this.labelContactarAdmin.Location = new System.Drawing.Point(11, 247);
+            this.labelContactarAdmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelContactarAdmin.Name = "labelContactarAdmin";
-            this.labelContactarAdmin.Size = new System.Drawing.Size(459, 18);
+            this.labelContactarAdmin.Size = new System.Drawing.Size(323, 14);
             this.labelContactarAdmin.TabIndex = 2;
             this.labelContactarAdmin.Text = "Para obtener una cuenta se debe contactar con un administrador.";
             // 
@@ -71,9 +75,10 @@
             // 
             this.labelCorreoText.AutoSize = true;
             this.labelCorreoText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCorreoText.Location = new System.Drawing.Point(52, 199);
+            this.labelCorreoText.Location = new System.Drawing.Point(35, 129);
+            this.labelCorreoText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCorreoText.Name = "labelCorreoText";
-            this.labelCorreoText.Size = new System.Drawing.Size(98, 29);
+            this.labelCorreoText.Size = new System.Drawing.Size(68, 19);
             this.labelCorreoText.TabIndex = 3;
             this.labelCorreoText.Text = "Correo:";
             // 
@@ -81,31 +86,45 @@
             // 
             this.labelContraseñaText.AutoSize = true;
             this.labelContraseñaText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContraseñaText.Location = new System.Drawing.Point(52, 256);
+            this.labelContraseñaText.Location = new System.Drawing.Point(35, 166);
+            this.labelContraseñaText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelContraseñaText.Name = "labelContraseñaText";
-            this.labelContraseñaText.Size = new System.Drawing.Size(151, 29);
+            this.labelContraseñaText.Size = new System.Drawing.Size(104, 19);
             this.labelContraseñaText.TabIndex = 4;
             this.labelContraseñaText.Text = "Contraseña:";
             // 
             // textBoxCorreoUsuario
             // 
-            this.textBoxCorreoUsuario.Location = new System.Drawing.Point(213, 199);
+            this.textBoxCorreoUsuario.Location = new System.Drawing.Point(142, 129);
+            this.textBoxCorreoUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxCorreoUsuario.Name = "textBoxCorreoUsuario";
-            this.textBoxCorreoUsuario.Size = new System.Drawing.Size(515, 26);
+            this.textBoxCorreoUsuario.Size = new System.Drawing.Size(345, 20);
             this.textBoxCorreoUsuario.TabIndex = 5;
             // 
             // textBoxContraseñaUsuario
             // 
-            this.textBoxContraseñaUsuario.Location = new System.Drawing.Point(213, 256);
+            this.textBoxContraseñaUsuario.Location = new System.Drawing.Point(142, 166);
+            this.textBoxContraseñaUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxContraseñaUsuario.Name = "textBoxContraseñaUsuario";
-            this.textBoxContraseñaUsuario.Size = new System.Drawing.Size(515, 26);
+            this.textBoxContraseñaUsuario.Size = new System.Drawing.Size(345, 20);
             this.textBoxContraseñaUsuario.TabIndex = 6;
+            this.textBoxContraseñaUsuario.UseSystemPasswordChar = true;
+            // 
+            // buttonIngresar
+            // 
+            this.buttonIngresar.Location = new System.Drawing.Point(412, 217);
+            this.buttonIngresar.Name = "buttonIngresar";
+            this.buttonIngresar.Size = new System.Drawing.Size(75, 23);
+            this.buttonIngresar.TabIndex = 7;
+            this.buttonIngresar.Text = "Ingresar";
+            this.buttonIngresar.UseVisualStyleBackColor = true;
             // 
             // LoginWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 419);
+            this.ClientSize = new System.Drawing.Size(518, 270);
+            this.Controls.Add(this.buttonIngresar);
             this.Controls.Add(this.textBoxContraseñaUsuario);
             this.Controls.Add(this.textBoxCorreoUsuario);
             this.Controls.Add(this.labelContraseñaText);
@@ -113,6 +132,9 @@
             this.Controls.Add(this.labelContactarAdmin);
             this.Controls.Add(this.labelIngresarDatos);
             this.Controls.Add(this.labelTextoBienvenida);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "LoginWindow";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -129,6 +151,7 @@
         private System.Windows.Forms.Label labelContraseñaText;
         private System.Windows.Forms.TextBox textBoxCorreoUsuario;
         private System.Windows.Forms.TextBox textBoxContraseñaUsuario;
+        private System.Windows.Forms.Button buttonIngresar;
     }
 }
 

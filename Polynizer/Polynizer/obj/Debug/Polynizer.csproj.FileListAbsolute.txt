@@ -7,3 +7,13 @@ C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Prop
 C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.GenerateResource.Cache
 C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
 C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe.config
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.pdb
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csprojAssemblyReference.cache
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.LoginWindow.resources
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Properties.Resources.resources
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.GenerateResource.cache
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.CoreCompileInputs.cache
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
