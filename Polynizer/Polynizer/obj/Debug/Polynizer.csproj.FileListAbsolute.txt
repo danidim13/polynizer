@@ -17,3 +17,5 @@ C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.CoreCompileInputs.cache
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.AgregarUsuario.resources
+C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.CancionesAdmin.resources

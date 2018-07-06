@@ -41,11 +41,11 @@
             // labelTextoBienvenida
             // 
             this.labelTextoBienvenida.AutoSize = true;
-            this.labelTextoBienvenida.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTextoBienvenida.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold);
             this.labelTextoBienvenida.Location = new System.Drawing.Point(33, 34);
             this.labelTextoBienvenida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTextoBienvenida.Name = "labelTextoBienvenida";
-            this.labelTextoBienvenida.Size = new System.Drawing.Size(464, 26);
+            this.labelTextoBienvenida.Size = new System.Drawing.Size(460, 24);
             this.labelTextoBienvenida.TabIndex = 0;
             this.labelTextoBienvenida.Text = "Bienvenido al sistema de datos de Polynizer.";
             // 
