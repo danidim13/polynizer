@@ -1,8 +1,15 @@
 USE DB_INTELLECT
 create type correo_t	from varchar(50)	not null;
-create type nompais_t	from varchar(45)	not null;
+create type nompais_t	from nvarchar(45)	not null;
 
 
+
+	  		
+
+create table Pais
+	( Nombre		nompais_t		not null,
+	  Primary key(Nombre)
+	)
 
 -- Pais default = null
 -- admin y pwd
@@ -19,12 +26,6 @@ create table Usuario
 	  Foreign key(NombrePais) References Pais(Nombre)
 	)
 
-	  		
-
-create table Pais
-	( Nombre		nompais_t		not null,
-	  Primary key(Nombre)
-	)
 
 -- Referencias para el ID
 --https://stackoverflow.com/questions/427180/how-to-create-a-guid-uuid-using-the-iphone-sdk
@@ -108,6 +109,7 @@ as
 select @Cantidad = count (*)
 from Procesa P
 where P.CorreoUsuario =  @Correo 
+GO
 
 
 
@@ -130,3 +132,24 @@ AS BEGIN
 RETURN
 END
 GO
+
+
+
+/****************************/
+/********** Reset ***********/
+/****************************/
+/*
+Drop Procedure TokensRestantes
+Drop Procedure CantidadCancionesProcesadasUsuario
+Drop Table Compra
+Drop Table Procesa
+Drop Table Metadato
+Drop Table Link
+Drop Table MP3
+Drop Table Cancion
+Drop Table Dispositivo
+Drop Table Usuario
+Drop Table Pais
+Drop type nompais_t
+Drop type correo_t
+*/
