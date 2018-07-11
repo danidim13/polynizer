@@ -40,13 +40,13 @@ create table Dispositivo
 	   
 
 CREATE TABLE Cancion
-	( ID binary(64) not null
+	( ID int not null
 	  constraint PKCancion
 		primary key (ID)
 	);
 	  
 CREATE TABLE MP3
-	( IDCancion binary(64) not null,
+	( IDCancion int not null,
 	  FingerPrint varchar(10) not null, 
 	  constraint PKMP3
 		primary key (IDCancion),
@@ -56,7 +56,7 @@ CREATE TABLE MP3
 	 );
 
 CREATE TABLE Link
-	( IDCancion binary(64) not null,
+	( IDCancion int not null,
 	  URL nvarchar (2083) not null,
 	  /*ToDo MatrizDatos*/
 	  constraint PKlink
@@ -69,16 +69,16 @@ CREATE TABLE Link
 --https://support.microsoft.com/en-us/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer
 
 CREATE TABLE Metadato
-	( IDCancion binary(64) not null FOREIGN KEY REFERENCES Cancion (ID),
+	( IDCancion int not null FOREIGN KEY REFERENCES Cancion (ID),
 	  Llave varchar(10) not null,
 	  Valor varchar(400),
-	  Primary Key (IDCancion)
+	  Primary Key (IDCancion, Llave)
 	);
 --https://es.answers.yahoo.com/question/index?qid=20100328161617AASDMa3
 
 CREATE TABLE Procesa
 	( CorreoUsuario correo_t not null FOREIGN KEY REFERENCES Usuario (Correo) ON UPDATE CASCADE,
-	  IDCancion binary(64) not null FOREIGN KEY REFERENCES Cancion (ID) ON DELETE NO ACTION,
+	  IDCancion int not null FOREIGN KEY REFERENCES Cancion (ID) ON DELETE NO ACTION,
 	  FechaRedimido date,
 	  VersionProcesado varchar(10),
 	  PRIMARY KEY (CorreoUsuario, IDCancion)			
