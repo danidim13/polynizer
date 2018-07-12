@@ -133,7 +133,20 @@ RETURN
 END
 GO
 
-
+/*Procedimiento para agregar un usuario*/
+go
+create procedure AgregarUsuario
+@correo varchar(50),	
+@nombre varchar(15),
+@apellido varchar(15),
+@fechaNac date,
+@fechaIni date,
+@passHash binary(64),
+@superUser bit
+as
+Insert into usuario (Correo, Nombre, Apellido,FechaNac, FechaIni,PasswordHash,Superuser)
+Values (@correo, @nombre, @apellido, @fechaNac, @fechaIni, @passHash, @superUser)
+go
 
 /****************************/
 /********** Reset ***********/
