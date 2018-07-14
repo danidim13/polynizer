@@ -99,6 +99,7 @@ on delete cascade,
 
 );
 
+
 /*************************************************************/
 --Procedimientos Almacenados
 
@@ -166,3 +167,52 @@ Drop Table Pais
 Drop type nompais_t
 Drop type correo_t
 */
+
+/*Conexión de Interfaz con la base de datos*/
+
+/*Salt para el uso de contraseñas*/
+Alter table Usuario ADD salt uniqueidentifier
+
+/*Login*/
+/*Usando los mismos metodos de la guía del Lab 5*/
+GO
+CREATE PROCEDURE dbo.Login @CorreoLogin correo_t, @PasswordLogin NVARCHAR(50), @enDB bit=0 OUTPUT
+AS
+BEGIN
+SET NOCOUNT ON
+DECLARE @usuario correo_t
+IF EXISTS (SELECT TOP 1	Correo FROM [dbo].[Usuario] WHERE Correo=@CorreoLogin) BEGIN
+	SET @usuario=(SELECT Correo FROM [dbo].[Usuario] WHERE Correo=@CorreoLogin AND PasswordHash=HASHBYTES('SHA2_512', @PasswordLogin+CAST(salt AS NVARCHAR(36))))
+	IF(@usuario IS NULL)
+		SET @enDB=0
+	ELSE
+		SET @enDB=1
+	END
+ELSE
+	SET @enDB=0
+END
+
+/*AgregarUsuario*/
+Go
+CREATE PROCEDURE agregarUsuario  
+@correo varchar(50),	
+@nombre varchar(15),
+@apellido varchar(15),
+@fechaNac date,
+@fechaIni date,
+@pais nvarchar(45),
+@password NVARCHAR(50),
+@superUser bit,
+@estado bit OUTPUT
+AS BEGIN
+    SET NOCOUNT ON
+    DECLARE @salt UNIQUEIDENTIFIER=NEWID()
+    BEGIN TRY
+        Insert into usuario (Correo, Nombre, Apellido,FechaNac, FechaIni, NombrePais ,PasswordHash,Superuser,salt)
+        Values (@correo, @nombre, @apellido, @fechaNac, @fechaIni, @pais, HASHBYTES('SHA2_512', @password+CAST(@salt AS NVARCHAR(36))), @superUser, @salt)
+        SET @estado=1
+    END TRY
+    BEGIN CATCH
+        SET @estado=ERROR_MESSAGE()
+    END CATCH
+END

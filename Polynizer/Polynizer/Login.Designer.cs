@@ -96,7 +96,7 @@
             // textBoxCorreoUsuario
             // 
             this.textBoxCorreoUsuario.Location = new System.Drawing.Point(142, 129);
-            this.textBoxCorreoUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCorreoUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCorreoUsuario.Name = "textBoxCorreoUsuario";
             this.textBoxCorreoUsuario.Size = new System.Drawing.Size(345, 20);
             this.textBoxCorreoUsuario.TabIndex = 5;
@@ -104,7 +104,7 @@
             // textBoxContraseñaUsuario
             // 
             this.textBoxContraseñaUsuario.Location = new System.Drawing.Point(142, 166);
-            this.textBoxContraseñaUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxContraseñaUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxContraseñaUsuario.Name = "textBoxContraseñaUsuario";
             this.textBoxContraseñaUsuario.Size = new System.Drawing.Size(345, 20);
             this.textBoxContraseñaUsuario.TabIndex = 6;
@@ -118,6 +118,7 @@
             this.buttonIngresar.TabIndex = 7;
             this.buttonIngresar.Text = "Ingresar";
             this.buttonIngresar.UseVisualStyleBackColor = true;
+            this.buttonIngresar.Click += new System.EventHandler(this.buttonIngresar_Click);
             // 
             // LoginWindow
             // 
@@ -133,7 +134,7 @@
             this.Controls.Add(this.labelIngresarDatos);
             this.Controls.Add(this.labelTextoBienvenida);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "LoginWindow";
             this.Text = "Login";
