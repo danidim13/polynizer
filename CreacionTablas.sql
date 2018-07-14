@@ -192,7 +192,7 @@ ELSE
 	SET @enDB=0
 END
 
-/*AgregarUsuario*/
+/* AgregarUsuario */
 Go
 CREATE PROCEDURE agregarUsuario  
 @correo varchar(50),	
