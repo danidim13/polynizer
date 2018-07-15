@@ -61,6 +61,12 @@
     <Compile Include="Graficos.Designer.cs">
       <DependentUpon>Graficos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MetadatosCancion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetadatosCancion.Designer.cs">
+      <DependentUpon>MetadatosCancion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarUsuario.resx">
       <DependentUpon>AgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MetadatosCancion.resx">
+      <DependentUpon>MetadatosCancion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
