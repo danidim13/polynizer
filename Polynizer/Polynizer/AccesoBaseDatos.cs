@@ -17,7 +17,7 @@ namespace Polynizer
         //String conexion = "Data Source=10.1.4.55; Initial Catalog=gaudyblanco; Integrated Security=SSPI";
 
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security = false es para utilizar SQL SERVER Authentication*/
-        string conexion = "Data Source=10.1.4.55;User ID=xxxx; Password=xxxx; Initial Catalog=DB_INTELLECT; Integrated Security=false";
+        string conexion = "Data Source=10.1.4.55;User ID=x; Password=x; Initial Catalog=DB_INTELLECT; Integrated Security=false";
         /*CAMBIAR PASSWORD Y USER*/
         
         /**
@@ -248,6 +248,52 @@ namespace Polynizer
                 }
             }
 
+        }
+        public bool superUser (string correo)
+        {
+            using (SqlConnection con = new SqlConnection(conexion))
+            {
+                using (SqlCommand cmd = new SqlCommand("superUser", con))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        //Se preparan los parámetros que recibe el procedimiento almacenado
+                        cmd.Parameters.Add("@CorreoLogin", SqlDbType.VarChar).Value = correo;
+                        //cmd.Parameters.Add("@PasswordLogin", SqlDbType.VarChar).Value = contraseña;
+
+                        //se prepara el parámetro de retorno del procedimiento almacenado
+                        cmd.Parameters.Add("@supUser", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+                        /*Se abre la conexión*/
+                        con.Open();
+
+                        //Se ejecuta el procedimiento almacenado
+                        cmd.ExecuteNonQuery();
+
+                        /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
+                        int value = Convert.ToInt32(cmd.Parameters["@supUser"].Value);
+
+                        /*Si el procedimiento devuelve 1 es que si se encuentra en la BD*/
+                        if (value == 1)
+                        {
+                            return true;
+                        }
+
+                        /*Si devuelve 0 es que no se encuentra en la BD*/
+                        else
+                        {
+                            return false;
+                        }
+
+                    }
+                    catch (SqlException ex)
+                    {
+                        return false;
+                    }
+                }
+            }
         }
 
     }

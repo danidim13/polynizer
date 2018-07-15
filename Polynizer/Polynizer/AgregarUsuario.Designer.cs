@@ -45,6 +45,7 @@
             this.dateTimePickerNacimiento = new System.Windows.Forms.DateTimePicker();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.comboBoxPais = new System.Windows.Forms.ComboBox();
+            this.checkBoxAdministrador = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelNombre
@@ -198,11 +199,23 @@
             this.comboBoxPais.Size = new System.Drawing.Size(244, 21);
             this.comboBoxPais.TabIndex = 19;
             // 
+            // checkBoxAdministrador
+            // 
+            this.checkBoxAdministrador.AutoSize = true;
+            this.checkBoxAdministrador.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxAdministrador.Location = new System.Drawing.Point(401, 344);
+            this.checkBoxAdministrador.Name = "checkBoxAdministrador";
+            this.checkBoxAdministrador.Size = new System.Drawing.Size(222, 22);
+            this.checkBoxAdministrador.TabIndex = 20;
+            this.checkBoxAdministrador.Text = "Privilegios de administrador";
+            this.checkBoxAdministrador.UseVisualStyleBackColor = true;
+            // 
             // AgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 450);
+            this.Controls.Add(this.checkBoxAdministrador);
             this.Controls.Add(this.comboBoxPais);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.dateTimePickerNacimiento);
@@ -248,5 +261,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerNacimiento;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.ComboBox comboBoxPais;
+        private System.Windows.Forms.CheckBox checkBoxAdministrador;
     }
 }

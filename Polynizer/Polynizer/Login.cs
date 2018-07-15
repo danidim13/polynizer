@@ -25,8 +25,16 @@ namespace Polynizer
             {
                 if (intermediaria.login(textBoxCorreoUsuario.Text,textBoxContraseñaUsuario.Text)==true)
                 {
-                    MessageBox.Show("Usuario Correcto", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    /*ToDo consultar si es admin y mostrar las ventanas de inicio*/
+                    if(intermediaria.superUser(textBoxCorreoUsuario.Text)==true)
+                    {
+                        MessageBox.Show("Usuario Correcto, se iniciará seción como administrador", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        /*ToDo Iniciar ventana opciones admin*/
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario Correcto, se iniciará seción como usuario", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        /*ToDo Iniciar ventana opciones usuario*/
+                    }
                 }
                 else
                 {

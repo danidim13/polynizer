@@ -19,21 +19,25 @@ namespace Polynizer
             bd = new AccesoBaseDatos();
         }
 
-        //public DataTable obtenerListaCanciones(int tipoFiltro, string filtro)
-        //{
+        public DataTable obtenerListaCanciones(int tipoFiltro, string filtro)
+        {
             /*ToDo*/
-        //    DataTable tabla = null;
-        //    try
-        //    {
-        //        if(tipoFiltro == )
-        //    }
+            DataTable tabla = null;
+            try
+            {
+                if(tipoFiltro == 1)
+            }
 
-        //}
+        }
         
         public bool login (string correo, string contraseña)
         {
             return bd.login(correo, contraseña);
         }
 
+        public bool superUser (string correo)
+        {
+            return bd.superUser(correo);
+        }
     }
 }
