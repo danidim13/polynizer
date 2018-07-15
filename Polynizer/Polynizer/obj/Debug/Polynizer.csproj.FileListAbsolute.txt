@@ -20,3 +20,16 @@ C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.AgregarUsuario.resources
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.CancionesAdmin.resources
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.UsuarioPrincipal.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe.config
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.pdb
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csprojAssemblyReference.cache
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.CancionesAdmin.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.LoginWindow.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.AgregarUsuario.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Properties.Resources.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.UsuarioPrincipal.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.GenerateResource.cache
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.CoreCompileInputs.cache
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
