@@ -45,7 +45,7 @@ namespace Polynizer
             SqlDataReader datos;
             if (comboBoxFiltro.Text == "General")
             {
-                datos = intermediaria.obtenerListaCanciones(0,null);
+                datos = intermediaria.obtenerListaCanciones(0, textBoxBuscar.Text);
             }
             else
             {
@@ -86,7 +86,7 @@ namespace Polynizer
             {
                 if(comboBoxFiltro.Text == "General")
                 {
-                    llenarTabla(dataGridViewCanciones, 0, null);
+                    llenarTabla(dataGridViewCanciones, 0, textBoxBuscar.Text);
                 }
                 else
                 {
@@ -99,8 +99,8 @@ namespace Polynizer
                         llenarTabla(dataGridViewCanciones, 2, textBoxBuscar.Text);
                     }
                 }
-                llenarComboBoxMetadatos();
             }
+            llenarComboBoxMetadatos();
         }
 
         private void buttonVerMetadatos_Click(object sender, EventArgs e)

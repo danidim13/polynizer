@@ -28,7 +28,14 @@ namespace Polynizer
                 if(tipoFiltro == 0)
                 {
                     //Filtro general
-                    tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado from Procesa P");
+                    if(filtro == "" || filtro == null)
+                    {
+                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado from Procesa P");
+                    }
+                    else
+                    {
+                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado, M.Llave as TipoMetadato , M.Valor as ValorMetadato from Procesa P join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro +"%' or P.IDCancion like '%"+ filtro +"%' or M.Valor like '%"+ filtro +"%'");
+                    }
                 }
                 else
                 {
@@ -73,7 +80,14 @@ namespace Polynizer
                 if (tipoFiltro == 0)
                 {
                     //Filtro general
-                    datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P");
+                    if (filtro == "" || filtro == null)
+                    {
+                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P");
+                    }
+                    else
+                    {
+                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro + "%' or P.IDCancion like '%" + filtro + "%' or M.Valor like '%" + filtro + "%'");
+                    }
                 }
                 else
                 {
