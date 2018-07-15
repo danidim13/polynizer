@@ -15,7 +15,7 @@ SELECT @correo = i.CorreoUsuario,
 FROM INSERTED i;
 
 DECLARE @tokensRestantes INT;
-EXEC TokensRestantes @correo, @tokensRestantes;
+EXEC TokensRestantes @correo, @tokensRestantes output;
 IF (@tokensRestantes > 0) BEGIN
 	INSERT INTO Procesa
 	VALUES (@correo, @id, @fechaR, @version);
