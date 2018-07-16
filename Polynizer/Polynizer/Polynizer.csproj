@@ -54,6 +54,12 @@
     <Compile Include="CancionesAdmin.Designer.cs">
       <DependentUpon>CancionesAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="CancionesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancionesUsuario.Designer.cs">
+      <DependentUpon>CancionesUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClaseIntermediaria.cs" />
     <Compile Include="ComprarTokens.cs">
       <SubType>Form</SubType>
@@ -85,6 +91,15 @@
     <Compile Include="MetadatosCancion.Designer.cs">
       <DependentUpon>MetadatosCancion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PincipalAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PincipalAdmin.Designer.cs">
+      <DependentUpon>PincipalAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesarCancion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UsuarioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +129,9 @@
     <EmbeddedResource Include="CancionesAdmin.resx">
       <DependentUpon>CancionesAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CancionesUsuario.resx">
+      <DependentUpon>CancionesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ComprarTokens.resx">
       <DependentUpon>ComprarTokens.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MetadatosCancion.resx">
       <DependentUpon>MetadatosCancion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PincipalAdmin.resx">
+      <DependentUpon>PincipalAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

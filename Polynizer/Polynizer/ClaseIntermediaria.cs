@@ -183,5 +183,24 @@ namespace Polynizer
             }
             return bd.actualizarDatos(instruccion);
         }
+
+        /*Mayquely*/
+        public DataTable obtenerCancionesUsuario(string filtro)
+        {
+
+            DataTable tabla = null;
+            try
+            {
+
+                tabla = bd.ejecutarConsultaTabla("Select p.IDCancion, m.Llave, m.Valor from metadato m join procesa p on m.IDCancion = p.IDCancion where m.llave like '%" + filtro + "%' and p.CorreoUsuario like 'danidiaza@gmail.com' ");//'%" + correo	+	"%'");
+
+            }
+            catch (SqlException ex)
+
+            {
+
+            }
+            return tabla;
+        }
     }
 }
