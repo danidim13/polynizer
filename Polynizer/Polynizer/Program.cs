@@ -17,7 +17,9 @@ namespace Polynizer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new ListaCompras());//LoginWindow());
-            Application.Run(Global.StartApp());
+            Global.StartApp();
+            Global.login.Show();
+            Application.Run();
         }
     }
 }

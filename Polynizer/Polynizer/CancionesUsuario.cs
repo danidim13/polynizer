@@ -54,6 +54,9 @@ namespace Polynizer
         private void button2_Click(object sender, EventArgs e)
         {
             //Regresa a perfil
+            Global.usuarioPrincipal = new UsuarioPrincipal();
+            Global.usuarioPrincipal.Show();
+            this.Close();
         }
 
         private void CancionesUsuario_Load(object sender, EventArgs e)

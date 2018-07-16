@@ -21,5 +21,12 @@ namespace Polynizer
         {
 
         }
+
+        private void regresarBTN_Click(object sender, EventArgs e)
+        {
+            Global.usuarioPrincipal = new UsuarioPrincipal();
+            Global.usuarioPrincipal.Show();
+            this.Close();
+        }
     }
 }

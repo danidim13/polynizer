@@ -35,7 +35,9 @@ namespace Polynizer
                         Global.setCorreoUsuario(textBoxCorreoUsuario.Text);
                         /*ToDo Iniciar ventana opciones admin*/
                         this.Hide();
+                        Global.adminPrincipal = new PincipalAdmin();
                         Global.adminPrincipal.Show();
+                        this.Close();
                     }
                     else
                     {
@@ -43,7 +45,9 @@ namespace Polynizer
                         Global.setCorreoUsuario(textBoxCorreoUsuario.Text);
                         /*ToDo Iniciar ventana opciones usuario*/
                         this.Hide();
+                        Global.usuarioPrincipal = new UsuarioPrincipal();
                         Global.usuarioPrincipal.Show();
+                        this.Close();
                     }
                 }
                 else

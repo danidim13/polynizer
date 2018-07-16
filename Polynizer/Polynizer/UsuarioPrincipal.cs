@@ -22,34 +22,45 @@ namespace Polynizer
 
         }
 
+
         private void linkLabelCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
+            Global.login = new LoginWindow();
             Global.login.Show();
+            this.Close();
         }
 
         private void buttonCompras_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Global.usuarioCompras = new ListaCompras();
             Global.usuarioCompras.Show();
+            this.Close();
         }
 
         private void buttonCanciones_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Global.usuarioCanciones = new CancionesUsuario();
             Global.usuarioCanciones.Show();
+            this.Close();
         }
 
         private void buttonProcesarCancion_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Global.usuarioProcesarCancion = new ProcesaCancion();
             Global.usuarioProcesarCancion.Show();
+            this.Close();
         }
 
         private void linkLabelPerfil_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
+            Global.usuarioVerPerfil = new UsuarioVerPerfil();
             Global.usuarioVerPerfil.Show();
+            this.Close();
         }
     }
 }

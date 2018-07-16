@@ -40,7 +40,9 @@ namespace Polynizer
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Global.usuarioPrincipal = new UsuarioPrincipal();
             Global.usuarioPrincipal.Show();
+            this.Close();
         }
     }
 }

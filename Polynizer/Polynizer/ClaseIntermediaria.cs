@@ -35,7 +35,7 @@ namespace Polynizer
         public static LoginWindow StartApp()
         {
             login = new LoginWindow();
-
+            /*
             usuarioPrincipal = new UsuarioPrincipal();
             usuarioVerPerfil = new UsuarioVerPerfil();
             usuarioCanciones = new CancionesUsuario();
@@ -48,6 +48,7 @@ namespace Polynizer
             adminListaUsuarios = new ListaUsuarios();
             adminGraficos = new Graficos();
             adminAgregarUsuario = new AgregarUsuario();
+            */
 
 
             return login;
