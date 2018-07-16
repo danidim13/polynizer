@@ -13,10 +13,13 @@ namespace Polynizer
     public partial class LoginWindow : Form
     {
         ClaseIntermediaria intermediaria;
+        Controlador controladorAplicacion;
+
         public LoginWindow()
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
+            controladorAplicacion = new Controlador(this);
+            intermediaria = controladorAplicacion.GetIntermediaria();
         }
 
         private void buttonIngresar_Click(object sender, EventArgs e)
@@ -28,11 +31,13 @@ namespace Polynizer
                     if(intermediaria.superUser(textBoxCorreoUsuario.Text)==true)
                     {
                         MessageBox.Show("Usuario Correcto, se iniciará seción como administrador", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        controladorAplicacion.SetCorreoUsuario(textBoxCorreoUsuario.Text);
                         /*ToDo Iniciar ventana opciones admin*/
                     }
                     else
                     {
                         MessageBox.Show("Usuario Correcto, se iniciará seción como usuario", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        controladorAplicacion.SetCorreoUsuario(textBoxCorreoUsuario.Text);
                         /*ToDo Iniciar ventana opciones usuario*/
                     }
                 }

@@ -14,10 +14,13 @@ namespace Polynizer
     public partial class AgregarUsuario : Form
     {
         ClaseIntermediaria intermediaria;
-        public AgregarUsuario()
+        Controlador controladorAplicacion;
+
+        public AgregarUsuario(Controlador controlador)
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
+            controladorAplicacion = controlador;
+            intermediaria = controladorAplicacion.GetIntermediaria();
             llenarComboBoxPais();
         }
 

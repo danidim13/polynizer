@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 namespace Polynizer
 {
    
-    class ClaseIntermediaria
+    public class ClaseIntermediaria
     {
         AccesoBaseDatos bd;
 

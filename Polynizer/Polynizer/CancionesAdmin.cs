@@ -14,10 +14,13 @@ namespace Polynizer
     public partial class CancionesAdmin : Form
     {
         ClaseIntermediaria intermediaria;
-        public CancionesAdmin()
+        Controlador controladorAplicacion;
+
+        public CancionesAdmin(Controlador controlador)
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
+            controladorAplicacion = controlador;
+            intermediaria = controlador.GetIntermediaria();
             comboBoxFiltro.Items.Clear();
             comboBoxFiltro.Items.Add("General");
             comboBoxFiltro.Items.Add("Correo");
@@ -111,7 +114,7 @@ namespace Polynizer
             }
             else
             {
-                MetadatosCancion metadatos = new MetadatosCancion(comboBoxMetadato.Text);
+                MetadatosCancion metadatos = new MetadatosCancion(comboBoxMetadato.Text,controladorAplicacion);
                 metadatos.Show();
             }
         }

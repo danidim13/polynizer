@@ -13,10 +13,13 @@ namespace Polynizer
     public partial class MetadatosCancion : Form
     {
         ClaseIntermediaria intermediaria;
-        public MetadatosCancion(string IDCancion)
+        Controlador controladorAplicacion;
+
+        public MetadatosCancion(string IDCancion, Controlador controlador)
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
+            controladorAplicacion = controlador;
+            intermediaria = controladorAplicacion.GetIntermediaria();
             labelID.Text = IDCancion;
             llenarTabla(IDCancion);
         }
