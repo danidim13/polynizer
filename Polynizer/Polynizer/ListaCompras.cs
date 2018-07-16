@@ -12,18 +12,16 @@ namespace Polynizer
 {
     public partial class ListaCompras : Form
     {
-        ClaseIntermediaria intermediaria;
         public ListaCompras()
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
             this.llenarListaCompras(listaComprasDGV);
         }
 
 
         private void llenarListaCompras(DataGridView dataGridView)
         {
-            DataTable tabla = intermediaria.obtenerCompras();
+            DataTable tabla = Global.intermediaria.obtenerCompras();
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = tabla;
             dataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);

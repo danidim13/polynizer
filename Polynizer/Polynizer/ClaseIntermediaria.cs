@@ -29,7 +29,7 @@ namespace Polynizer
         public static Graficos adminGraficos;
         public static AgregarUsuario adminAgregarUsuario;
 
-        public static ClaseIntermediaria intermediaria;
+        public static ClaseIntermediaria intermediaria = new ClaseIntermediaria();
 
 
         public static LoginWindow StartApp()
@@ -49,7 +49,6 @@ namespace Polynizer
             adminGraficos = new Graficos();
             adminAgregarUsuario = new AgregarUsuario();
 
-            intermediaria = new ClaseIntermediaria();
 
             return login;
         }

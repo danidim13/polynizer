@@ -12,7 +12,6 @@ namespace Polynizer
 {
     public partial class MetadatosCancion : Form
     {
-        ClaseIntermediaria intermediaria;
 
         /*
          * Constructor de la clase
@@ -22,7 +21,6 @@ namespace Polynizer
         public MetadatosCancion(string IDCancion)
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
             labelID.Text = IDCancion;
             llenarTabla(IDCancion);
         }
@@ -31,7 +29,7 @@ namespace Polynizer
           Recibe el ID de la canción.*/
         private void llenarTabla(string IDCancion)
         {
-            DataTable tabla = intermediaria.obtenerMetadatos(IDCancion);
+            DataTable tabla = Global.intermediaria.obtenerMetadatos(IDCancion);
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = tabla;
             dataGridViewMetadatos.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);

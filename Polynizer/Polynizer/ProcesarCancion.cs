@@ -12,11 +12,9 @@ namespace Polynizer
 {
     public partial class ProcesaCancion :Form
     {
-        ClaseIntermediaria claseInter;
         public ProcesaCancion()
         {
             //InitializeComponent();
-            claseInter = new ClaseIntermediaria();
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
