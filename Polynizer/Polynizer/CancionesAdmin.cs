@@ -13,7 +13,6 @@ namespace Polynizer
 {
     public partial class CancionesAdmin : Form
     {
-        ClaseIntermediaria intermediaria;
 
         /*
          * Costructor de la clase
@@ -22,7 +21,6 @@ namespace Polynizer
         public CancionesAdmin()
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
             comboBoxFiltro.Items.Clear();
             comboBoxFiltro.Items.Add("General");
             comboBoxFiltro.Items.Add("Correo");
@@ -37,7 +35,7 @@ namespace Polynizer
                   un string filtro, este es utilizado para buscar esa string en el campo correspondiente, según el tipo de filtro utilizado.*/
         private void llenarTabla(int tipoFiltro, string filtro)
         {
-            DataTable tabla = intermediaria.obtenerCanciones(tipoFiltro, filtro);
+            DataTable tabla = Global.intermediaria.obtenerCanciones(tipoFiltro, filtro);
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = tabla;
             dataGridViewCanciones.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
@@ -54,17 +52,17 @@ namespace Polynizer
             SqlDataReader datos;
             if (comboBoxFiltro.Text == "General")
             {
-                datos = intermediaria.obtenerListaCanciones(0, textBoxBuscar.Text);
+                datos = Global.intermediaria.obtenerListaCanciones(0, textBoxBuscar.Text);
             }
             else
             {
                 if (comboBoxFiltro.Text == "Correo")
                 {
-                    datos = intermediaria.obtenerListaCanciones(1, textBoxBuscar.Text);
+                    datos = Global.intermediaria.obtenerListaCanciones(1, textBoxBuscar.Text);
                 }
                 else
                 {
-                    datos = intermediaria.obtenerListaCanciones(2, textBoxBuscar.Text);
+                    datos = Global.intermediaria.obtenerListaCanciones(2, textBoxBuscar.Text);
                 }
             }
 

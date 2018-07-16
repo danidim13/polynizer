@@ -12,7 +12,6 @@ namespace Polynizer
 {
     public partial class LoginWindow : Form
     {
-        ClaseIntermediaria intermediaria;
 
         /*
          * Constructor de la clase
@@ -20,7 +19,6 @@ namespace Polynizer
         public LoginWindow()
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
         }
 
         /*Metodo que revisa si el usuario existe en la base de datos, tiene la contraseña correcta y si se debe iniciar en modo administrador o usuario*/
@@ -29,9 +27,9 @@ namespace Polynizer
         {
             if (textBoxCorreoUsuario.Text != "" && textBoxContraseñaUsuario.Text != "")
             {
-                if (intermediaria.login(textBoxCorreoUsuario.Text,textBoxContraseñaUsuario.Text)==true)
+                if (Global.intermediaria.login(textBoxCorreoUsuario.Text,textBoxContraseñaUsuario.Text)==true)
                 {
-                    if(intermediaria.superUser(textBoxCorreoUsuario.Text)==true)
+                    if(Global.intermediaria.superUser(textBoxCorreoUsuario.Text)==true)
                     {
                         MessageBox.Show("Usuario Correcto, se iniciará seción como administrador", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
                         Global.setCorreoUsuario(textBoxCorreoUsuario.Text);

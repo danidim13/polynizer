@@ -12,12 +12,10 @@ namespace Polynizer
 {
     public partial class ComprarTokens : Form
     {
-        ClaseIntermediaria intermediaria;
 
         public ComprarTokens()
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
         }
 
         private void comprarBTN_Click(object sender, EventArgs e)
@@ -38,7 +36,7 @@ namespace Polynizer
                 {
                     if (MessageBox.Show("Está seguro que desea comprar " + i + " tokens?", "Comprar Tokens", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (0 == intermediaria.comprarTokens(i))
+                        if (0 == Global.intermediaria.comprarTokens(i))
                         {
                             MessageBox.Show("¡Su compra fue exitosa!", "Comprar Tokens", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }

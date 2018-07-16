@@ -13,7 +13,6 @@ namespace Polynizer
 {
     public partial class AgregarUsuario : Form
     {
-        ClaseIntermediaria intermediaria;
 
         /*
          * Constructor de la clase
@@ -21,7 +20,6 @@ namespace Polynizer
         public AgregarUsuario()
         {
             InitializeComponent();
-            intermediaria = new ClaseIntermediaria();
             llenarComboBoxPais();
         }
 
@@ -29,7 +27,7 @@ namespace Polynizer
         private void llenarComboBoxPais()
         {
             SqlDataReader paises;
-            paises = intermediaria.obtenerListaPaises();
+            paises = Global.intermediaria.obtenerListaPaises();
             if (paises != null)
             {
                 comboBoxPais.Items.Clear();
@@ -66,7 +64,7 @@ namespace Polynizer
             }
             else
             {
-                bool resultado = intermediaria.agregarUsuario(textBoxCorreo.Text, textBoxNombre.Text, textBoxApellido.Text, dateTimePickerNacimiento.Value.ToString("yyyy-MM-dd"), day.ToString("yyyy-MM-dd"), comboBoxPais.Text, textBoxContraseñaUsuario.Text, admin);
+                bool resultado = Global.intermediaria.agregarUsuario(textBoxCorreo.Text, textBoxNombre.Text, textBoxApellido.Text, dateTimePickerNacimiento.Value.ToString("yyyy-MM-dd"), day.ToString("yyyy-MM-dd"), comboBoxPais.Text, textBoxContraseñaUsuario.Text, admin);
                 if (resultado)
                 {
                     MessageBox.Show("El usuario fue agregado al sistema", "Agregar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);

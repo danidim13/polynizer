@@ -12,11 +12,9 @@ namespace Polynizer
 {
     public partial class CancionesUsuario : Form
     {
-        ClaseIntermediaria claseInter;
         public CancionesUsuario()
         {
             InitializeComponent();
-            claseInter = new ClaseIntermediaria();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -26,7 +24,7 @@ namespace Polynizer
         //Boton de buscar.
         private void button1_Click(object sender, EventArgs e)
         {
-            claseInter.obtenerCancionesUsuario(texFiltro.Text);
+            Global.intermediaria.obtenerCancionesUsuario(texFiltro.Text);
             this.llenarTabla(dgvCanciones);
         }
 
@@ -34,7 +32,7 @@ namespace Polynizer
 
         private void llenarTabla(DataGridView dataGridView)
         {
-            DataTable tabla = claseInter.obtenerCancionesUsuario(texFiltro.Text);
+            DataTable tabla = Global.intermediaria.obtenerCancionesUsuario(texFiltro.Text);
 
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource  = tabla;
