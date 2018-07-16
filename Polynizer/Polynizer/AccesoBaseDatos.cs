@@ -7,6 +7,7 @@ using System.Configuration;
 // Namespace de acceso a base de datos
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 /*Cambiar el namespace para que funcione!!*/
 namespace Polynizer
@@ -207,51 +208,82 @@ namespace Polynizer
          Retorna: true si está en la base de datos, false sino*/
         public bool login(string correo, string contraseña)
         {
+
             using (SqlConnection con = new SqlConnection(conexion))
             {
-                /*El sqlCommand recibe como primer parámetro el nombre del procedimiento almacenado, 
-                 * de segundo parámetro recibe el sqlConnection
-                */
-                using (SqlCommand cmd = new SqlCommand("Login", con))
+                con.Open();
+                string salt;
+                byte[] usalt;
+                byte[] hash;
+
+                using (SqlCommand cmd = new SqlCommand("getSalt", con))
                 {
+
                     try
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-
-                        //Se preparan los parámetros que recibe el procedimiento almacenado
                         cmd.Parameters.Add("@CorreoLogin", SqlDbType.VarChar).Value = correo;
-                        cmd.Parameters.Add("@PasswordLogin", SqlDbType.VarChar).Value = contraseña;
+                        cmd.Parameters.Add("@salt", SqlDbType.UniqueIdentifier).Direction = ParameterDirection.Output;
 
-                        //se prepara el parámetro de retorno del procedimiento almacenado
-                        cmd.Parameters.Add("@enDB", SqlDbType.Bit).Direction = ParameterDirection.Output;
-
-                        /*Se abre la conexión*/
-                        con.Open();
-
-                        //Se ejecuta el procedimiento almacenado
                         cmd.ExecuteNonQuery();
-
-                        /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
-                        int value = Convert.ToInt32(cmd.Parameters["@enDB"].Value);
-
-                        /*Si el procedimiento devuelve 1 es que si se encuentra en la BD*/
-                        if (value == 1)
-                        {
-                            return true;
-                        }
-
-                        /*Si devuelve 0 es que no se encuentra en la BD*/
-                        else
-                        {
-                            return false;
-                        }
-
+                        salt = cmd.Parameters["@salt"].Value.ToString().ToUpper();
                     }
                     catch (SqlException ex)
                     {
                         return false;
                     }
+
                 }
+
+                Debug.Print("Got Salt:" + salt);
+
+                using (SHA512 sha = new SHA512Managed())
+                {
+                    var salted = Encoding.Unicode.GetBytes(String.Concat(contraseña,salt)); 
+                    hash = sha.ComputeHash(salted);
+                }
+                Debug.Print("PWD hash:" + BitConverter.ToString(hash));
+
+                using (SqlCommand cmd = new SqlCommand("SafeLogin", con))
+                {
+                    try
+                    {
+                        /*El sqlCommand recibe como primer parámetro el nombre del procedimiento almacenado, 
+                         * de segundo parámetro recibe el sqlConnection
+                        */
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        //Se preparan los parámetros que recibe el procedimiento almacenado
+                        cmd.Parameters.Add("@CorreoLogin", SqlDbType.VarChar).Value = correo;
+                        cmd.Parameters.Add("@pwdHash", SqlDbType.Binary).Value = hash;
+
+                        //se prepara el parámetro de retorno del procedimiento almacenado
+                        cmd.Parameters.Add("@enDB", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+                        cmd.ExecuteNonQuery();
+
+                        //Se convierte en un valor entero lo que se devuelve el procedimiento
+                        int value = Convert.ToInt32(cmd.Parameters["@enDB"].Value);
+
+                        //Si el procedimiento devuelve 1 es que si se encuentra en la BD//
+                        if (value == 1)
+                        {
+                            return true;
+                        }
+
+                        //Si devuelve 0 es que no se encuentra en la BD
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        return false;
+                    }
+
+                }
+
             }
 
         }
