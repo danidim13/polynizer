@@ -83,6 +83,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ComprarTokens";
             this.Text = "Comprar Tokens";
+            this.Load += new System.EventHandler(this.ComprarTokens_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

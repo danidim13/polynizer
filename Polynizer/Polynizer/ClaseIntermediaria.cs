@@ -12,7 +12,7 @@ namespace Polynizer
     /*Clase global en la que se almacena el correo del usuario con el que se inició la aplicación*/
     public static class Global
     {
-        public static string correoUsuario = "marco.venegas98@hotmail.com";
+        public static string correoUsuario;
 
         public static void setCorreoUsuario(string correo)
         {
@@ -31,6 +31,16 @@ namespace Polynizer
         public ClaseIntermediaria()
         {
             bd = new AccesoBaseDatos();
+        }
+
+        
+        /* Metodo que inserta en la tabla Compra una tupla asociada al correo del usuario actual con la cantidad de tokens pasados por parámetro.*/
+        public int comprarTokens(int numTokens)
+        {
+            string fecha = DateTime.Now.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
+            string hora = DateTime.Now.ToString("HH:mm:ss", System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            int result = bd.actualizarDatos("insert into Compra values ('" + Global.correoUsuario + "', '" + fecha + "', '" + hora + "', " + numTokens + ", 1)");
+            return result;
         }
 
         /*Metodo que retorna las compras relacionadas al correo con el que se inició la aplicación.*/
