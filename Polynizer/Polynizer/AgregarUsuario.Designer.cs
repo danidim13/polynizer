@@ -56,10 +56,9 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(61, 164);
-            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNombre.Location = new System.Drawing.Point(46, 133);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(79, 23);
+            this.labelNombre.Size = new System.Drawing.Size(64, 18);
             this.labelNombre.TabIndex = 0;
             this.labelNombre.Text = "Nombre";
             // 
@@ -67,10 +66,9 @@
             // 
             this.labelCorreo.AutoSize = true;
             this.labelCorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCorreo.Location = new System.Drawing.Point(531, 164);
-            this.labelCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCorreo.Location = new System.Drawing.Point(398, 133);
             this.labelCorreo.Name = "labelCorreo";
-            this.labelCorreo.Size = new System.Drawing.Size(71, 23);
+            this.labelCorreo.Size = new System.Drawing.Size(57, 18);
             this.labelCorreo.TabIndex = 1;
             this.labelCorreo.Text = "Correo";
             // 
@@ -78,10 +76,9 @@
             // 
             this.labelFechaNacimiento.AutoSize = true;
             this.labelFechaNacimiento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaNacimiento.Location = new System.Drawing.Point(61, 238);
-            this.labelFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFechaNacimiento.Location = new System.Drawing.Point(46, 193);
             this.labelFechaNacimiento.Name = "labelFechaNacimiento";
-            this.labelFechaNacimiento.Size = new System.Drawing.Size(191, 23);
+            this.labelFechaNacimiento.Size = new System.Drawing.Size(154, 18);
             this.labelFechaNacimiento.TabIndex = 2;
             this.labelFechaNacimiento.Text = "Fecha de nacimiento";
             // 
@@ -89,10 +86,9 @@
             // 
             this.labelPaís.AutoSize = true;
             this.labelPaís.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelPaís.Location = new System.Drawing.Point(62, 309);
-            this.labelPaís.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPaís.Location = new System.Drawing.Point(46, 251);
             this.labelPaís.Name = "labelPaís";
-            this.labelPaís.Size = new System.Drawing.Size(50, 23);
+            this.labelPaís.Size = new System.Drawing.Size(39, 18);
             this.labelPaís.TabIndex = 3;
             this.labelPaís.Text = "País";
             // 
@@ -100,10 +96,9 @@
             // 
             this.labelDispositivos.AutoSize = true;
             this.labelDispositivos.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelDispositivos.Location = new System.Drawing.Point(62, 394);
-            this.labelDispositivos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDispositivos.Location = new System.Drawing.Point(46, 320);
             this.labelDispositivos.Name = "labelDispositivos";
-            this.labelDispositivos.Size = new System.Drawing.Size(114, 23);
+            this.labelDispositivos.Size = new System.Drawing.Size(94, 18);
             this.labelDispositivos.TabIndex = 4;
             this.labelDispositivos.Text = "Dispositivos";
             // 
@@ -111,35 +106,32 @@
             // 
             this.labelAgregarUsuario.AutoSize = true;
             this.labelAgregarUsuario.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAgregarUsuario.Location = new System.Drawing.Point(60, 53);
-            this.labelAgregarUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAgregarUsuario.Location = new System.Drawing.Point(45, 43);
             this.labelAgregarUsuario.Name = "labelAgregarUsuario";
-            this.labelAgregarUsuario.Size = new System.Drawing.Size(293, 32);
+            this.labelAgregarUsuario.Size = new System.Drawing.Size(223, 24);
             this.labelAgregarUsuario.TabIndex = 5;
             this.labelAgregarUsuario.Text = "Agregar a un usuario";
+            this.labelAgregarUsuario.Click += new System.EventHandler(this.labelAgregarUsuario_Click);
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(65, 190);
-            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombre.Location = new System.Drawing.Point(49, 154);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(148, 22);
+            this.textBoxNombre.Size = new System.Drawing.Size(112, 20);
             this.textBoxNombre.TabIndex = 6;
             // 
             // textBoxCorreo
             // 
-            this.textBoxCorreo.Location = new System.Drawing.Point(535, 190);
-            this.textBoxCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCorreo.Location = new System.Drawing.Point(401, 154);
             this.textBoxCorreo.Name = "textBoxCorreo";
-            this.textBoxCorreo.Size = new System.Drawing.Size(324, 22);
+            this.textBoxCorreo.Size = new System.Drawing.Size(244, 20);
             this.textBoxCorreo.TabIndex = 7;
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(785, 491);
-            this.buttonGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonGuardar.Location = new System.Drawing.Point(589, 399);
             this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(100, 28);
+            this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
             this.buttonGuardar.TabIndex = 10;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
@@ -149,65 +141,58 @@
             // 
             this.labelIndicaciones.AutoSize = true;
             this.labelIndicaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIndicaciones.Location = new System.Drawing.Point(61, 94);
-            this.labelIndicaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIndicaciones.Location = new System.Drawing.Point(46, 76);
             this.labelIndicaciones.Name = "labelIndicaciones";
-            this.labelIndicaciones.Size = new System.Drawing.Size(337, 19);
+            this.labelIndicaciones.Size = new System.Drawing.Size(262, 16);
             this.labelIndicaciones.TabIndex = 12;
             this.labelIndicaciones.Text = "Ingrese la información del usuario a agregar.";
             // 
             // textBoxIMEI1
             // 
-            this.textBoxIMEI1.Location = new System.Drawing.Point(226, 431);
-            this.textBoxIMEI1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxIMEI1.Location = new System.Drawing.Point(170, 350);
             this.textBoxIMEI1.Name = "textBoxIMEI1";
-            this.textBoxIMEI1.Size = new System.Drawing.Size(200, 22);
+            this.textBoxIMEI1.Size = new System.Drawing.Size(151, 20);
             this.textBoxIMEI1.TabIndex = 13;
             // 
             // textBoxIMEI2
             // 
-            this.textBoxIMEI2.Location = new System.Drawing.Point(226, 463);
-            this.textBoxIMEI2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxIMEI2.Location = new System.Drawing.Point(170, 376);
             this.textBoxIMEI2.Name = "textBoxIMEI2";
-            this.textBoxIMEI2.Size = new System.Drawing.Size(200, 22);
+            this.textBoxIMEI2.Size = new System.Drawing.Size(151, 20);
             this.textBoxIMEI2.TabIndex = 14;
             // 
             // labelIMEI1
             // 
             this.labelIMEI1.AutoSize = true;
             this.labelIMEI1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIMEI1.Location = new System.Drawing.Point(62, 435);
-            this.labelIMEI1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIMEI1.Location = new System.Drawing.Point(46, 353);
             this.labelIMEI1.Name = "labelIMEI1";
-            this.labelIMEI1.Size = new System.Drawing.Size(151, 16);
+            this.labelIMEI1.Size = new System.Drawing.Size(114, 14);
             this.labelIMEI1.TabIndex = 15;
             this.labelIMEI1.Text = "IMEI del dispositivo #1 ";
             // 
             // labelIMEI2
             // 
             this.labelIMEI2.AutoSize = true;
-            this.labelIMEI2.Location = new System.Drawing.Point(62, 467);
-            this.labelIMEI2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIMEI2.Location = new System.Drawing.Point(46, 379);
             this.labelIMEI2.Name = "labelIMEI2";
-            this.labelIMEI2.Size = new System.Drawing.Size(151, 17);
+            this.labelIMEI2.Size = new System.Drawing.Size(117, 13);
             this.labelIMEI2.TabIndex = 16;
             this.labelIMEI2.Text = "IMEI del dispositivo #2 ";
             // 
             // dateTimePickerNacimiento
             // 
             this.dateTimePickerNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(65, 263);
-            this.dateTimePickerNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(49, 214);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
-            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(324, 22);
+            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(244, 20);
             this.dateTimePickerNacimiento.TabIndex = 17;
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(656, 491);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancelar.Location = new System.Drawing.Point(492, 399);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(100, 28);
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 18;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
@@ -217,20 +202,18 @@
             // 
             this.comboBoxPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPais.FormattingEnabled = true;
-            this.comboBoxPais.Location = new System.Drawing.Point(66, 338);
-            this.comboBoxPais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxPais.Location = new System.Drawing.Point(50, 275);
             this.comboBoxPais.Name = "comboBoxPais";
-            this.comboBoxPais.Size = new System.Drawing.Size(324, 24);
+            this.comboBoxPais.Size = new System.Drawing.Size(244, 21);
             this.comboBoxPais.TabIndex = 19;
             // 
             // checkBoxAdministrador
             // 
             this.checkBoxAdministrador.AutoSize = true;
             this.checkBoxAdministrador.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxAdministrador.Location = new System.Drawing.Point(535, 423);
-            this.checkBoxAdministrador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxAdministrador.Location = new System.Drawing.Point(401, 344);
             this.checkBoxAdministrador.Name = "checkBoxAdministrador";
-            this.checkBoxAdministrador.Size = new System.Drawing.Size(273, 27);
+            this.checkBoxAdministrador.Size = new System.Drawing.Size(222, 22);
             this.checkBoxAdministrador.TabIndex = 20;
             this.checkBoxAdministrador.Text = "Privilegios de administrador";
             this.checkBoxAdministrador.UseVisualStyleBackColor = true;
@@ -239,46 +222,43 @@
             // 
             this.labelContraseñaText.AutoSize = true;
             this.labelContraseñaText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContraseñaText.Location = new System.Drawing.Point(531, 238);
-            this.labelContraseñaText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelContraseñaText.Location = new System.Drawing.Point(398, 193);
             this.labelContraseñaText.Name = "labelContraseñaText";
-            this.labelContraseñaText.Size = new System.Drawing.Size(112, 23);
+            this.labelContraseñaText.Size = new System.Drawing.Size(89, 18);
             this.labelContraseñaText.TabIndex = 21;
             this.labelContraseñaText.Text = "Contraseña";
             // 
             // textBoxContraseñaUsuario
             // 
-            this.textBoxContraseñaUsuario.Location = new System.Drawing.Point(535, 277);
-            this.textBoxContraseñaUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxContraseñaUsuario.Location = new System.Drawing.Point(401, 225);
+            this.textBoxContraseñaUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxContraseñaUsuario.Name = "textBoxContraseñaUsuario";
-            this.textBoxContraseñaUsuario.Size = new System.Drawing.Size(324, 22);
+            this.textBoxContraseñaUsuario.Size = new System.Drawing.Size(244, 20);
             this.textBoxContraseñaUsuario.TabIndex = 22;
             this.textBoxContraseñaUsuario.UseSystemPasswordChar = true;
             // 
             // textBoxApellido
             // 
-            this.textBoxApellido.Location = new System.Drawing.Point(241, 190);
-            this.textBoxApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxApellido.Location = new System.Drawing.Point(181, 154);
             this.textBoxApellido.Name = "textBoxApellido";
-            this.textBoxApellido.Size = new System.Drawing.Size(148, 22);
+            this.textBoxApellido.Size = new System.Drawing.Size(112, 20);
             this.textBoxApellido.TabIndex = 23;
             // 
             // labelApellido
             // 
             this.labelApellido.AutoSize = true;
             this.labelApellido.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApellido.Location = new System.Drawing.Point(237, 164);
-            this.labelApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelApellido.Location = new System.Drawing.Point(178, 133);
             this.labelApellido.Name = "labelApellido";
-            this.labelApellido.Size = new System.Drawing.Size(79, 23);
+            this.labelApellido.Size = new System.Drawing.Size(65, 18);
             this.labelApellido.TabIndex = 24;
             this.labelApellido.Text = "Apellido";
             // 
             // AgregarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 554);
+            this.ClientSize = new System.Drawing.Size(706, 450);
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.textBoxApellido);
             this.Controls.Add(this.textBoxContraseñaUsuario);
@@ -302,10 +282,10 @@
             this.Controls.Add(this.labelCorreo);
             this.Controls.Add(this.labelNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "AgregarUsuario";
             this.Text = "Agregar Usuario";
+            this.Load += new System.EventHandler(this.AgregarUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

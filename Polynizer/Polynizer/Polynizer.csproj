@@ -61,7 +61,6 @@
     <Compile Include="ComprarTokens.Designer.cs">
       <DependentUpon>ComprarTokens.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controlador.cs" />
     <Compile Include="Graficos.cs">
       <SubType>Form</SubType>
     </Compile>

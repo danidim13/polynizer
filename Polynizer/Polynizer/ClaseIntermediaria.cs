@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-
 namespace Polynizer
 {
    
+    public static class Global
+    {
+        public static string correoUsuario = "marco.venegas98@hotmail.com";
+
+        public static void setCorreoUsuario(string correo)
+        {
+            correoUsuario = correo;
+        }
+    }
+
     public class ClaseIntermediaria
     {
         AccesoBaseDatos bd;
@@ -18,6 +27,21 @@ namespace Polynizer
         {
             bd = new AccesoBaseDatos();
         }
+
+        public DataTable obtenerCompras()
+        {
+            DataTable tabla = null;
+            try
+            {
+                tabla = bd.ejecutarConsultaTabla("select C.NumTokens As TokensComprados, C.Fecha, C.Hora from Compra C where C.Correo = '" + Global.correoUsuario + "' Order by C.Fecha");
+            }
+            catch (SqlException)
+            {
+
+            }
+            return tabla;
+        }
+
 
         public DataTable obtenerCanciones(int tipoFiltro, string filtro)
         {

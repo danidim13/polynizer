@@ -72,6 +72,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ListaCompras";
             this.Text = "Compras";
+            this.Load += new System.EventHandler(this.ListaCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listaComprasDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

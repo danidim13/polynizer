@@ -41,30 +41,28 @@
             this.dataGridViewMetadatos.AllowUserToAddRows = false;
             this.dataGridViewMetadatos.AllowUserToDeleteRows = false;
             this.dataGridViewMetadatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMetadatos.Location = new System.Drawing.Point(26, 96);
-            this.dataGridViewMetadatos.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewMetadatos.Location = new System.Drawing.Point(20, 78);
             this.dataGridViewMetadatos.Name = "dataGridViewMetadatos";
             this.dataGridViewMetadatos.ReadOnly = true;
-            this.dataGridViewMetadatos.Size = new System.Drawing.Size(333, 388);
+            this.dataGridViewMetadatos.Size = new System.Drawing.Size(250, 315);
             this.dataGridViewMetadatos.TabIndex = 7;
             // 
             // labelMetadatosTitle
             // 
             this.labelMetadatosTitle.AutoSize = true;
             this.labelMetadatosTitle.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMetadatosTitle.Location = new System.Drawing.Point(20, 27);
-            this.labelMetadatosTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMetadatosTitle.Location = new System.Drawing.Point(15, 22);
             this.labelMetadatosTitle.Name = "labelMetadatosTitle";
-            this.labelMetadatosTitle.Size = new System.Drawing.Size(339, 32);
+            this.labelMetadatosTitle.Size = new System.Drawing.Size(261, 24);
             this.labelMetadatosTitle.TabIndex = 8;
             this.labelMetadatosTitle.Text = "Metadatos de la canción.";
+            this.labelMetadatosTitle.Click += new System.EventHandler(this.labelMetadatosTitle_Click);
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(259, 502);
-            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAceptar.Location = new System.Drawing.Point(194, 408);
             this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(100, 28);
+            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
             this.buttonAceptar.TabIndex = 9;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
@@ -73,37 +71,37 @@
             // labelNumeroID
             // 
             this.labelNumeroID.AutoSize = true;
-            this.labelNumeroID.Location = new System.Drawing.Point(23, 71);
-            this.labelNumeroID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumeroID.Location = new System.Drawing.Point(17, 58);
             this.labelNumeroID.Name = "labelNumeroID";
-            this.labelNumeroID.Size = new System.Drawing.Size(99, 17);
+            this.labelNumeroID.Size = new System.Drawing.Size(76, 13);
             this.labelNumeroID.TabIndex = 10;
             this.labelNumeroID.Text = "Número de ID:";
             // 
             // labelID
             // 
             this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(130, 71);
-            this.labelID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelID.Location = new System.Drawing.Point(98, 58);
             this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(12, 17);
+            this.labelID.Size = new System.Drawing.Size(10, 13);
             this.labelID.TabIndex = 11;
             this.labelID.Text = ".";
             // 
             // MetadatosCancion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 551);
+            this.ClientSize = new System.Drawing.Size(290, 448);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.labelNumeroID);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.labelMetadatosTitle);
             this.Controls.Add(this.dataGridViewMetadatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "MetadatosCancion";
             this.Text = "Metadatos";
+            this.Load += new System.EventHandler(this.MetadatosCancion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMetadatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

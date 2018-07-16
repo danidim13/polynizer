@@ -54,3 +54,9 @@ C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.ListaUsuarios.resources
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.MetadatosCancion.resources
 C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.UsuarioVerPerfil.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.ComprarTokens.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Graficos.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.ListaCompras.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.ListaUsuarios.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.MetadatosCancion.resources
+C:\Users\Marco\Desktop\UCR\Bases\Repo\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.UsuarioVerPerfil.resources

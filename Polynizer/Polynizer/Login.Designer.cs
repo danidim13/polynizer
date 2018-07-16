@@ -48,6 +48,7 @@
             this.labelTextoBienvenida.Size = new System.Drawing.Size(460, 24);
             this.labelTextoBienvenida.TabIndex = 0;
             this.labelTextoBienvenida.Text = "Bienvenido al sistema de datos de Polynizer.";
+            this.labelTextoBienvenida.Click += new System.EventHandler(this.labelTextoBienvenida_Click);
             // 
             // labelIngresarDatos
             // 
@@ -138,6 +139,7 @@
             this.MaximizeBox = false;
             this.Name = "LoginWindow";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
