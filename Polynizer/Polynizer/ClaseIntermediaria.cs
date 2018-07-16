@@ -14,6 +14,43 @@ namespace Polynizer
     {
         public static string correoUsuario = "marco.venegas98@hotmail.com";
 
+        public static LoginWindow login;
+
+        public static UsuarioPrincipal usuarioPrincipal;
+        public static UsuarioVerPerfil usuarioVerPerfil;
+        public static CancionesUsuario usuarioCanciones;
+        public static ListaCompras usuarioCompras;
+        public static ComprarTokens usuarioComprarTokens;
+        public static ProcesaCancion usuarioProcesarCancion;
+
+        public static PincipalAdmin adminPrincipal;
+        public static CancionesAdmin adminCanciones;
+        public static ListaUsuarios adminListaUsuarios;
+        public static Graficos adminGraficos;
+        public static AgregarUsuario adminAgregarUsuario;
+
+
+        public static LoginWindow StartApp()
+        {
+            login = new LoginWindow();
+
+            usuarioPrincipal = new UsuarioPrincipal();
+            usuarioVerPerfil = new UsuarioVerPerfil();
+            usuarioCanciones = new CancionesUsuario();
+            usuarioCompras = new ListaCompras();
+            usuarioComprarTokens = new ComprarTokens();
+            usuarioProcesarCancion = new ProcesaCancion();
+
+            adminPrincipal = new PincipalAdmin();
+            adminCanciones = new CancionesAdmin();
+            adminListaUsuarios = new ListaUsuarios();
+            adminGraficos = new Graficos();
+            adminAgregarUsuario = new AgregarUsuario();
+
+            return login;
+        }
+
+
         public static void setCorreoUsuario(string correo)
         {
             correoUsuario = correo;

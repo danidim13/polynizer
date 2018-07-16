@@ -17,7 +17,7 @@ namespace Polynizer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new ListaCompras());//LoginWindow());
-            Application.Run(new CancionesAdmin());
+            Application.Run(Global.StartApp());
         }
     }
 }

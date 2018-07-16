@@ -36,12 +36,16 @@ namespace Polynizer
                         MessageBox.Show("Usuario Correcto, se iniciará seción como administrador", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
                         Global.setCorreoUsuario(textBoxCorreoUsuario.Text);
                         /*ToDo Iniciar ventana opciones admin*/
+                        this.Hide();
+                        Global.adminPrincipal.Show();
                     }
                     else
                     {
                         MessageBox.Show("Usuario Correcto, se iniciará seción como usuario", "Login", MessageBoxButtons.OK, MessageBoxIcon.None);
                         Global.setCorreoUsuario(textBoxCorreoUsuario.Text);
                         /*ToDo Iniciar ventana opciones usuario*/
+                        this.Hide();
+                        Global.usuarioPrincipal.Show();
                     }
                 }
                 else
