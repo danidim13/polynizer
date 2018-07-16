@@ -14,6 +14,11 @@ namespace Polynizer
     {
         ClaseIntermediaria intermediaria;
 
+        /*
+         * Constructor de la clase
+         * Recibe el ID de la canción para la cual debe mostrar los metadatos.
+         * Llena la tabla con los metadatos de la respectiva canción.
+         */
         public MetadatosCancion(string IDCancion)
         {
             InitializeComponent();
@@ -22,6 +27,8 @@ namespace Polynizer
             llenarTabla(IDCancion);
         }
 
+        /*Metodo utilizado para llenar la tabla con metadatos de la canción indicada.
+          Recibe el ID de la canción.*/
         private void llenarTabla(string IDCancion)
         {
             DataTable tabla = intermediaria.obtenerMetadatos(IDCancion);
@@ -35,19 +42,14 @@ namespace Polynizer
             }
         }
 
+        /* Metodo que cierra la ventana al hacer click en el botón aceptar.*/
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void labelMetadatosTitle_Click(object sender, EventArgs e)
-        {
+        private void labelMetadatosTitle_Click(object sender, EventArgs e){}
 
-        }
-
-        private void MetadatosCancion_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void MetadatosCancion_Load(object sender, EventArgs e){}
     }
 }

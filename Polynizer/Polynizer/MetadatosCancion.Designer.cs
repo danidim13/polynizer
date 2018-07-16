@@ -41,10 +41,10 @@
             this.dataGridViewMetadatos.AllowUserToAddRows = false;
             this.dataGridViewMetadatos.AllowUserToDeleteRows = false;
             this.dataGridViewMetadatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMetadatos.Location = new System.Drawing.Point(20, 78);
+            this.dataGridViewMetadatos.Location = new System.Drawing.Point(20, 86);
             this.dataGridViewMetadatos.Name = "dataGridViewMetadatos";
             this.dataGridViewMetadatos.ReadOnly = true;
-            this.dataGridViewMetadatos.Size = new System.Drawing.Size(250, 315);
+            this.dataGridViewMetadatos.Size = new System.Drawing.Size(250, 307);
             this.dataGridViewMetadatos.TabIndex = 7;
             // 
             // labelMetadatosTitle
@@ -71,7 +71,7 @@
             // labelNumeroID
             // 
             this.labelNumeroID.AutoSize = true;
-            this.labelNumeroID.Location = new System.Drawing.Point(17, 58);
+            this.labelNumeroID.Location = new System.Drawing.Point(17, 56);
             this.labelNumeroID.Name = "labelNumeroID";
             this.labelNumeroID.Size = new System.Drawing.Size(76, 13);
             this.labelNumeroID.TabIndex = 10;
@@ -80,7 +80,7 @@
             // labelID
             // 
             this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(98, 58);
+            this.labelID.Location = new System.Drawing.Point(98, 56);
             this.labelID.Name = "labelID";
             this.labelID.Size = new System.Drawing.Size(10, 13);
             this.labelID.TabIndex = 11;

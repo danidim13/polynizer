@@ -15,6 +15,10 @@ namespace Polynizer
     {
         ClaseIntermediaria intermediaria;
 
+        /*
+         * Costructor de la clase
+         * Se inicia el comboBox del tipo de filtro, y se llena la tabla con el filtro general.
+         */ 
         public CancionesAdmin()
         {
             InitializeComponent();
@@ -24,23 +28,27 @@ namespace Polynizer
             comboBoxFiltro.Items.Add("Correo");
             comboBoxFiltro.Items.Add("Metadato");
             comboBoxFiltro.SelectedIndex = 0;
-            llenarTabla(dataGridViewCanciones, 0, null);
+            llenarTabla(0, null);
             llenarComboBoxMetadatos();
         }
 
-        private void llenarTabla(DataGridView dataGridView, int tipoFiltro, string filtro)
+        /*Metodo encargado de llenar la tabla de canciones dependiendo del filtro utilizado.
+          Recibe: el entero tipoFiltro, este puede tener como valor 0 si se usa el filtro general, 1 si se filtra por usuario, y 2 si es por metadatos.
+                  un string filtro, este es utilizado para buscar esa string en el campo correspondiente, según el tipo de filtro utilizado.*/
+        private void llenarTabla(int tipoFiltro, string filtro)
         {
             DataTable tabla = intermediaria.obtenerCanciones(tipoFiltro, filtro);
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = tabla;
-            dataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
-            dataGridView.DataSource = bindingSource;
+            dataGridViewCanciones.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+            dataGridViewCanciones.DataSource = bindingSource;
             for (int i = 0; i < dataGridViewCanciones.ColumnCount; i++)
             {
-                dataGridView.Columns[i].Width = 100;
+                dataGridViewCanciones.Columns[i].Width = 100;
             }
         }
 
+        /*Metodo que se utiliza para actualizar los valores del comboBox utilizado para mostrar los metadatos, este muestra la lista de IDs disponibles.*/
         private void llenarComboBoxMetadatos()
         {
             SqlDataReader datos;
@@ -77,6 +85,7 @@ namespace Polynizer
             comboBoxMetadato.SelectedIndex = 0;
         }
 
+        /*Metodo encargado de actualizar los resultados de la tabla dependiendo del filtro seleccionado y también actualiza el comboBox con los IDs de los resultados.*/
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             if (textBoxBuscar.Text == "" && comboBoxFiltro.Text != "General")
@@ -87,23 +96,24 @@ namespace Polynizer
             {
                 if(comboBoxFiltro.Text == "General")
                 {
-                    llenarTabla(dataGridViewCanciones, 0, textBoxBuscar.Text);
+                    llenarTabla(0, textBoxBuscar.Text);
                 }
                 else
                 {
                     if(comboBoxFiltro.Text == "Correo")
                     {
-                        llenarTabla(dataGridViewCanciones, 1, textBoxBuscar.Text);
+                        llenarTabla(1, textBoxBuscar.Text);
                     }
                     else
                     {
-                        llenarTabla(dataGridViewCanciones, 2, textBoxBuscar.Text);
+                        llenarTabla(2, textBoxBuscar.Text);
                     }
                 }
             }
             llenarComboBoxMetadatos();
         }
 
+        /*Muestra la ventana con los metadatos dependiendo del ID seleccionado en el comboBox.*/
         private void buttonVerMetadatos_Click(object sender, EventArgs e)
         {
             if(comboBoxMetadato.Text == "Seleccione el ID de la canción")
@@ -122,9 +132,6 @@ namespace Polynizer
             /*ToDo Volver a pantalla previa*/
         }
 
-        private void CancionesAdmin_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void CancionesAdmin_Load(object sender, EventArgs e){}
     }
 }

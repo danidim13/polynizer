@@ -14,12 +14,17 @@ namespace Polynizer
     {
         ClaseIntermediaria intermediaria;
 
+        /*
+         * Constructor de la clase
+         */ 
         public LoginWindow()
         {
             InitializeComponent();
             intermediaria = new ClaseIntermediaria();
         }
 
+        /*Metodo que revisa si el usuario existe en la base de datos, tiene la contraseña correcta y si se debe iniciar en modo administrador o usuario*/
+        /*Si el usuario es correcto crea la ventana correspondiente*/
         private void buttonIngresar_Click(object sender, EventArgs e)
         {
             if (textBoxCorreoUsuario.Text != "" && textBoxContraseñaUsuario.Text != "")
@@ -50,14 +55,8 @@ namespace Polynizer
             }
         }
 
-        private void labelTextoBienvenida_Click(object sender, EventArgs e)
-        {
+        private void labelTextoBienvenida_Click(object sender, EventArgs e){}
 
-        }
-
-        private void LoginWindow_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void LoginWindow_Load(object sender, EventArgs e){}
     }
 }

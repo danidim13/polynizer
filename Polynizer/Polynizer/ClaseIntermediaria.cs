@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 namespace Polynizer
 {
    
+    /*Clase global en la que se almacena el correo del usuario con el que se inició la aplicación*/
     public static class Global
     {
         public static string correoUsuario = "marco.venegas98@hotmail.com";
@@ -19,15 +20,20 @@ namespace Polynizer
         }
     }
 
+    /*Clase que funciona como intermediaria entre la clase con acceso a la base de datos y las ventanas de la aplicación.*/
     public class ClaseIntermediaria
     {
         AccesoBaseDatos bd;
 
+        /*
+         * Constructor de la clase
+         */ 
         public ClaseIntermediaria()
         {
             bd = new AccesoBaseDatos();
         }
 
+        /*Metodo que retorna las compras relacionadas al correo con el que se inició la aplicación.*/
         public DataTable obtenerCompras()
         {
             DataTable tabla = null;
@@ -42,7 +48,10 @@ namespace Polynizer
             return tabla;
         }
 
-
+        /*Metodo que retorna la lista de canciones con su información correspondiente.
+          Recibe: el entero tipoFiltro, este puede tener como valor 0 si se usa el filtro general, 1 si se filtra por usuario, y 2 si es por metadatos.
+                  un string filtro, este es utilizado para buscar esa string en el campo correspondiente, según el tipo de filtro utilizado.
+          Retorna: un DataTable con las canciones y su información corerspondiente.*/
         public DataTable obtenerCanciones(int tipoFiltro, string filtro)
         {
             DataTable tabla = null;
@@ -57,7 +66,7 @@ namespace Polynizer
                     }
                     else
                     {
-                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado, M.Llave as TipoMetadato , M.Valor as ValorMetadato from Procesa P join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro +"%' or P.IDCancion like '%"+ filtro +"%' or M.Valor like '%"+ filtro +"%'");
+                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado, M.Llave as TipoMetadato , M.Valor as ValorMetadato from Procesa P left outer join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro +"%' or P.IDCancion like '%"+ filtro +"%' or M.Valor like '%"+ filtro +"%' or M.Llave like '%"+ filtro + "%' or P.VersionProcesado like '%" + filtro + "%'");
                     }
                 }
                 else
@@ -81,6 +90,9 @@ namespace Polynizer
             return tabla;
         }
 
+        /*Metodo utilizado para obtener todos los metadatos relacionados a una canción.
+          Recibe: un string que debe ser el ID de la canción de la que se desea obtener los datos.
+          Retorna: un DataTable con los metadatos correspondientes.*/
         public DataTable obtenerMetadatos(string IDCancion)
         {
             DataTable tabla = null;
@@ -95,6 +107,8 @@ namespace Polynizer
             return tabla;
         }
 
+        /*Metodo que retorna la lista de países.
+          Retorna: un SqlDataReader con la lista de los países registrados en la base de datos.*/
         public SqlDataReader obtenerListaPaises()
         {
             SqlDataReader lista = null;
@@ -109,6 +123,10 @@ namespace Polynizer
             return lista;
         }
 
+        /*Metodo que retorna la lista de IDs de las canciones depentiendo del filtro utlilizado
+          Recibe: el entero tipoFiltro, este puede tener como valor 0 si se usa el filtro general, 1 si se filtra por usuario, y 2 si es por metadatos.
+                  un string filtro, este es utilizado para buscar esa string en el campo correspondiente, según el tipo de filtro utilizado. 
+          Retorna: un SqlDataReader con la lista de IDs.*/
         public SqlDataReader obtenerListaCanciones(int tipoFiltro, string filtro)
         {
             SqlDataReader datos = null;
@@ -123,7 +141,7 @@ namespace Polynizer
                     }
                     else
                     {
-                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro + "%' or P.IDCancion like '%" + filtro + "%' or M.Valor like '%" + filtro + "%'");
+                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P left outer join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro + "%' or P.IDCancion like '%" + filtro + "%' or M.Valor like '%" + filtro + "%' or M.Llave like '%" + filtro + "%' or P.VersionProcesado like '%" + filtro + "%'");
                     }
                 }
                 else
@@ -147,16 +165,28 @@ namespace Polynizer
             return datos;
         }
         
+        /*Metodo que comprueba si los datos ingresados para iniciar sesión son correctos.
+          Recibe: un string correo, este es el correo que se va a buscar en la base de datos.
+                  un string contraseña, esta es la contraseña que se va a buscar en la base de datos.
+          Retorna: verdadero si el usuario y contraseña son correctos.
+                   falso si el usuario y/o contraseña son incorrectos.*/
         public bool login (string correo, string contraseña)
         {
             return bd.login(correo, contraseña);
         }
 
+        /*Metodo que comprueba si el correo tiene permisos de administrador en la aplicación
+          Recibe: un string correo, este es el correo del usuario que se desea verificar en la base de datos.\
+          Retorna: verdadero si el correo tiene permisos de administrador, falso si el correo no tiene permisos de administrador.*/
         public bool superUser (string correo)
         {
             return bd.superUser(correo);
         }
 
+        /*Metodo para agregar un usuario a la base de datos.
+          Recibe: el correo, el nombre, el apellido, la fecha de nacimiento, la fecha de inicio en la aplicación, el país y la contraseña del usuario que se desea registrar, 
+                  y superUser debe ser verdadero si el usuario va a tener permisos de administrador o falso si no.
+          Retorna: verdadero si el usuario se agregó exitosamente, falso si no se agregó (ya existe un usuario con ese correo en la base de datos)*/
         public bool agregarUsuario(string correo, string nombre, string apellido, string fechaNac, string fechaIni, string pais, string password, bool superUser)
         {
             int resultado = bd.agregarUsuario(correo, nombre, apellido, fechaNac, fechaIni, pais, password, superUser);
