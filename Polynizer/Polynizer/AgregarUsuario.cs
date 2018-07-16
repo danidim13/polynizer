@@ -86,6 +86,9 @@ namespace Polynizer
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             /*ToDo Volver a ventana anterior*/
+            Global.adminListaUsuarios = new ListaUsuarios();
+            Global.adminListaUsuarios.Show();
+            this.Close();
         }
 
         private void labelAgregarUsuario_Click(object sender, EventArgs e)

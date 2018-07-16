@@ -44,7 +44,16 @@ namespace Polynizer
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Global.adminAgregarUsuario = new AgregarUsuario();
+            Global.adminAgregarUsuario.Show();
+            this.Close();
+        }
 
+        private void regresarLL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Global.adminPrincipal = new PincipalAdmin();
+            Global.adminPrincipal.Show();
+            this.Close();
         }
     }
 }

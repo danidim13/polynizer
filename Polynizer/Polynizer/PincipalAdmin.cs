@@ -63,6 +63,7 @@ namespace Polynizer
             this.Estadisticas.TabIndex = 2;
             this.Estadisticas.Text = "Estadísticas";
             this.Estadisticas.UseVisualStyleBackColor = true;
+            this.Estadisticas.Click += new System.EventHandler(this.Estadisticas_Click);
             // 
             // CerrarSesion
             // 
@@ -92,21 +93,30 @@ namespace Polynizer
 
         private void Usuarios_Click(object sender, EventArgs e)
         {
-
+            Global.adminListaUsuarios = new ListaUsuarios();
+            Global.adminListaUsuarios.Show();
+            this.Close();
         }
 
         private void canciones_Click(object sender, EventArgs e)
         {
-            CancionesAdmin canciones = new CancionesAdmin();
-            canciones.Show();
-            this.Hide();
+            Global.adminCanciones = new CancionesAdmin();
+            Global.adminCanciones.Show();
+            this.Close();
         }
 
         private void CerrarSesion_Click(object sender, EventArgs e)
         {
-            LoginWindow cerro = new LoginWindow();
-            cerro.Show();
-            this.Hide();
+            Global.login = new LoginWindow();
+            Global.login.Show();
+            this.Close();
+        }
+
+        private void Estadisticas_Click(object sender, EventArgs e)
+        {
+            Global.adminGraficos = new Graficos();
+            Global.adminGraficos.Show();
+            this.Close();
         }
     }
 }

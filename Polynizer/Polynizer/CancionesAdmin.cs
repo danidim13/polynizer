@@ -128,6 +128,9 @@ namespace Polynizer
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             /*ToDo Volver a pantalla previa*/
+            Global.adminPrincipal = new PincipalAdmin();
+            Global.adminPrincipal.Show();
+            this.Close();
         }
 
         private void CancionesAdmin_Load(object sender, EventArgs e){}

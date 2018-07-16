@@ -16,5 +16,12 @@ namespace Polynizer
         {
             InitializeComponent();
         }
+
+        private void buttonRegresar_Click(object sender, EventArgs e)
+        {
+            Global.adminPrincipal = new PincipalAdmin();
+            Global.adminPrincipal.Show();
+            this.Close();
+        }
     }
 }
