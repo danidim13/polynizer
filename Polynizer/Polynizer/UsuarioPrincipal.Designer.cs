@@ -56,6 +56,7 @@
             this.buttonCompras.TabIndex = 1;
             this.buttonCompras.Text = "Compras";
             this.buttonCompras.UseVisualStyleBackColor = true;
+            this.buttonCompras.Click += new System.EventHandler(this.buttonCompras_Click);
             // 
             // buttonCanciones
             // 
@@ -66,6 +67,7 @@
             this.buttonCanciones.TabIndex = 2;
             this.buttonCanciones.Text = "Mis Canciones";
             this.buttonCanciones.UseVisualStyleBackColor = true;
+            this.buttonCanciones.Click += new System.EventHandler(this.buttonCanciones_Click);
             // 
             // buttonProcesarCancion
             // 
@@ -76,6 +78,7 @@
             this.buttonProcesarCancion.TabIndex = 3;
             this.buttonProcesarCancion.Text = "Procesar Canción";
             this.buttonProcesarCancion.UseVisualStyleBackColor = true;
+            this.buttonProcesarCancion.Click += new System.EventHandler(this.buttonProcesarCancion_Click);
             // 
             // linkLabelPerfil
             // 
@@ -87,6 +90,7 @@
             this.linkLabelPerfil.TabIndex = 4;
             this.linkLabelPerfil.TabStop = true;
             this.linkLabelPerfil.Text = "Perfil";
+            this.linkLabelPerfil.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPerfil_LinkClicked);
             // 
             // linkLabelCerrarSesion
             // 
@@ -98,6 +102,7 @@
             this.linkLabelCerrarSesion.TabIndex = 5;
             this.linkLabelCerrarSesion.TabStop = true;
             this.linkLabelCerrarSesion.Text = "Cerrar Sesión";
+            this.linkLabelCerrarSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCerrarSesion_LinkClicked);
             // 
             // labelTokens
             // 
