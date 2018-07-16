@@ -77,10 +77,12 @@ namespace Polynizer
 			return table;
         }
 
-        /*Método para ejecutar un insert, update o delete 
-         Recibe: la sentencia sql a ejecutar
-         Modifica: realiza el cambio en la base de datos de acuerdo al tipo de sentencia sql
-         Retorna: el tipo de error que generó la consulta o cero si la ejecución fue exitosa*/
+        /**
+         * Método para ejecutar un insert, update o 
+         * Recibe: la sentencia sql a 
+         * Modifica: realiza el cambio en la base de datos de acuerdo al tipo de sentencia 
+         * Retorna: el tipo de error que generó la consulta o cero si la ejecución fue exitosa
+         */
         public int actualizarDatos(String consulta)
         {
             int error = 0;
@@ -110,49 +112,13 @@ namespace Polynizer
             return error;
         }
 
-        /*Método para llamar al procedimiento almacenado de eliminarEstudiante 
-         Recibe: el nombre del o los estudiantes que se va a eliminar
-         Modifica: Elimina las tuplas que coincidan con el nombre recibido por parámetro
-         Retorna: el tipo de error que generó la consulta o cero si la ejecución fue exitosa*/
-        public int eliminarEstudiante(string nombre)
-        {
-            int error = 0;
-            using (SqlConnection con = new SqlConnection(conexion))
-            {
-                /*El sqlCommand recibe como primer parámetro el nombre del procedimiento almacenado, 
-                 * de segundo parámetro recibe el sqlConnection
-                */
-                using (SqlCommand cmd = new SqlCommand("eliminarEstudiante", con))
-                {
-                    try
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        //Se preparan los parámetros que recibe el procedimiento almacenado
-                        cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nombre;
-
-                        con.Open();
-
-                        //Se ejecuta el procedimiento almacenado
-                        cmd.ExecuteNonQuery();
-                        return error;
-                    }
-                    catch (SqlException ex)
-                    {
-
-                        error = ex.Number;
-                        return error;
-                    }
-                }
-            }
-
-        }
-
-        /*Método para llamar al procedimiento almacenado que permite agregar un nuevo usuario 
-         Recibe: el usuario y la contraseña del nuevo usuario así como la cédula del estudiante a quién se asocia ese usuario
-         Modifica: Agrega en la base de datos un nuevo usuario
-         Retorna: 1 si se pudo guardar el nuevo usuario, un número diferente a cero que corresponde al número de error
-         si no se pudo insertar*/
+        /**
+         * Método para llamar al procedimiento almacenado que permite agregar un nuevo 
+         * Recibe: el usuario y la contraseña del nuevo usuario así como la cédula del estudiante a quién se asocia ese 
+         * Modifica: Agrega en la base de datos un nuevo 
+         * Retorna: 1 si se pudo guardar el nuevo usuario, un número diferente a cero que corresponde al número de 
+         * si no se pudo insertar
+         */
         public int agregarUsuario(string correo, string nombre, string apellido, string fechaNac, string fechaIni, string pais, string password, bool superUser)
         {
             int error = 0;
@@ -202,10 +168,12 @@ namespace Polynizer
 
         }
 
-        /*Método para llamar al procedimiento almacenado para comprobar que un usuario está en la base de datos
-         Recibe: El usuario y contraseña que se desea verificar que está en la base de datos
-         Modifica: Busca el usuario con esa contraseña en la base de datos
-         Retorna: true si está en la base de datos, false sino*/
+        /**
+         * Método para llamar al procedimiento almacenado para comprobar que un usuario está en la base de datos
+         * Recibe: El usuario y contraseña que se desea verificar que está en la base de datos
+         * Modifica: Busca el usuario con esa contraseña en la base de 
+         * Retorna: true si está en la base de datos, false sino
+         */
         public bool login(string correo, string contraseña)
         {
 
@@ -287,6 +255,13 @@ namespace Polynizer
             }
 
         }
+
+        /** 
+         * Metodo que verifica si el correo utilizado para iniciar sesión tiene permisos de administrador
+         * Recibe: El correo del usuario a verificar
+         * Modifica: Busca el bit de supUser en la base de datos
+         * Retorna: true si el usuario tiene permisos de administrador
+         */
         public bool superUser (string correo)
         {
             using (SqlConnection con = new SqlConnection(conexion))
