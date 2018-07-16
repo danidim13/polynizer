@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.Configuration;
-// Namespace de acceso a base de datos
 using System.Data;
 using System.Data.SqlClient;
 
-/*Cambiar el namespace para que funcione!!*/
+
 namespace Polynizer
 {
     class AccesoBaseDatos
@@ -19,11 +18,12 @@ namespace Polynizer
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security = false es para utilizar SQL SERVER Authentication*/
         string conexion = "Data Source=10.1.4.55;User ID=x; Password=x; Initial Catalog=DB_INTELLECT; Integrated Security=false";
         /*CAMBIAR PASSWORD Y USER*/
-        
+
         /**
          * Constructor de la clase
          */
-        public AccesoBaseDatos(){
+        public AccesoBaseDatos()
+        {
         }
 
         /**
@@ -72,8 +72,8 @@ namespace Polynizer
             DataTable table = new DataTable();
 
             dataAdapter.Fill(table);
-			
-			return table;
+
+            return table;
         }
 
         /*Método para ejecutar un insert, update o delete 
@@ -95,7 +95,7 @@ namespace Polynizer
                 //Ejecuta la consulta sql recibida por parámetro
                 cons.ExecuteNonQuery();
             }
-            catch(SqlException e)
+            catch (SqlException e)
             {
                 error = e.Number;
                 Debug.WriteLine("Error: " + error);
@@ -107,44 +107,6 @@ namespace Polynizer
             }
 
             return error;
-        }
-
-        /*Método para llamar al procedimiento almacenado de eliminarEstudiante 
-         Recibe: el nombre del o los estudiantes que se va a eliminar
-         Modifica: Elimina las tuplas que coincidan con el nombre recibido por parámetro
-         Retorna: el tipo de error que generó la consulta o cero si la ejecución fue exitosa*/
-        public int eliminarEstudiante(string nombre)
-        {
-            int error = 0;
-            using (SqlConnection con = new SqlConnection(conexion))
-            {
-                /*El sqlCommand recibe como primer parámetro el nombre del procedimiento almacenado, 
-                 * de segundo parámetro recibe el sqlConnection
-                */
-                using (SqlCommand cmd = new SqlCommand("eliminarEstudiante", con))
-                {
-                    try
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        //Se preparan los parámetros que recibe el procedimiento almacenado
-                        cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nombre;
-
-                        con.Open();
-
-                        //Se ejecuta el procedimiento almacenado
-                        cmd.ExecuteNonQuery();
-                        return error;
-                    }
-                    catch (SqlException ex)
-                    {
-
-                        error = ex.Number;
-                        return error;
-                    }
-                }
-            }
-
         }
 
         /*Método para llamar al procedimiento almacenado que permite agregar un nuevo usuario 
@@ -177,18 +139,18 @@ namespace Polynizer
                         cmd.Parameters.Add("@superUser", SqlDbType.VarChar).Value = superUser;
 
 
-                        //se prepara el parámetro de retorno del procedimiento almacenado
+                        /*Se prepara el parámetro de retorno del procedimiento almacenado*/
                         cmd.Parameters.Add("@resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
 
                         /*Se abre la conexión*/
                         con.Open();
 
-                        //Se ejecuta el procedimiento almacenado
+                        /*Se ejecuta el procedimiento almacenado*/
                         cmd.ExecuteNonQuery();
 
                         /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
                         return Convert.ToInt32(cmd.Parameters["@resultado"].Value);
-                        
+
                     }
                     catch (SqlException ex)
                     {
@@ -209,26 +171,23 @@ namespace Polynizer
         {
             using (SqlConnection con = new SqlConnection(conexion))
             {
-                /*El sqlCommand recibe como primer parámetro el nombre del procedimiento almacenado, 
-                 * de segundo parámetro recibe el sqlConnection
-                */
                 using (SqlCommand cmd = new SqlCommand("Login", con))
                 {
                     try
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        //Se preparan los parámetros que recibe el procedimiento almacenado
+                        /*Se preparan los parámetros que recibe el procedimiento almacenado*/
                         cmd.Parameters.Add("@CorreoLogin", SqlDbType.VarChar).Value = correo;
                         cmd.Parameters.Add("@PasswordLogin", SqlDbType.VarChar).Value = contraseña;
 
-                        //se prepara el parámetro de retorno del procedimiento almacenado
+                        /*Se prepara el parámetro de retorno del procedimiento almacenado*/
                         cmd.Parameters.Add("@enDB", SqlDbType.Bit).Direction = ParameterDirection.Output;
 
                         /*Se abre la conexión*/
                         con.Open();
 
-                        //Se ejecuta el procedimiento almacenado
+                        /*Se ejecuta el procedimiento almacenado*/
                         cmd.ExecuteNonQuery();
 
                         /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
@@ -239,13 +198,11 @@ namespace Polynizer
                         {
                             return true;
                         }
-
                         /*Si devuelve 0 es que no se encuentra en la BD*/
                         else
                         {
                             return false;
                         }
-
                     }
                     catch (SqlException ex)
                     {
@@ -253,9 +210,13 @@ namespace Polynizer
                     }
                 }
             }
-
         }
-        public bool superUser (string correo)
+
+        /*Metodo que verifica si el correo utilizado para iniciar sesión tiene permisos de administrador
+          Recibe: El correo del usuario a verificar
+          Modifica: Busca el bit de supUser en la base de datos
+          Retorna: true si el usuario tiene permisos de administrador*/
+        public bool superUser(string correo)
         {
             using (SqlConnection con = new SqlConnection(conexion))
             {
@@ -265,34 +226,31 @@ namespace Polynizer
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        //Se preparan los parámetros que recibe el procedimiento almacenado
+                        /*Se preparan los parámetros que recibe el procedimiento almacenado*/
                         cmd.Parameters.Add("@CorreoLogin", SqlDbType.VarChar).Value = correo;
-                        //cmd.Parameters.Add("@PasswordLogin", SqlDbType.VarChar).Value = contraseña;
 
-                        //se prepara el parámetro de retorno del procedimiento almacenado
+                        /*Se prepara el parámetro de retorno del procedimiento almacenado*/
                         cmd.Parameters.Add("@supUser", SqlDbType.Bit).Direction = ParameterDirection.Output;
 
                         /*Se abre la conexión*/
                         con.Open();
 
-                        //Se ejecuta el procedimiento almacenado
+                        /*Se ejecuta el procedimiento almacenado*/
                         cmd.ExecuteNonQuery();
 
                         /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
                         int value = Convert.ToInt32(cmd.Parameters["@supUser"].Value);
 
-                        /*Si el procedimiento devuelve 1 es que si se encuentra en la BD*/
+                        /*Si el procedimiento devuelve 1 el correo tiene permisos de administrador*/
                         if (value == 1)
                         {
                             return true;
                         }
-
-                        /*Si devuelve 0 es que no se encuentra en la BD*/
+                        /*Si devuelve 0 es que el correo no tiene permisos de administrador*/
                         else
                         {
                             return false;
                         }
-
                     }
                     catch (SqlException ex)
                     {
