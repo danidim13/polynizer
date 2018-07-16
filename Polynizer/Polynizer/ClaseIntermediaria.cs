@@ -170,18 +170,37 @@ namespace Polynizer
             }
         }
 
-        public int agregarDispositivos(string correoUsuario, string IMEI1, string IMEI2)
+        //public int agregarDispositivos(string correoUsuario, string IMEI1, string IMEI2)
+        //{
+        //    String instruccion;
+        //    if (IMEI2 != null)
+        //    {
+        //         instruccion = "insert into Dispositivo (UUID,CorreoUsuario) values ('" + IMEI1 + "','" + correoUsuario + "'),('"+IMEI2+"','"+correoUsuario+"')";
+        //    }
+        //    else
+        //    {
+        //         instruccion = "insert into Dispositivo (UUID,CorreoUsuario) values ('" + IMEI1 + "','" + correoUsuario + "')";
+        //    }
+        //    return bd.actualizarDatos(instruccion);
+        //}
+
+        /*Mayquely*/
+        public DataTable obtenerCancionesUsuario(string filtro)
         {
-            String instruccion;
-            if (IMEI2 != null)
+
+            DataTable tabla = null;
+            try
             {
-                 instruccion = "insert into Dispositivo (UUID,CorreoUsuario) values ('" + IMEI1 + "','" + correoUsuario + "'),('"+IMEI2+"','"+correoUsuario+"')";
+
+                tabla = bd.ejecutarConsultaTabla("Select p.IDCancion, m.Llave, m.Valor from metadato m join procesa p on m.IDCancion = p.IDCancion where m.llave like '%" + filtro + "%' and p.CorreoUsuario like 'danidiaza@gmail.com' ");//'%" + correo	+	"%'");
+
             }
-            else
+            catch (SqlException ex)
+
             {
-                 instruccion = "insert into Dispositivo (UUID,CorreoUsuario) values ('" + IMEI1 + "','" + correoUsuario + "')";
+
             }
-            return bd.actualizarDatos(instruccion);
+            return tabla;
         }
     }
 }
