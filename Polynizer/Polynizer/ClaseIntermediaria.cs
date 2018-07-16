@@ -21,7 +21,6 @@ namespace Polynizer
 
         public DataTable obtenerCanciones(int tipoFiltro, string filtro)
         {
-            /*ToDo*/
             DataTable tabla = null;
             try
             {
@@ -72,6 +71,20 @@ namespace Polynizer
             return tabla;
         }
 
+        public SqlDataReader obtenerListaPaises()
+        {
+            SqlDataReader lista = null;
+            try
+            {
+                lista = bd.ejecutarConsulta("Select distinct P.Nombre from Pais P");
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            return lista;
+        }
+
         public SqlDataReader obtenerListaCanciones(int tipoFiltro, string filtro)
         {
             SqlDataReader datos = null;
@@ -118,6 +131,33 @@ namespace Polynizer
         public bool superUser (string correo)
         {
             return bd.superUser(correo);
+        }
+
+        public bool agregarUsuario(string correo, string nombre, string apellido, string fechaNac, string fechaIni, string pais, string password, bool superUser)
+        {
+            int resultado = bd.agregarUsuario(correo, nombre, apellido, fechaNac, fechaIni, pais, password, superUser);
+            if(resultado == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public int agregarDispositivos(string correoUsuario, string IMEI1, string IMEI2)
+        {
+            String instruccion;
+            if (IMEI2 != null)
+            {
+                 instruccion = "insert into Dispositivo (UUID,CorreoUsuario) values ('" + IMEI1 + "','" + correoUsuario + "'),('"+IMEI2+"','"+correoUsuario+"')";
+            }
+            else
+            {
+                 instruccion = "insert into Dispositivo (UUID,CorreoUsuario) values ('" + IMEI1 + "','" + correoUsuario + "')";
+            }
+            return bd.actualizarDatos(instruccion);
         }
     }
 }

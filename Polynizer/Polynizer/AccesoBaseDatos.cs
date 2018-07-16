@@ -152,7 +152,7 @@ namespace Polynizer
          Modifica: Agrega en la base de datos un nuevo usuario
          Retorna: 1 si se pudo guardar el nuevo usuario, un número diferente a cero que corresponde al número de error
          si no se pudo insertar*/
-        public int agregarUsuario(string usuario, string password, string cedula)
+        public int agregarUsuario(string correo, string nombre, string apellido, string fechaNac, string fechaIni, string pais, string password, bool superUser)
         {
             int error = 0;
             using (SqlConnection con = new SqlConnection(conexion))
@@ -160,19 +160,25 @@ namespace Polynizer
                 /*El sqlCommand recibe como primer parámetro el nombre del procedimiento almacenado, 
                  * de segundo parámetro recibe el sqlConnection
                 */
-                using (SqlCommand cmd = new SqlCommand("agregarUsuario", con))
+                using (SqlCommand cmd = new SqlCommand("AgregarUsuario", con))
                 {
                     try
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         //Se preparan los parámetros que recibe el procedimiento almacenado
-                        cmd.Parameters.Add("@pLogin", SqlDbType.VarChar).Value = usuario;
-                        cmd.Parameters.Add("@pPassword", SqlDbType.VarChar).Value = password;
-                        cmd.Parameters.Add("@cedula", SqlDbType.VarChar).Value = cedula;
+                        cmd.Parameters.Add("@correo", SqlDbType.VarChar).Value = correo;
+                        cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nombre;
+                        cmd.Parameters.Add("@apellido", SqlDbType.VarChar).Value = apellido;
+                        cmd.Parameters.Add("@fechaNac", SqlDbType.VarChar).Value = fechaNac;
+                        cmd.Parameters.Add("@fechaIni", SqlDbType.VarChar).Value = fechaIni;
+                        cmd.Parameters.Add("@pais", SqlDbType.VarChar).Value = pais;
+                        cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+                        cmd.Parameters.Add("@superUser", SqlDbType.VarChar).Value = superUser;
+
 
                         //se prepara el parámetro de retorno del procedimiento almacenado
-                        cmd.Parameters.Add("@estado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add("@resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
 
                         /*Se abre la conexión*/
                         con.Open();
@@ -181,7 +187,7 @@ namespace Polynizer
                         cmd.ExecuteNonQuery();
 
                         /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
-                        return Convert.ToInt32(cmd.Parameters["@estado"].Value);
+                        return Convert.ToInt32(cmd.Parameters["@resultado"].Value);
                         
                     }
                     catch (SqlException ex)
