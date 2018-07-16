@@ -1,22 +1,17 @@
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe.config
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.pdb
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csprojResolveAssemblyReference.cache
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.LoginWindow.resources
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Properties.Resources.resources
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.GenerateResource.Cache
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
-C:\Users\b60685\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe.config
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.pdb
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csprojAssemblyReference.cache
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.LoginWindow.resources
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Properties.Resources.resources
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.GenerateResource.cache
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.CoreCompileInputs.cache
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.AgregarUsuario.resources
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.CancionesAdmin.resources
-C:\Users\Ariel Arias\Documents\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.UsuarioPrincipal.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csprojAssemblyReference.cache
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.ProcesaCancion.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.CancionesAdmin.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.CancionesUsuario.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.LoginWindow.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.AgregarUsuario.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.PincipalAdmin.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.Properties.Resources.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.UsuarioPrincipal.resources
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.GenerateResource.cache
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\bin\Debug\PincipalAdmin.Designer.cs
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe.config
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.exe
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\bin\Debug\Polynizer.pdb
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.exe
+C:\Users\User\Source\Repos\polynizer\Polynizer\Polynizer\obj\Debug\Polynizer.pdb
