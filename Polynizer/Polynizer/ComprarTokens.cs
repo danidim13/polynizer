@@ -71,5 +71,11 @@ namespace Polynizer
         {
 
         }
+
+        private void regresarBTN_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Global.usuarioCompras.Show();
+        }
     }
 }
