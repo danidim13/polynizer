@@ -51,7 +51,18 @@ namespace Polynizer
         {
             if (this.comboBoxCharts.SelectedIndex == 0)
             {
-                //var table = Global.intermediaria.obtenerCancionesPorUsuario();
+                var table = Global.intermediaria.obtenerCancionesPorUsuario();
+
+                this.xNombres = new string[table.Rows.Count];
+                this.yValues = new int[table.Rows.Count];
+
+                int i = 0;
+                foreach (DataRow row in table.Rows)
+                {
+                    this.xNombres[i] = row[0].ToString();
+                    this.yValues[i] = Convert.ToInt32(row[1]);
+                    i++;
+                }
             }
             this.Graficar();
         }
@@ -59,23 +70,11 @@ namespace Polynizer
         private void Graficar()
         {
             this.chart1.Series.Clear();
-            var serie1 = new System.Windows.Forms.DataVisualization.Charting.Series
+
+            for (int i = 0; i < this.xNombres.Length; i++)
             {
-                Name = "Canciones",
-                //Color = System.Drawing.Color.Blue,
-                //IsXValueIndexed = true,
-                ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-            };
-
-            //this.chart1.Series.Add(serie1);
-
-            string[] nombres = { "user1", "user2" };
-            int[] canciones = { 5, 6 };
-
-            for (int i = 0; i < nombres.Length; i++)
-            {
-                var series = this.chart1.Series.Add(nombres[i]);
-                series.Points.Add(canciones[i]);
+                var series = this.chart1.Series.Add(this.xNombres[i]);
+                series.Points.Add(this.yValues[i]);
             }
             
         }

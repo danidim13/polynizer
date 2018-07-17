@@ -333,7 +333,19 @@ namespace Polynizer
             }
             return datos;
         }
+        public DataTable obtenerCancionesPorUsuario()
+        {
+            DataTable tabla = null;
+            try
+            {
+                tabla = bd.ejecutarConsultaTabla("select U.Nombre, count(*) as Cantidad from Procesa P join Usuario U on P.CorreoUsuario = U.Correo group by P.CorreoUsuario, U.Nombre");
+            }
+            catch (SqlException ex)
+            {
 
+            }
+            return tabla;
+        }
         /*Metodo que comprueba si los datos ingresados para iniciar sesión son correctos.
           Recibe: un string correo, este es el correo que se va a buscar en la base de datos.
                   un string contraseña, esta es la contraseña que se va a buscar en la base de datos.
