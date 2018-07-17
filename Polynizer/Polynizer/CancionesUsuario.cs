@@ -12,17 +12,16 @@ namespace Polynizer
 {
     public partial class CancionesUsuario : Form
     {
+        private bool continueRunning;
+
         public CancionesUsuario()
         {
             InitializeComponent();
+            this.continueRunning = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         //Boton de buscar.
-        private void button1_Click(object sender, EventArgs e)
+        private void buscarBTN_Click(object sender, EventArgs e)
         {
             Global.intermediaria.obtenerCancionesUsuario(texFiltro.Text);
             this.llenarTabla(dgvCanciones);
@@ -46,23 +45,27 @@ namespace Polynizer
 
         }
 
-        private void texFiltro_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void regresarBTN_Click(object sender, EventArgs e)
         {
             //Regresa a perfil
             this.Hide();
             Global.usuarioPrincipal = new UsuarioPrincipal();
             Global.usuarioPrincipal.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
         private void CancionesUsuario_Load(object sender, EventArgs e)
         {
             llenarTabla(dgvCanciones);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 

@@ -41,7 +41,7 @@ namespace Polynizer
         }
 
         /* Metodo que cierra la ventana al hacer click en el botón aceptar.*/
-        private void buttonAceptar_Click(object sender, EventArgs e)
+        private void buttonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }

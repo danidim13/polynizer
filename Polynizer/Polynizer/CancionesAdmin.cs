@@ -13,7 +13,7 @@ namespace Polynizer
 {
     public partial class CancionesAdmin : Form
     {
-
+        private bool continueRunning;
         /*
          * Costructor de la clase
          * Se inicia el comboBox del tipo de filtro, y se llena la tabla con el filtro general.
@@ -28,6 +28,7 @@ namespace Polynizer
             comboBoxFiltro.SelectedIndex = 0;
             llenarTabla(0, null);
             llenarComboBoxMetadatos();
+            this.continueRunning = false;
         }
 
         /*Metodo encargado de llenar la tabla de canciones dependiendo del filtro utilizado.
@@ -138,6 +139,7 @@ namespace Polynizer
             this.Hide();
             Global.adminPrincipal = new PincipalAdmin();
             Global.adminPrincipal.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -182,6 +184,14 @@ namespace Polynizer
                         MessageBox.Show("No se eliminó la canción debido a que esta fue procesada por un usuario", "Eliminar Canción", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
             }
         }
     }

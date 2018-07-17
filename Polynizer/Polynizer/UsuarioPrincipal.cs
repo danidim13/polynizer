@@ -13,12 +13,13 @@ namespace Polynizer
 {
     public partial class UsuarioPrincipal : Form
     {
-        private bool continueRunning = false;
+        private bool continueRunning;
 
         public UsuarioPrincipal()
         {
             InitializeComponent();
             ActulizarTextos();
+            this.continueRunning = false;
         }
 
         private void UsuarioPrincipal_Load(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace Polynizer
             this.Close();
         }
 
-        private void UsuarioPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (!this.continueRunning)
             {

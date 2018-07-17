@@ -30,7 +30,7 @@
         {
             this.dataGridViewMetadatos = new System.Windows.Forms.DataGridView();
             this.labelMetadatosTitle = new System.Windows.Forms.Label();
-            this.buttonAceptar = new System.Windows.Forms.Button();
+            this.buttonCerrar = new System.Windows.Forms.Button();
             this.labelNumeroID = new System.Windows.Forms.Label();
             this.labelID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMetadatos)).BeginInit();
@@ -58,15 +58,15 @@
             this.labelMetadatosTitle.Text = "Metadatos de la canción.";
             this.labelMetadatosTitle.Click += new System.EventHandler(this.labelMetadatosTitle_Click);
             // 
-            // buttonAceptar
+            // buttonCerrar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(194, 408);
-            this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 9;
-            this.buttonAceptar.Text = "Aceptar";
-            this.buttonAceptar.UseVisualStyleBackColor = true;
-            this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
+            this.buttonCerrar.Location = new System.Drawing.Point(194, 408);
+            this.buttonCerrar.Name = "buttonCerrar";
+            this.buttonCerrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCerrar.TabIndex = 9;
+            this.buttonCerrar.Text = "Cerrar";
+            this.buttonCerrar.UseVisualStyleBackColor = true;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
             // labelNumeroID
             // 
@@ -93,7 +93,7 @@
             this.ClientSize = new System.Drawing.Size(290, 448);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.labelNumeroID);
-            this.Controls.Add(this.buttonAceptar);
+            this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.labelMetadatosTitle);
             this.Controls.Add(this.dataGridViewMetadatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -112,7 +112,7 @@
 
         private System.Windows.Forms.DataGridView dataGridViewMetadatos;
         private System.Windows.Forms.Label labelMetadatosTitle;
-        private System.Windows.Forms.Button buttonAceptar;
+        private System.Windows.Forms.Button buttonCerrar;
         private System.Windows.Forms.Label labelNumeroID;
         private System.Windows.Forms.Label labelID;
     }

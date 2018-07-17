@@ -12,10 +12,13 @@ namespace Polynizer
 {
     public partial class ListaCompras : Form
     {
+        private bool continueRunning;
+
         public ListaCompras()
         {
             InitializeComponent();
             this.llenarListaCompras();
+            this.continueRunning = false;
         }
 
 
@@ -42,6 +45,7 @@ namespace Polynizer
             this.Hide();
             Global.usuarioPrincipal = new UsuarioPrincipal();
             Global.usuarioPrincipal.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -50,7 +54,16 @@ namespace Polynizer
             this.Hide();
             Global.usuarioComprarTokens = new ComprarTokens();
             Global.usuarioComprarTokens.Show();
+            this.continueRunning = true;
             this.Close();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 }

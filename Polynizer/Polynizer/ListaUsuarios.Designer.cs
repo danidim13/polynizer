@@ -35,7 +35,7 @@
             this.cambiarBTN = new System.Windows.Forms.Button();
             this.EliminarBTN = new System.Windows.Forms.Button();
             this.agregarLL = new System.Windows.Forms.LinkLabel();
-            this.regresarLL = new System.Windows.Forms.LinkLabel();
+            this.regresarBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listaUsuariosDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // listaUsuariosDGV
             // 
             this.listaUsuariosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listaUsuariosDGV.Location = new System.Drawing.Point(34, 146);
+            this.listaUsuariosDGV.Location = new System.Drawing.Point(35, 122);
             this.listaUsuariosDGV.Name = "listaUsuariosDGV";
             this.listaUsuariosDGV.ReadOnly = true;
             this.listaUsuariosDGV.Size = new System.Drawing.Size(601, 231);
@@ -62,7 +62,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 97);
+            this.label2.Location = new System.Drawing.Point(31, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 2;
@@ -71,7 +71,7 @@
             // correosCB
             // 
             this.correosCB.FormattingEnabled = true;
-            this.correosCB.Location = new System.Drawing.Point(107, 99);
+            this.correosCB.Location = new System.Drawing.Point(108, 75);
             this.correosCB.Name = "correosCB";
             this.correosCB.Size = new System.Drawing.Size(157, 21);
             this.correosCB.TabIndex = 3;
@@ -80,7 +80,7 @@
             // cambiarBTN
             // 
             this.cambiarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cambiarBTN.Location = new System.Drawing.Point(529, 85);
+            this.cambiarBTN.Location = new System.Drawing.Point(530, 61);
             this.cambiarBTN.Name = "cambiarBTN";
             this.cambiarBTN.Size = new System.Drawing.Size(106, 47);
             this.cambiarBTN.TabIndex = 4;
@@ -92,7 +92,7 @@
             // EliminarBTN
             // 
             this.EliminarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarBTN.Location = new System.Drawing.Point(270, 99);
+            this.EliminarBTN.Location = new System.Drawing.Point(271, 75);
             this.EliminarBTN.Name = "EliminarBTN";
             this.EliminarBTN.Size = new System.Drawing.Size(75, 23);
             this.EliminarBTN.TabIndex = 5;
@@ -111,23 +111,23 @@
             this.agregarLL.Text = "Agregar un usuario";
             this.agregarLL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.agregarLL_LinkClicked);
             // 
-            // regresarLL
+            // regresarBTN
             // 
-            this.regresarLL.AutoSize = true;
-            this.regresarLL.Location = new System.Drawing.Point(12, 9);
-            this.regresarLL.Name = "regresarLL";
-            this.regresarLL.Size = new System.Drawing.Size(50, 13);
-            this.regresarLL.TabIndex = 7;
-            this.regresarLL.TabStop = true;
-            this.regresarLL.Text = "Regresar";
-            this.regresarLL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.regresarLL_LinkClicked);
+            this.regresarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regresarBTN.Location = new System.Drawing.Point(561, 359);
+            this.regresarBTN.Name = "regresarBTN";
+            this.regresarBTN.Size = new System.Drawing.Size(75, 29);
+            this.regresarBTN.TabIndex = 8;
+            this.regresarBTN.Text = "Regresar";
+            this.regresarBTN.UseVisualStyleBackColor = true;
+            this.regresarBTN.Click += new System.EventHandler(this.regresarBTN_Click);
             // 
             // ListaUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 400);
-            this.Controls.Add(this.regresarLL);
+            this.Controls.Add(this.regresarBTN);
             this.Controls.Add(this.agregarLL);
             this.Controls.Add(this.EliminarBTN);
             this.Controls.Add(this.cambiarBTN);
@@ -153,6 +153,6 @@
         private System.Windows.Forms.Button cambiarBTN;
         private System.Windows.Forms.Button EliminarBTN;
         private System.Windows.Forms.LinkLabel agregarLL;
-        private System.Windows.Forms.LinkLabel regresarLL;
+        private System.Windows.Forms.Button regresarBTN;
     }
 }

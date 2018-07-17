@@ -25,9 +25,12 @@ namespace Polynizer
         private byte[] mp3Hash;
         private string songUrl;
 
+        private bool continueRunning;
+
         public ProcesaCancion()
         {
             InitializeComponent();
+            this.continueRunning = false;
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
@@ -50,11 +53,6 @@ namespace Polynizer
         private void cancelar_Click(object sender, EventArgs e)
         {
             //Aqui se devuelve a la ventana de compras que aun no está implementada.
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void InitializeComponent()
@@ -82,7 +80,7 @@ namespace Polynizer
             this.radioButtonMp3.AutoSize = true;
             this.radioButtonMp3.Location = new System.Drawing.Point(64, 52);
             this.radioButtonMp3.Name = "radioButtonMp3";
-            this.radioButtonMp3.Size = new System.Drawing.Size(56, 21);
+            this.radioButtonMp3.Size = new System.Drawing.Size(46, 17);
             this.radioButtonMp3.TabIndex = 1;
             this.radioButtonMp3.TabStop = true;
             this.radioButtonMp3.Text = "Mp3";
@@ -94,7 +92,7 @@ namespace Polynizer
             this.radioButtonUrl.AutoSize = true;
             this.radioButtonUrl.Location = new System.Drawing.Point(64, 79);
             this.radioButtonUrl.Name = "radioButtonUrl";
-            this.radioButtonUrl.Size = new System.Drawing.Size(55, 21);
+            this.radioButtonUrl.Size = new System.Drawing.Size(45, 17);
             this.radioButtonUrl.TabIndex = 2;
             this.radioButtonUrl.TabStop = true;
             this.radioButtonUrl.Text = "Link";
@@ -105,18 +103,17 @@ namespace Polynizer
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.Location = new System.Drawing.Point(81, 9);
+            this.labelTitulo.Location = new System.Drawing.Point(162, 9);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(220, 29);
+            this.labelTitulo.Size = new System.Drawing.Size(176, 24);
             this.labelTitulo.TabIndex = 3;
             this.labelTitulo.Text = "Procesar Canción";
-            this.labelTitulo.Click += new System.EventHandler(this.labelTitulo_Click);
             // 
             // textBoxArchivo
             // 
             this.textBoxArchivo.Location = new System.Drawing.Point(64, 123);
             this.textBoxArchivo.Name = "textBoxArchivo";
-            this.textBoxArchivo.Size = new System.Drawing.Size(367, 22);
+            this.textBoxArchivo.Size = new System.Drawing.Size(367, 20);
             this.textBoxArchivo.TabIndex = 4;
             this.textBoxArchivo.Click += new System.EventHandler(this.textBoxArchivo_Click);
             this.textBoxArchivo.TextChanged += new System.EventHandler(this.textBoxArchivo_TextChanged);
@@ -153,6 +150,7 @@ namespace Polynizer
             this.Hide();
             Global.usuarioPrincipal = new UsuarioPrincipal();
             Global.usuarioPrincipal.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -215,11 +213,6 @@ namespace Polynizer
         }
 
         private void ProcesaCancion_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelTitulo_Click(object sender, EventArgs e)
         {
 
         }
@@ -300,6 +293,14 @@ namespace Polynizer
             else if (dialog == DialogResult.No)
             {
 
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
             }
         }
     }

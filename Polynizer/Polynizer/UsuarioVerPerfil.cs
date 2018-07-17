@@ -19,6 +19,8 @@ namespace Polynizer
         private string fecha;
         private string pais;
 
+        private bool continueRunning;
+
         public UsuarioVerPerfil()
         {
             InitializeComponent();
@@ -30,6 +32,8 @@ namespace Polynizer
             email = emailTB.Text;
             fecha = fechaNacTB.Text;
             pais = paisTB.Text;
+
+            this.continueRunning = false;
 
         }
 
@@ -72,6 +76,7 @@ namespace Polynizer
             this.Hide();
             Global.usuarioPrincipal = new UsuarioPrincipal();
             Global.usuarioPrincipal.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -221,6 +226,14 @@ namespace Polynizer
             }
 
 
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 }

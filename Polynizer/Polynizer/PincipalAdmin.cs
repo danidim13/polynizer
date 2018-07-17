@@ -13,12 +13,12 @@ namespace Polynizer
 {
     public partial class PincipalAdmin : Form
     {
-        private bool continueRunning = false;
+        private bool continueRunning;
 
         public PincipalAdmin()
         {
             InitializeComponent();
-
+            this.continueRunning = false;
             SqlDataReader reader = Global.intermediaria.obtenerCampoEspecificoUsuario("Nombre");
             if (reader.Read())
             {
@@ -79,9 +79,9 @@ namespace Polynizer
             // 
             this.linkLabelCerrarSesion.AutoSize = true;
             this.linkLabelCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelCerrarSesion.Location = new System.Drawing.Point(436, 32);
+            this.linkLabelCerrarSesion.Location = new System.Drawing.Point(454, 35);
             this.linkLabelCerrarSesion.Name = "linkLabelCerrarSesion";
-            this.linkLabelCerrarSesion.Size = new System.Drawing.Size(111, 20);
+            this.linkLabelCerrarSesion.Size = new System.Drawing.Size(93, 17);
             this.linkLabelCerrarSesion.TabIndex = 4;
             this.linkLabelCerrarSesion.TabStop = true;
             this.linkLabelCerrarSesion.Text = "Cerrar sesión";
@@ -93,13 +93,13 @@ namespace Polynizer
             this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre.Location = new System.Drawing.Point(28, 35);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(87, 25);
+            this.labelNombre.Size = new System.Drawing.Size(71, 20);
             this.labelNombre.TabIndex = 5;
             this.labelNombre.Text = "Nombre";
             // 
             // PincipalAdmin
             // 
-            this.ClientSize = new System.Drawing.Size(586, 401);
+            this.ClientSize = new System.Drawing.Size(586, 336);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.linkLabelCerrarSesion);
             this.Controls.Add(this.Estadisticas);
@@ -107,7 +107,6 @@ namespace Polynizer
             this.Controls.Add(this.canciones);
             this.Name = "PincipalAdmin";
             this.Text = "Principal Administrador";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PincipalAdmin_FormClosing);
             this.Load += new System.EventHandler(this.PincipalAdmin_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,7 +165,7 @@ namespace Polynizer
             this.Close();
         }
 
-        private void PincipalAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (!this.continueRunning)
             {

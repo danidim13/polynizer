@@ -58,9 +58,7 @@ namespace Polynizer
 
         public static void ConfirmExit(ref FormClosingEventArgs e)
         {
-            DialogResult r = MessageBox.Show("¿Está seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo);
-
-            if (r == DialogResult.Yes)
+            if (MessageBox.Show("¿Está seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Application.Exit();
             } else

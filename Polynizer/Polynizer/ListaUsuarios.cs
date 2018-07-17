@@ -13,12 +13,15 @@ namespace Polynizer
 {
     public partial class ListaUsuarios : Form
     {
+        private bool continueRunning;
+
         public ListaUsuarios()
         {
             InitializeComponent();
             correosCB.Items.Add("Todos");
             llenarComboBoxCorreos();
             llenarListaUsuarios("");
+            this.continueRunning = false;
         }
 
         private void llenarComboBoxCorreos()
@@ -92,6 +95,7 @@ namespace Polynizer
                                 this.Hide();
                                 Global.login = new LoginWindow();
                                 Global.login.Show();
+                                this.continueRunning = true;
                                 this.Close();
                             }
                             else
@@ -119,6 +123,7 @@ namespace Polynizer
                                 this.Hide();
                                 Global.login = new LoginWindow();
                                 Global.login.Show();
+                                this.continueRunning = true;
                                 this.Close();
                             }
                             else
@@ -141,14 +146,16 @@ namespace Polynizer
             this.Hide();
             Global.adminAgregarUsuario = new AgregarUsuario();
             Global.adminAgregarUsuario.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
-        private void regresarLL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void regresarBTN_Click(object sender, EventArgs e)
         {
             this.Hide();
             Global.adminPrincipal = new PincipalAdmin();
             Global.adminPrincipal.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -197,6 +204,7 @@ namespace Polynizer
                             this.Hide();
                             Global.login = new LoginWindow();
                             Global.login.Show();
+                            this.continueRunning = true;
                             this.Close();
                         }
                         else
@@ -213,5 +221,14 @@ namespace Polynizer
                 }
             }
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
+        }
+
     }
 }

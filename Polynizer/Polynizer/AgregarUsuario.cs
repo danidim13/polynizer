@@ -13,7 +13,7 @@ namespace Polynizer
 {
     public partial class AgregarUsuario : Form
     {
-
+        private bool continueRunning;
         /*
          * Constructor de la clase
          */
@@ -21,6 +21,7 @@ namespace Polynizer
         {
             InitializeComponent();
             llenarComboBoxPais();
+            this.continueRunning = false;
         }
 
         /*Metodo utilizado para que en el comboBox para seleccionar país se desplieguen todos los países existentes*/
@@ -78,6 +79,7 @@ namespace Polynizer
                     this.Hide();
                     Global.adminListaUsuarios = new ListaUsuarios();
                     Global.adminListaUsuarios.Show();
+                    this.continueRunning = true;
                     this.Close();
                 }
                 else
@@ -94,15 +96,20 @@ namespace Polynizer
             this.Hide();
             Global.adminListaUsuarios = new ListaUsuarios();
             Global.adminListaUsuarios.Show();
+            this.continueRunning = true;
             this.Close();
-        }
-
-        private void labelAgregarUsuario_Click(object sender, EventArgs e)
-        {
         }
 
         private void AgregarUsuario_Load(object sender, EventArgs e)
         {
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 }

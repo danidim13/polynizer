@@ -12,9 +12,12 @@ namespace Polynizer
 {
     public partial class Graficos : Form
     {
+        private bool continueRunning;
+
         public Graficos()
         {
             InitializeComponent();
+            this.continueRunning = false;
         }
 
         private void buttonRegresar_Click(object sender, EventArgs e)
@@ -22,12 +25,21 @@ namespace Polynizer
             this.Hide();
             Global.adminPrincipal = new PincipalAdmin();
             Global.adminPrincipal.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
         private void Graficos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 }

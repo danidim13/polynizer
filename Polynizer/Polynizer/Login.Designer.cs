@@ -48,7 +48,6 @@
             this.labelTextoBienvenida.Size = new System.Drawing.Size(605, 32);
             this.labelTextoBienvenida.TabIndex = 0;
             this.labelTextoBienvenida.Text = "Bienvenido al sistema de datos de Polynizer.";
-            this.labelTextoBienvenida.Click += new System.EventHandler(this.labelTextoBienvenida_Click);
             // 
             // labelIngresarDatos
             // 
@@ -147,8 +146,6 @@
             this.MaximizeBox = false;
             this.Name = "LoginWindow";
             this.Text = "Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginWindow_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginWindow_FormClosed);
             this.Load += new System.EventHandler(this.LoginWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,7 +164,6 @@
         private System.Windows.Forms.Button buttonIngresar;
         private System.Windows.Forms.Button buttonCerrar;
 
-        private bool continueRunning = false;
     }
 }
 

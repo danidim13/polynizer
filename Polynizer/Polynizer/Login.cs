@@ -14,12 +14,15 @@ namespace Polynizer
     public partial class LoginWindow : Form
     {
 
+        private bool continueRunning;
+
         /*
          * Constructor de la clase
          */ 
         public LoginWindow()
         {
             InitializeComponent();
+            this.continueRunning = false;
         }
 
         /*Metodo que revisa si el usuario existe en la base de datos, tiene la contraseña correcta y si se debe iniciar en modo administrador o usuario*/
@@ -64,8 +67,6 @@ namespace Polynizer
             }
         }
 
-        private void labelTextoBienvenida_Click(object sender, EventArgs e){}
-
         private void LoginWindow_Load(object sender, EventArgs e){}
 
         private void buttonCerrar_Click(object sender, EventArgs e)
@@ -73,18 +74,14 @@ namespace Polynizer
             Application.Exit();
         }
 
-
-        private void LoginWindow_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
-        private void LoginWindow_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (!this.continueRunning)
             {
                 Global.ConfirmExit(ref e);
             }
         }
+
+
     }
 }

@@ -96,7 +96,6 @@
             this.labelAgregarUsuario.Size = new System.Drawing.Size(223, 24);
             this.labelAgregarUsuario.TabIndex = 5;
             this.labelAgregarUsuario.Text = "Agregar a un usuario";
-            this.labelAgregarUsuario.Click += new System.EventHandler(this.labelAgregarUsuario_Click);
             // 
             // textBoxNombre
             // 

@@ -12,10 +12,12 @@ namespace Polynizer
 {
     public partial class ComprarTokens : Form
     {
+        private bool continueRunning;
 
         public ComprarTokens()
         {
             InitializeComponent();
+            this.continueRunning = false;
         }
 
         private void comprarBTN_Click(object sender, EventArgs e)
@@ -42,6 +44,7 @@ namespace Polynizer
                             this.Hide();
                             Global.usuarioCompras = new ListaCompras();
                             Global.usuarioCompras.Show();
+                            this.continueRunning = true;
                             this.Close();
                         }
                         else
@@ -65,12 +68,21 @@ namespace Polynizer
             this.Hide();
             Global.usuarioCompras = new ListaCompras();
             Global.usuarioCompras.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
         private void ComprarTokens_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 }
