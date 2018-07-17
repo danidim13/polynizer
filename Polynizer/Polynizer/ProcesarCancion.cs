@@ -24,7 +24,11 @@ namespace Polynizer
 
         private byte[] mp3Hash;
         private string songUrl;
-
+        private Label labelTituloC;
+        private Label labelArtistaC;
+        private TextBox textBoxTitulo;
+        private TextBox textBoxArtista;
+        private Label labelOpcionales;
         private bool continueRunning;
 
         public ProcesaCancion()
@@ -64,11 +68,16 @@ namespace Polynizer
             this.labelTitulo = new System.Windows.Forms.Label();
             this.textBoxArchivo = new System.Windows.Forms.TextBox();
             this.buttonProcesar = new System.Windows.Forms.Button();
+            this.labelTituloC = new System.Windows.Forms.Label();
+            this.labelArtistaC = new System.Windows.Forms.Label();
+            this.textBoxTitulo = new System.Windows.Forms.TextBox();
+            this.textBoxArtista = new System.Windows.Forms.TextBox();
+            this.labelOpcionales = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(305, 168);
+            this.buttonCancelar.Location = new System.Drawing.Point(305, 267);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(126, 45);
             this.buttonCancelar.TabIndex = 0;
@@ -112,7 +121,7 @@ namespace Polynizer
             // 
             // textBoxArchivo
             // 
-            this.textBoxArchivo.Location = new System.Drawing.Point(64, 123);
+            this.textBoxArchivo.Location = new System.Drawing.Point(64, 113);
             this.textBoxArchivo.Name = "textBoxArchivo";
             this.textBoxArchivo.Size = new System.Drawing.Size(367, 20);
             this.textBoxArchivo.TabIndex = 4;
@@ -122,7 +131,7 @@ namespace Polynizer
             // buttonProcesar
             // 
             this.buttonProcesar.Enabled = false;
-            this.buttonProcesar.Location = new System.Drawing.Point(64, 168);
+            this.buttonProcesar.Location = new System.Drawing.Point(64, 267);
             this.buttonProcesar.Name = "buttonProcesar";
             this.buttonProcesar.Size = new System.Drawing.Size(126, 45);
             this.buttonProcesar.TabIndex = 5;
@@ -130,9 +139,56 @@ namespace Polynizer
             this.buttonProcesar.UseVisualStyleBackColor = true;
             this.buttonProcesar.Click += new System.EventHandler(this.buttonProcesar_Click);
             // 
+            // labelTituloC
+            // 
+            this.labelTituloC.AutoSize = true;
+            this.labelTituloC.Location = new System.Drawing.Point(60, 193);
+            this.labelTituloC.Name = "labelTituloC";
+            this.labelTituloC.Size = new System.Drawing.Size(38, 13);
+            this.labelTituloC.TabIndex = 6;
+            this.labelTituloC.Text = "Título:";
+            // 
+            // labelArtistaC
+            // 
+            this.labelArtistaC.AutoSize = true;
+            this.labelArtistaC.Location = new System.Drawing.Point(229, 193);
+            this.labelArtistaC.Name = "labelArtistaC";
+            this.labelArtistaC.Size = new System.Drawing.Size(39, 13);
+            this.labelArtistaC.TabIndex = 7;
+            this.labelArtistaC.Text = "Artista:";
+            // 
+            // textBoxTitulo
+            // 
+            this.textBoxTitulo.Location = new System.Drawing.Point(63, 209);
+            this.textBoxTitulo.Name = "textBoxTitulo";
+            this.textBoxTitulo.Size = new System.Drawing.Size(143, 20);
+            this.textBoxTitulo.TabIndex = 8;
+            // 
+            // textBoxArtista
+            // 
+            this.textBoxArtista.Location = new System.Drawing.Point(232, 209);
+            this.textBoxArtista.Name = "textBoxArtista";
+            this.textBoxArtista.Size = new System.Drawing.Size(143, 20);
+            this.textBoxArtista.TabIndex = 9;
+            // 
+            // labelOpcionales
+            // 
+            this.labelOpcionales.AutoSize = true;
+            this.labelOpcionales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOpcionales.Location = new System.Drawing.Point(61, 170);
+            this.labelOpcionales.Name = "labelOpcionales";
+            this.labelOpcionales.Size = new System.Drawing.Size(197, 16);
+            this.labelOpcionales.TabIndex = 10;
+            this.labelOpcionales.Text = "Datos opcionales de la canción";
+            // 
             // ProcesaCancion
             // 
-            this.ClientSize = new System.Drawing.Size(485, 253);
+            this.ClientSize = new System.Drawing.Size(485, 339);
+            this.Controls.Add(this.labelOpcionales);
+            this.Controls.Add(this.textBoxArtista);
+            this.Controls.Add(this.textBoxTitulo);
+            this.Controls.Add(this.labelArtistaC);
+            this.Controls.Add(this.labelTituloC);
             this.Controls.Add(this.buttonProcesar);
             this.Controls.Add(this.textBoxArchivo);
             this.Controls.Add(this.labelTitulo);
@@ -270,14 +326,34 @@ namespace Polynizer
                     int id = Global.intermediaria.ProcesarCancion(this.mp3Hash);
                     if (id >= 0)
                     {
-
-                        Global.intermediaria.agregarMetadato(id, "title", Path.GetFileName(this.textBoxArchivo.Text));
+                        if (textBoxTitulo.Text != "" && textBoxTitulo.Text != null)
+                        {
+                            Global.intermediaria.agregarMetadato(id, "title", textBoxTitulo.Text);
+                        }
+                        else
+                        {
+                            Global.intermediaria.agregarMetadato(id, "title", Path.GetFileName(this.textBoxArchivo.Text));
+                        }
+                        if (textBoxArtista.Text != "" && textBoxArtista.Text != null)
+                        {
+                            Global.intermediaria.agregarMetadato(id, "artist", textBoxArtista.Text);
+                        }
+                        
                         success = true;
                     }
                 } else if (this.radioButtonUrl.Checked)
                 {
-                    if (Global.intermediaria.ProcesarCancion(this.songUrl) > 0)
+                    int id = Global.intermediaria.ProcesarCancion(this.songUrl);
+                    if (id > 0)
                     {
+                        if (textBoxTitulo.Text != "" && textBoxTitulo.Text != null)
+                        {
+                            Global.intermediaria.agregarMetadato(id, "title", textBoxTitulo.Text);
+                        }
+                        if(textBoxArtista.Text != "" && textBoxArtista.Text != null)
+                        {
+                            Global.intermediaria.agregarMetadato(id, "artist", textBoxArtista.Text);
+                        }
                         success = true;
                     }
                 }
