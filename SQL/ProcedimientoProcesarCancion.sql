@@ -10,56 +10,63 @@ create procedure ProcesarCancion
 	@idCancion int output
 as
 begin
-begin TRY
-	if @isLink=1 begin
-		-- Primero ver si ya existe la cancion
-		select @idCancion=l.IDCancion
-		from Link as l
-		where l.URL=@urlLink
+declare @tokens int
+exec TokensRestantes @usuario, @tokens output
 
-		-- En caso de que no insertarla
-		if @@ROWCOUNT=0 begin
-			select @idCancion=(max(ID)+1)
-			from Cancion
+if (@tokens > 0) begin
+	begin TRY
+		if @isLink=1 begin
+			-- Primero ver si ya existe la cancion
+			select @idCancion=l.IDCancion
+			from Link as l
+			where l.URL=@urlLink
 
-			insert into Cancion
-			values (@idCancion)
+			-- En caso de que no insertarla
+			if @@ROWCOUNT=0 begin
+				select @idCancion=(max(ID)+1)
+				from Cancion
 
-			insert into Link
-			values	(@idCancion, @urlLink)
-		end
+				insert into Cancion
+				values (@idCancion)
 
-	end else begin
-		-- Primero ver si ya existe la cancion
-		select @idCancion=m.IDCancion
-		from Mp3 as m
-		where m.FingerPrint=@mp3Fingerprint
+				insert into Link
+				values	(@idCancion, @urlLink)
+			end
+
+		end else begin
+			-- Primero ver si ya existe la cancion
+			select @idCancion=m.IDCancion
+			from Mp3 as m
+			where m.FingerPrint=@mp3Fingerprint
 		
-		-- En caso de que no, insertarla
-		if @@ROWCOUNT=0 begin
-			select @idCancion=(max(ID)+1)
-			from Cancion
+			-- En caso de que no, insertarla
+			if @@ROWCOUNT=0 begin
+				select @idCancion=(max(ID)+1)
+				from Cancion
 
-			insert into Cancion
-			values (@idCancion)
+				insert into Cancion
+				values (@idCancion)
 
-			insert into MP3
-			values	(@idCancion, @mp3Fingerprint)
-		end
+				insert into MP3
+				values	(@idCancion, @mp3Fingerprint)
+			end
 				
-	end
+		end
 
-		-- Agregar la tupla en procesa
-	insert into Procesa
-	values (@usuario,@idCancion,CONVERT(date, GETDATE()),@version)
+			-- Agregar la tupla en procesa
+		insert into Procesa
+		values (@usuario,@idCancion,CONVERT(date, GETDATE()),@version)
 
 
-	set @error=0
-end TRY
-begin CATCH
-	set @error=ERROR_NUMBER()
-end CATCH
-return
+		set @error=0
+	end TRY
+	begin CATCH
+		set @error=ERROR_NUMBER()
+	end CATCH
+end else begin
+	set @idCancion=-1;
+	set @error=1
+end
 end
 GO
 
