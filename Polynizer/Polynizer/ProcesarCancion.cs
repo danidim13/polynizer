@@ -268,17 +268,33 @@ namespace Polynizer
             DialogResult dialog = MessageBox.Show(warningMsg, "Procesar", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
+                bool success = false;
                 if (this.radioButtonMp3.Checked)
                 {
                     int id = Global.intermediaria.ProcesarCancion(this.mp3Hash);
                     if (id >= 0)
                     {
+
                         Global.intermediaria.agregarMetadato(id, "title", Path.GetFileName(this.textBoxArchivo.Text));
+                        success = true;
                     }
                 } else if (this.radioButtonUrl.Checked)
                 {
-                    Global.intermediaria.ProcesarCancion(this.songUrl);
+                    if (Global.intermediaria.ProcesarCancion(this.songUrl) > 0)
+                    {
+                        success = true;
+                    }
                 }
+
+                string resultMsg;
+                if (success)
+                {
+                    resultMsg = "¡Cancion procesada con éxito!";
+                } else
+                {
+                    resultMsg = "Hubo un error y no se pudo completar la operación. ¡Tranquilo/a, sus tokens no fueron usados!";
+                }
+                MessageBox.Show(resultMsg, "Procesar", MessageBoxButtons.OK);
 
             }
             else if (dialog == DialogResult.No)
