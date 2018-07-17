@@ -45,6 +45,7 @@
             this.regresarBTN = new System.Windows.Forms.Button();
             this.cancelarBTN = new System.Windows.Forms.Button();
             this.guardarBTN = new System.Windows.Forms.Button();
+            this.fechaDTP = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dispositivosDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,11 +215,21 @@
             this.guardarBTN.Visible = false;
             this.guardarBTN.Click += new System.EventHandler(this.guardarBTN_Click);
             // 
+            // fechaDTP
+            // 
+            this.fechaDTP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechaDTP.Location = new System.Drawing.Point(464, 162);
+            this.fechaDTP.Name = "fechaDTP";
+            this.fechaDTP.Size = new System.Drawing.Size(145, 20);
+            this.fechaDTP.TabIndex = 17;
+            this.fechaDTP.Visible = false;
+            // 
             // UsuarioVerPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 350);
+            this.Controls.Add(this.fechaDTP);
             this.Controls.Add(this.guardarBTN);
             this.Controls.Add(this.cancelarBTN);
             this.Controls.Add(this.regresarBTN);
@@ -264,5 +275,6 @@
         private System.Windows.Forms.Button regresarBTN;
         private System.Windows.Forms.Button cancelarBTN;
         private System.Windows.Forms.Button guardarBTN;
+        private System.Windows.Forms.DateTimePicker fechaDTP;
     }
 }

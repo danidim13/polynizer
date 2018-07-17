@@ -85,13 +85,14 @@ namespace Polynizer
             nombreTB.ReadOnly = false;
             apellidoTB.ReadOnly = false;
             emailTB.ReadOnly = false;
-            fechaNacTB.ReadOnly = false;
+            fechaNacTB.Hide();
             paisTB.ReadOnly = false;
 
             editarBTN.Hide();
             regresarBTN.Hide();
             cancelarBTN.Show();
             guardarBTN.Show();
+            fechaDTP.Show();
 
             MessageBox.Show("Los campos se han habilitado para edición.", "Editar Datos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
@@ -108,13 +109,14 @@ namespace Polynizer
             nombreTB.ReadOnly = true;
             apellidoTB.ReadOnly = true;
             emailTB.ReadOnly = true;
-            fechaNacTB.ReadOnly = true;
+            fechaNacTB.Show();
             paisTB.ReadOnly = true;
 
             editarBTN.Show();
             regresarBTN.Show();
             cancelarBTN.Hide();
             guardarBTN.Hide();
+            fechaDTP.Hide();
 
         }
 
@@ -123,13 +125,14 @@ namespace Polynizer
             nombreTB.ReadOnly = true;
             apellidoTB.ReadOnly = true;
             emailTB.ReadOnly = true;
-            fechaNacTB.ReadOnly = true;
+            fechaNacTB.Show();
             paisTB.ReadOnly = true;
 
             editarBTN.Show();
             regresarBTN.Show();
             cancelarBTN.Hide();
             guardarBTN.Hide();
+            fechaDTP.Hide();
 
             int errores = 0;
 
@@ -176,16 +179,15 @@ namespace Polynizer
             }
 
 
-            if (fecha != fechaNacTB.Text)
+            if (fecha != fechaDTP.Value.ToString("dd/MM/yyyy"))
             {
-                if (0 != Global.intermediaria.actualizarCampoUsuario("FechaNac", fechaNacTB.Text))
+                if (0 != Global.intermediaria.actualizarCampoUsuario("FechaNac", fechaDTP.Value.ToString("yyyy-MM-dd")))
                 {
-                    MessageBox.Show("Hubo un error cambiando la fecha de nacimiento. La fecha deber estar en formato yyyymmdd.", "Editar Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Hubo un error cambiando la fecha de nacimiento.", "Editar Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ++errores;
                 }
                 else
                 {
-                    
                     SqlDataReader campoActual = Global.intermediaria.obtenerCampoEspecificoUsuario("FechaNac");
                     if (campoActual.Read())
                     {
