@@ -16,6 +16,7 @@ namespace Polynizer
 
         public ListaCompras()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.llenarListaCompras();
             this.continueRunning = false;

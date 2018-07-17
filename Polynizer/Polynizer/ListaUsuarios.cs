@@ -17,6 +17,7 @@ namespace Polynizer
 
         public ListaUsuarios()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             correosCB.Items.Add("Todos");
             llenarComboBoxCorreos();

@@ -21,6 +21,7 @@ namespace Polynizer
          */ 
         public LoginWindow()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.continueRunning = false;
         }

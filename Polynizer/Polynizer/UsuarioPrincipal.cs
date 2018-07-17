@@ -17,6 +17,7 @@ namespace Polynizer
 
         public UsuarioPrincipal()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             ActulizarTextos();
             this.continueRunning = false;

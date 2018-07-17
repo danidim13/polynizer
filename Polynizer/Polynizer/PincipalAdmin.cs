@@ -17,6 +17,7 @@ namespace Polynizer
 
         public PincipalAdmin()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.continueRunning = false;
             SqlDataReader reader = Global.intermediaria.obtenerCampoEspecificoUsuario("Nombre");

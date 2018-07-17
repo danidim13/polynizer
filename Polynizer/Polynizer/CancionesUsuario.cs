@@ -16,6 +16,7 @@ namespace Polynizer
 
         public CancionesUsuario()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.continueRunning = false;
         }

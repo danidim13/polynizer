@@ -19,6 +19,7 @@ namespace Polynizer
          */
         public AgregarUsuario()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             llenarComboBoxPais();
             this.continueRunning = false;

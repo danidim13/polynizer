@@ -20,6 +20,7 @@ namespace Polynizer
          */ 
         public CancionesAdmin()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             comboBoxFiltro.Items.Clear();
             comboBoxFiltro.Items.Add("General");

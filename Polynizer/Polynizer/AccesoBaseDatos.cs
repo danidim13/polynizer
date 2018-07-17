@@ -14,11 +14,11 @@ namespace Polynizer
 {
     class AccesoBaseDatos
     {
-        /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
-        //String conexion = "Data Source=10.1.4.55; Initial Catalog=gaudyblanco; Integrated Security=SSPI";
+        /*Para conectarse a la base de datos desde la ecci.*/
+        //String conexion = "Data Source=10.1.4.55; Initial Catalog=DB_INTELLECT; Integrated Security=SSPI";
 
-        /*En Initial Catalog se agrega la base de datos propia. Intregated Security = false es para utilizar SQL SERVER Authentication*/
-        string conexion = "Data Source=10.1.4.55;User ID=B67697; Password=ToscanayManfred99; Initial Catalog=DB_INTELLECT; Integrated Security=false";
+        /*Para conectarse a la base de datos desde una conexión remota.*/
+        string conexion = "Data Source=10.1.4.55;User ID=x; Password=x; Initial Catalog=DB_INTELLECT; Integrated Security=false";
         /*CAMBIAR PASSWORD Y USER*/
         
         /**

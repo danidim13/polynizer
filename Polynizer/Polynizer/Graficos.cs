@@ -16,6 +16,7 @@ namespace Polynizer
 
         public Graficos()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.continueRunning = false;
         }

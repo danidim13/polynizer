@@ -23,6 +23,7 @@ namespace Polynizer
 
         public UsuarioVerPerfil()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             llenarTBs();
             llenarListaDispositivos();

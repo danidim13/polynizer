@@ -16,6 +16,7 @@ namespace Polynizer
 
         public ComprarTokens()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.continueRunning = false;
         }

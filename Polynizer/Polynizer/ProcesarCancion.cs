@@ -29,6 +29,7 @@ namespace Polynizer
 
         public ProcesaCancion()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.continueRunning = false;
         }

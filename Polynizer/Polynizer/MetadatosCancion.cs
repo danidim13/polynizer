@@ -20,6 +20,7 @@ namespace Polynizer
          */
         public MetadatosCancion(string IDCancion)
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             labelID.Text = IDCancion;
             llenarTabla(IDCancion);
