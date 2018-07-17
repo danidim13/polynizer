@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,6 +78,13 @@ namespace Polynizer
                 series.Points.Add(this.yValues[i]);
             }
             
+        }
+
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            string filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "chart.png");
+            this.chart1.SaveImage(filepath, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+            MessageBox.Show("Imagen guardada en MyPictures/chart.png", "Guardar", MessageBoxButtons.OK);
         }
     }
 }
