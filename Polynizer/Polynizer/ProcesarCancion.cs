@@ -233,11 +233,13 @@ namespace Polynizer
                     && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
                 if (validLink)
                 {
+                    this.songUrl = this.textBoxArchivo.Text;
                     this.buttonProcesar.Enabled = true;
                 }
                 else
                 {
                     this.buttonProcesar.Enabled = false;
+                    this.songUrl = "";
                 }
             }
         }
@@ -266,6 +268,17 @@ namespace Polynizer
             DialogResult dialog = MessageBox.Show(warningMsg, "Procesar", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
+                if (this.radioButtonMp3.Checked)
+                {
+                    int id = Global.intermediaria.ProcesarCancion(this.mp3Hash);
+                    if (id >= 0)
+                    {
+                        Global.intermediaria.agregarMetadato(id, "title", Path.GetFileName(this.textBoxArchivo.Text));
+                    }
+                } else if (this.radioButtonUrl.Checked)
+                {
+                    Global.intermediaria.ProcesarCancion(this.songUrl);
+                }
 
             }
             else if (dialog == DialogResult.No)

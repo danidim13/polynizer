@@ -18,7 +18,7 @@ namespace Polynizer
         //String conexion = "Data Source=10.1.4.55; Initial Catalog=gaudyblanco; Integrated Security=SSPI";
 
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security = false es para utilizar SQL SERVER Authentication*/
-        string conexion = "Data Source=10.1.4.55;User ID=B67697; Password=ToscanayManfred99; Initial Catalog=DB_INTELLECT; Integrated Security=false";
+        string conexion = "Data Source=10.1.4.55;User ID=x; Password=x; Initial Catalog=DB_INTELLECT; Integrated Security=false";
         /*CAMBIAR PASSWORD Y USER*/
         
         /**
@@ -254,6 +254,66 @@ namespace Polynizer
 
             }
 
+        }
+
+        public bool procesarCancion(string url, ref int id)
+        {
+            return this.ProcesarCancion(true, url, null, ref id);
+        }
+        public bool procesarCancion(byte[] hash, ref int id)
+        {
+            return this.ProcesarCancion(false, "", hash, ref id);
+        }
+
+        private bool ProcesarCancion(bool isLink, string url, byte[] hash, ref int id)
+        {
+            using (SqlConnection con = new SqlConnection(conexion))
+            {
+                using (SqlCommand cmd = new SqlCommand("ProcesarCancion", con))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = Global.correoUsuario;
+                        cmd.Parameters.Add("@version", SqlDbType.VarChar).Value = Global.VERSION;
+                        cmd.Parameters.Add("@error", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add("@idCancion", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                        if (isLink)
+                        {
+                            cmd.Parameters.Add("@isLink", SqlDbType.Bit).Value = true;
+                            cmd.Parameters.Add("@urlLink", SqlDbType.NVarChar).Value = url;
+                            cmd.Parameters.Add("@mp3Fingerprint", SqlDbType.Binary).Value = new byte[32];
+
+                        } else
+                        {
+                            cmd.Parameters.Add("@isLink", SqlDbType.Bit).Value = false;
+                            cmd.Parameters.Add("@urlLink", SqlDbType.NVarChar).Value = "";
+                            cmd.Parameters.Add("@mp3Fingerprint", SqlDbType.Binary).Value = hash;
+                        }
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+
+                        int errorCode = Convert.ToInt32(cmd.Parameters["@error"].Value);
+                        id = Convert.ToInt32(cmd.Parameters["@idCancion"].Value);
+                        Debug.Print("Procesar cancion: " + errorCode.ToString() + ", " + id.ToString());
+                        if (errorCode == 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    } catch (SqlException e)
+                    {
+                        Debug.Print(e.Message + e.StackTrace);
+                        return false;
+                    }
+                }
+            }
+            
         }
 
         /** 

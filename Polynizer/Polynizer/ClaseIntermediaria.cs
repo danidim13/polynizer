@@ -12,6 +12,7 @@ namespace Polynizer
     /*Clase global en la que se almacena el correo del usuario con el que se inició la aplicación*/
     public static class Global
     {
+        public const string VERSION = "0.0.2";
         public static string correoUsuario;
 
         public static LoginWindow login;
@@ -122,6 +123,11 @@ namespace Polynizer
             string hora = DateTime.Now.ToString("HH:mm:ss", System.Globalization.DateTimeFormatInfo.InvariantInfo);
             int result = bd.actualizarDatos("insert into Compra values ('" + Global.correoUsuario + "', '" + fecha + "', '" + hora + "', " + numTokens + ", 1)");
             return result;
+        }
+
+        public int agregarMetadato(int idCancion, string key, string value)
+        {
+            return bd.actualizarDatos("insert into Metadato values (" + idCancion.ToString() + ", '" + key + "', '" + value + "')");
         }
 
         /*Metodo que retorna las compras relacionadas al correo con el que se inició la aplicación.*/
@@ -322,6 +328,32 @@ namespace Polynizer
 
             }
             return tabla;
+        }
+
+        public int ProcesarCancion(string url)
+        {
+            int id = -1;
+            if (bd.procesarCancion(url, ref id))
+            {
+                return id;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public int ProcesarCancion(byte[] hash)
+        {
+            int id = -1;
+            if(bd.procesarCancion(hash, ref id))
+            {
+                return id;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }
