@@ -128,6 +128,7 @@
             this.Controls.Add(this.labelNombre);
             this.Name = "UsuarioPrincipal";
             this.Text = "UsuarioPrincipal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UsuarioPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.UsuarioPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

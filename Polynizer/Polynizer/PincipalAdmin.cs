@@ -13,6 +13,8 @@ namespace Polynizer
 {
     public partial class PincipalAdmin : Form
     {
+        private bool continueRunning = false;
+
         public PincipalAdmin()
         {
             InitializeComponent();
@@ -105,6 +107,7 @@ namespace Polynizer
             this.Controls.Add(this.canciones);
             this.Name = "PincipalAdmin";
             this.Text = "Principal Administrador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PincipalAdmin_FormClosing);
             this.Load += new System.EventHandler(this.PincipalAdmin_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,6 +121,7 @@ namespace Polynizer
             this.Hide();
             Global.adminListaUsuarios = new ListaUsuarios();
             Global.adminListaUsuarios.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -126,6 +130,7 @@ namespace Polynizer
             this.Hide();
             Global.adminCanciones = new CancionesAdmin();
             Global.adminCanciones.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -134,6 +139,7 @@ namespace Polynizer
             this.Hide();
             Global.login = new LoginWindow();
             Global.login.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -142,6 +148,7 @@ namespace Polynizer
             this.Hide();
             Global.adminGraficos = new Graficos();
             Global.adminGraficos.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -155,7 +162,16 @@ namespace Polynizer
             this.Hide();
             Global.login = new LoginWindow();
             Global.login.Show();
+            this.continueRunning = true;
             this.Close();
+        }
+
+        private void PincipalAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 }

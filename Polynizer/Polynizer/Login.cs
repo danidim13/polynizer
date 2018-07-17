@@ -83,7 +83,7 @@ namespace Polynizer
         {
             if (!this.continueRunning)
             {
-                Application.Exit();
+                Global.ConfirmExit(ref e);
             }
         }
     }

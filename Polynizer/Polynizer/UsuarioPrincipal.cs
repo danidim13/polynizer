@@ -13,6 +13,8 @@ namespace Polynizer
 {
     public partial class UsuarioPrincipal : Form
     {
+        private bool continueRunning = false;
+
         public UsuarioPrincipal()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace Polynizer
             this.Hide();
             Global.login = new LoginWindow();
             Global.login.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -48,6 +51,7 @@ namespace Polynizer
             this.Hide();
             Global.usuarioCompras = new ListaCompras();
             Global.usuarioCompras.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -56,6 +60,7 @@ namespace Polynizer
             this.Hide();
             Global.usuarioCanciones = new CancionesUsuario();
             Global.usuarioCanciones.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -64,6 +69,7 @@ namespace Polynizer
             this.Hide();
             Global.usuarioProcesarCancion = new ProcesaCancion();
             Global.usuarioProcesarCancion.Show();
+            this.continueRunning = true;
             this.Close();
         }
 
@@ -72,7 +78,16 @@ namespace Polynizer
             this.Hide();
             Global.usuarioVerPerfil = new UsuarioVerPerfil();
             Global.usuarioVerPerfil.Show();
+            this.continueRunning = true;
             this.Close();
+        }
+
+        private void UsuarioPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Global.ConfirmExit(ref e);
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Polynizer
 {
@@ -53,6 +54,20 @@ namespace Polynizer
 
 
             return login;
+        }
+
+        public static void ConfirmExit(ref FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("¿Está seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                Application.Exit();
+            } else
+            {
+                e.Cancel = true;
+            }
+
         }
 
 
