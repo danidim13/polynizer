@@ -192,29 +192,29 @@ namespace Polynizer
             DataTable tabla = null;
             try
             {
-                if(tipoFiltro == 0)
+                if (tipoFiltro == 0)
                 {
                     //Filtro general
-                    if(filtro == "" || filtro == null)
+                    if (filtro == "" || filtro == null)
                     {
-                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado from Procesa P");
+                        tabla = bd.ejecutarConsultaTabla("select Cancion.ID, Procesa.CorreoUsuario, Procesa.FechaRedimido, Procesa.VersionProcesado, Link.URL from Cancion left outer join Procesa on Cancion.ID = Procesa.IDCancion left outer join MP3 on Cancion.ID = MP3.IDCancion left outer join Link on Cancion.ID = Link.IDCancion");
                     }
                     else
                     {
-                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado, M.Llave as TipoMetadato , M.Valor as ValorMetadato from Procesa P left outer join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro +"%' or P.IDCancion like '%"+ filtro +"%' or M.Valor like '%"+ filtro +"%' or M.Llave like '%"+ filtro + "%' or P.VersionProcesado like '%" + filtro + "%'");
+                        tabla = bd.ejecutarConsultaTabla("select Cancion.ID, Procesa.CorreoUsuario, Procesa.FechaRedimido, Procesa.VersionProcesado, Link.URL, Metadato.Llave, Metadato.Valor from Cancion left outer join Procesa on Cancion.ID = Procesa.IDCancion left outer join MP3 on Cancion.ID = MP3.IDCancion left outer join Link on Cancion.ID = Link.IDCancion left outer join Metadato on Cancion.ID = Metadato.IDCancion where  Cancion.ID like '%" + filtro + "%' or  Procesa.CorreoUsuario like '%" + filtro + "%' or Link.URL like '%" + filtro + "%' or Metadato.Llave like '%" + filtro + "%' or Metadato.Valor like '%" + filtro + "%' or Procesa.FechaRedimido like '%" + filtro + "%' or Procesa.VersionProcesado like '%" + filtro + "%'");
                     }
                 }
                 else
                 {
-                    if(tipoFiltro==1)
+                    if (tipoFiltro == 1)
                     {
                         //Filtro por Usuario
-                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado from Procesa P where P.CorreoUsuario like '%" + filtro + "%'");
+                        tabla = bd.ejecutarConsultaTabla("select Cancion.ID, Procesa.CorreoUsuario, Procesa.FechaRedimido, Procesa.VersionProcesado, Link.URL, Metadato.Llave, Metadato.Valor from Cancion left outer join Procesa on Cancion.ID = Procesa.IDCancion left outer join MP3 on Cancion.ID = MP3.IDCancion left outer join Link on Cancion.ID = Link.IDCancion left outer join Metadato on Cancion.ID = Metadato.IDCancion where Procesa.CorreoUsuario like '%" + filtro + "%'");
                     }
                     else
                     {
                         //Filtro por Metadato
-                        tabla = bd.ejecutarConsultaTabla("select P.CorreoUsuario, P.IDCancion, P.FechaRedimido, P.VersionProcesado, M.Llave as TipoMetadato , M.Valor as ValorMetadato from Procesa P join Metadato M on P.IDCancion = M.IDCancion where M.Valor like '%" + filtro +"%'");
+                        tabla = bd.ejecutarConsultaTabla("select Cancion.ID, Procesa.CorreoUsuario, Procesa.FechaRedimido, Procesa.VersionProcesado, Link.URL, Metadato.Llave, Metadato.Valor from Cancion left outer join Procesa on Cancion.ID = Procesa.IDCancion left outer join MP3 on Cancion.ID = MP3.IDCancion left outer join Link on Cancion.ID = Link.IDCancion left outer join Metadato on Cancion.ID = Metadato.IDCancion where Metadato.Valor like '%" + filtro + "%'");
                     }
                 }
             }
@@ -272,11 +272,11 @@ namespace Polynizer
                     //Filtro general
                     if (filtro == "" || filtro == null)
                     {
-                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P");
+                        datos = bd.ejecutarConsulta("select distinct Cancion.ID from Cancion ");
                     }
                     else
                     {
-                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P left outer join Metadato M on P.IDCancion = M.IDCancion where P.CorreoUsuario like '%" + filtro + "%' or P.IDCancion like '%" + filtro + "%' or M.Valor like '%" + filtro + "%' or M.Llave like '%" + filtro + "%' or P.VersionProcesado like '%" + filtro + "%'");
+                        datos = bd.ejecutarConsulta("select distinct Cancion.ID from Cancion left outer join Procesa on Cancion.ID = Procesa.IDCancion left outer join MP3 on Cancion.ID = MP3.IDCancion left outer join Link on Cancion.ID = Link.IDCancion left outer join Metadato on Cancion.ID = Metadato.IDCancion where  Cancion.ID like '%" + filtro + "%' or  Procesa.CorreoUsuario like '%" + filtro + "%' or Link.URL like '%" + filtro + "%' or Metadato.Llave like '%" + filtro + "%' or Metadato.Valor like '%" + filtro + "%' or Procesa.FechaRedimido like '%" + filtro + "%' or Procesa.VersionProcesado like '%" + filtro + "%'");
                     }
                 }
                 else
@@ -284,12 +284,12 @@ namespace Polynizer
                     if (tipoFiltro == 1)
                     {
                         //Filtro por Usuario
-                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P where P.CorreoUsuario like '%" + filtro + "%'");
+                        datos = bd.ejecutarConsulta("select distinct Cancion.ID from Cancion left outer join Procesa on Cancion.ID = Procesa.IDCancion left outer join MP3 on Cancion.ID = MP3.IDCancion left outer join Link on Cancion.ID = Link.IDCancion left outer join Metadato on Cancion.ID = Metadato.IDCancion where Procesa.CorreoUsuario like '%" + filtro + "%'");
                     }
                     else
                     {
                         //Filtro por Metadato
-                        datos = bd.ejecutarConsulta("select distinct P.IDCancion from Procesa P join Metadato M on P.IDCancion = M.IDCancion where M.Valor like '%" + filtro + "%'");
+                        datos = bd.ejecutarConsulta("select distinct Cancion.ID from Cancion left outer join Procesa on Cancion.ID = Procesa.IDCancion left outer join MP3 on Cancion.ID = MP3.IDCancion left outer join Link on Cancion.ID = Link.IDCancion left outer join Metadato on Cancion.ID = Metadato.IDCancion where Metadato.Valor like '%" + filtro + "%'");
                     }
                 }
             }
@@ -299,7 +299,7 @@ namespace Polynizer
             }
             return datos;
         }
-        
+
         /*Metodo que comprueba si los datos ingresados para iniciar sesión son correctos.
           Recibe: un string correo, este es el correo que se va a buscar en la base de datos.
                   un string contraseña, esta es la contraseña que se va a buscar en la base de datos.
@@ -349,7 +349,7 @@ namespace Polynizer
         //    return bd.actualizarDatos(instruccion);
         //}
 
-        /*Mayquely*/
+        
         public DataTable obtenerCancionesUsuario(string filtro)
         {
 
@@ -399,7 +399,7 @@ namespace Polynizer
             int resultado = 0;
             try
             {
-                resultado = bd.actualizarDatos("delete from Cancion where ID ='" + IDCancion + "';");
+                resultado = bd.actualizarDatos("delete from Cancion where ID = '" + IDCancion + "'");
             }
             catch (SqlException ex)
             {
@@ -407,12 +407,17 @@ namespace Polynizer
             }
             if (resultado == 0)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
+        }
+
+        public int cantidadMetadatosCancion(string IDCancion)
+        {
+            return bd.cantidadMetadatos(IDCancion);
         }
 
         public int tokensRestantes(string correo)

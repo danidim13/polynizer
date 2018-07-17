@@ -116,12 +116,19 @@ namespace Polynizer
         {
             if(comboBoxMetadato.Text == "Seleccione el ID de la canción")
             {
-                MessageBox.Show("Por favor, seleccione una opción", "Ver Metadatos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, seleccione una opción.", "Ver Metadatos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MetadatosCancion metadatos = new MetadatosCancion(comboBoxMetadato.Text);//,controladorAplicacion);
-                metadatos.Show();
+                if(Global.intermediaria.cantidadMetadatosCancion(comboBoxMetadato.Text) > 0)
+                {
+                    MetadatosCancion metadatos = new MetadatosCancion(comboBoxMetadato.Text);
+                    metadatos.Show();
+                }
+                else
+                {
+                    MessageBox.Show("La canción seleccionada no tiene metadatos asociados.", "Ver Metadatos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -153,6 +160,22 @@ namespace Polynizer
                     if (resultado)
                     {
                         MessageBox.Show("Se eliminó la canción exitosamente", "Eliminar Canción", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        if (comboBoxFiltro.Text == "General")
+                        {
+                            llenarTabla(0, textBoxBuscar.Text);
+                        }
+                        else
+                        {
+                            if (comboBoxFiltro.Text == "Correo")
+                            {
+                                llenarTabla(1, textBoxBuscar.Text);
+                            }
+                            else
+                            {
+                                llenarTabla(2, textBoxBuscar.Text);
+                            }
+                        }
+                        llenarComboBoxMetadatos();
                     }
                     else
                     {
