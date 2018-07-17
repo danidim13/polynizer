@@ -32,7 +32,7 @@
             this.listaUsuariosDGV = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.correosCB = new System.Windows.Forms.ComboBox();
-            this.EditarBTN = new System.Windows.Forms.Button();
+            this.cambiarBTN = new System.Windows.Forms.Button();
             this.EliminarBTN = new System.Windows.Forms.Button();
             this.agregarLL = new System.Windows.Forms.LinkLabel();
             this.regresarLL = new System.Windows.Forms.LinkLabel();
@@ -77,21 +77,22 @@
             this.correosCB.TabIndex = 3;
             this.correosCB.SelectedIndexChanged += new System.EventHandler(this.correosCB_SelectedIndexChanged);
             // 
-            // EditarBTN
+            // cambiarBTN
             // 
-            this.EditarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditarBTN.Location = new System.Drawing.Point(316, 99);
-            this.EditarBTN.Name = "EditarBTN";
-            this.EditarBTN.Size = new System.Drawing.Size(75, 23);
-            this.EditarBTN.TabIndex = 4;
-            this.EditarBTN.Text = "Editar";
-            this.EditarBTN.UseVisualStyleBackColor = true;
-            this.EditarBTN.Click += new System.EventHandler(this.EditarBTN_Click);
+            this.cambiarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cambiarBTN.Location = new System.Drawing.Point(529, 85);
+            this.cambiarBTN.Name = "cambiarBTN";
+            this.cambiarBTN.Size = new System.Drawing.Size(106, 47);
+            this.cambiarBTN.TabIndex = 4;
+            this.cambiarBTN.Text = "Conceder administración";
+            this.cambiarBTN.UseVisualStyleBackColor = true;
+            this.cambiarBTN.Visible = false;
+            this.cambiarBTN.Click += new System.EventHandler(this.cambiarBTN_Click);
             // 
             // EliminarBTN
             // 
             this.EliminarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarBTN.Location = new System.Drawing.Point(436, 99);
+            this.EliminarBTN.Location = new System.Drawing.Point(270, 99);
             this.EliminarBTN.Name = "EliminarBTN";
             this.EliminarBTN.Size = new System.Drawing.Size(75, 23);
             this.EliminarBTN.TabIndex = 5;
@@ -129,7 +130,7 @@
             this.Controls.Add(this.regresarLL);
             this.Controls.Add(this.agregarLL);
             this.Controls.Add(this.EliminarBTN);
-            this.Controls.Add(this.EditarBTN);
+            this.Controls.Add(this.cambiarBTN);
             this.Controls.Add(this.correosCB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listaUsuariosDGV);
@@ -149,7 +150,7 @@
         private System.Windows.Forms.DataGridView listaUsuariosDGV;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox correosCB;
-        private System.Windows.Forms.Button EditarBTN;
+        private System.Windows.Forms.Button cambiarBTN;
         private System.Windows.Forms.Button EliminarBTN;
         private System.Windows.Forms.LinkLabel agregarLL;
         private System.Windows.Forms.LinkLabel regresarLL;
