@@ -78,7 +78,7 @@ namespace Polynizer
         }
 
         /**
-         * Método para ejecutar un insert, update o 
+         * Método para ejecutar un insert, update o delete
          * Recibe: la sentencia sql a 
          * Modifica: realiza el cambio en la base de datos de acuerdo al tipo de sentencia 
          * Retorna: el tipo de error que generó la consulta o cero si la ejecución fue exitosa
