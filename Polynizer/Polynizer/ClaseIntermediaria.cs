@@ -414,5 +414,10 @@ namespace Polynizer
                 return false;
             }
         }
+
+        public int cantidadMetadatosCancion(string IDCancion)
+        {
+            return bd.cantidadMetadatos(IDCancion);
+        }
     }
 }
