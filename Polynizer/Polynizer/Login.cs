@@ -64,5 +64,10 @@ namespace Polynizer
         private void labelTextoBienvenida_Click(object sender, EventArgs e){}
 
         private void LoginWindow_Load(object sender, EventArgs e){}
+
+        private void buttonCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
