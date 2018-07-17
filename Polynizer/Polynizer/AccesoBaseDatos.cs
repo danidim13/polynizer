@@ -316,13 +316,40 @@ namespace Polynizer
             
         }
 
-        /** 
-         * Metodo que verifica si el correo utilizado para iniciar sesión tiene permisos de administrador
-         * Recibe: El correo del usuario a verificar
-         * Modifica: Busca el bit de supUser en la base de datos
-         * Retorna: true si el usuario tiene permisos de administrador
-         */
-        public bool superUser (string correo)
+        public int tokensRestantes(string correo)
+        {
+            int tokens = 0;
+            using (SqlConnection con = new SqlConnection(conexion))
+            {
+                using (SqlCommand cmd = new SqlCommand("TokensRestantes", con))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@correo", SqlDbType.VarChar).Value = correo;
+                        cmd.Parameters.Add("@cantidad", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+
+                        tokens = Convert.ToInt32(cmd.Parameters["@cantidad"].Value);
+                    }
+                    catch (SqlException e)
+                    {
+                        return 0;
+                    }
+                }
+            }
+            return tokens;
+        }
+
+                        /** 
+                         * Metodo que verifica si el correo utilizado para iniciar sesión tiene permisos de administrador
+                         * Recibe: El correo del usuario a verificar
+                         * Modifica: Busca el bit de supUser en la base de datos
+                         * Retorna: true si el usuario tiene permisos de administrador
+                         */
+                        public bool superUser (string correo)
         {
             using (SqlConnection con = new SqlConnection(conexion))
             {

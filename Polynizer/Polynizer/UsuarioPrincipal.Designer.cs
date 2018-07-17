@@ -143,5 +143,7 @@
         private System.Windows.Forms.LinkLabel linkLabelPerfil;
         private System.Windows.Forms.LinkLabel linkLabelCerrarSesion;
         private System.Windows.Forms.Label labelTokens;
+
+        private int tokens;
     }
 }

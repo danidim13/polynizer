@@ -414,5 +414,10 @@ namespace Polynizer
                 return true;
             }
         }
+
+        public int tokensRestantes(string correo)
+        {
+            return bd.tokensRestantes(correo);
+        }
     }
 }
