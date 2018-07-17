@@ -38,6 +38,7 @@
             this.labelMetadato = new System.Windows.Forms.Label();
             this.comboBoxMetadato = new System.Windows.Forms.ComboBox();
             this.buttonVerMetadatos = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCanciones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +104,7 @@
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
             this.buttonAceptar.TabIndex = 7;
-            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.Text = "Regresar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 
@@ -112,22 +113,22 @@
             this.labelMetadato.AutoSize = true;
             this.labelMetadato.Location = new System.Drawing.Point(40, 448);
             this.labelMetadato.Name = "labelMetadato";
-            this.labelMetadato.Size = new System.Drawing.Size(93, 13);
+            this.labelMetadato.Size = new System.Drawing.Size(125, 13);
             this.labelMetadato.TabIndex = 8;
-            this.labelMetadato.Text = "Ver metadatos de:";
+            this.labelMetadato.Text = "Ver metadatos o eliminar:";
             // 
             // comboBoxMetadato
             // 
             this.comboBoxMetadato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMetadato.FormattingEnabled = true;
-            this.comboBoxMetadato.Location = new System.Drawing.Point(140, 445);
+            this.comboBoxMetadato.Location = new System.Drawing.Point(170, 445);
             this.comboBoxMetadato.Name = "comboBoxMetadato";
             this.comboBoxMetadato.Size = new System.Drawing.Size(179, 21);
             this.comboBoxMetadato.TabIndex = 9;
             // 
             // buttonVerMetadatos
             // 
-            this.buttonVerMetadatos.Location = new System.Drawing.Point(323, 443);
+            this.buttonVerMetadatos.Location = new System.Drawing.Point(353, 443);
             this.buttonVerMetadatos.Name = "buttonVerMetadatos";
             this.buttonVerMetadatos.Size = new System.Drawing.Size(75, 23);
             this.buttonVerMetadatos.TabIndex = 10;
@@ -135,11 +136,22 @@
             this.buttonVerMetadatos.UseVisualStyleBackColor = true;
             this.buttonVerMetadatos.Click += new System.EventHandler(this.buttonVerMetadatos_Click);
             // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(434, 443);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEliminar.TabIndex = 11;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
             // CancionesAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(687, 486);
+            this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonVerMetadatos);
             this.Controls.Add(this.comboBoxMetadato);
             this.Controls.Add(this.labelMetadato);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Label labelMetadato;
         private System.Windows.Forms.ComboBox comboBoxMetadato;
         private System.Windows.Forms.Button buttonVerMetadatos;
+        private System.Windows.Forms.Button buttonEliminar;
     }
 }

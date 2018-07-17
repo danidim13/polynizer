@@ -135,5 +135,31 @@ namespace Polynizer
         }
 
         private void CancionesAdmin_Load(object sender, EventArgs e){}
+
+
+        /*Metodo que elimina canciones*/
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (comboBoxMetadato.Text == "Seleccione el ID de la canción")
+            {
+                MessageBox.Show("Por favor, seleccione una opción", "Eliminar Canción", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (MessageBox.Show("Está seguro que desea eliminar la canción " + comboBoxMetadato.Text + "?", "Eliminar Canción", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    bool resultado = Global.intermediaria.eliminarCancion(comboBoxMetadato.Text);
+                    if (resultado)
+                    {
+                        MessageBox.Show("Se eliminó la canción exitosamente", "Eliminar Canción", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se eliminó la canción debido a que esta fue procesada por un usuario", "Eliminar Canción", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
