@@ -100,54 +100,10 @@ on delete cascade,
 );
 
 
-/*************************************************************/
---Procedimientos Almacenados
+/*Conexión de Interfaz con la base de datos*/
+/*Salt para el uso de contraseñas*/
+Alter table Usuario ADD salt uniqueidentifier
 
-/*Devuelve en el entero @Cantidad la cantidad de canciones procesadas relacionadas al correo del usuario*/
-GO
-CREATE PROCEDURE CantidadCancionesProcesadasUsuario @Correo varchar(50), @Cantidad int output
-as
-select @Cantidad = count (*)
-from Procesa P
-where P.CorreoUsuario =  @Correo 
-GO
-
-
-
-/*Devuelve en @cantidad el numero de tokens restantes de un usuario*/
-GO
-CREATE PROCEDURE TokensRestantes @correo correo_t, @cantidad int output
-AS BEGIN
-	DECLARE @comprados int, @usados int
-
-	SELECT @comprados=sum(c.NumTokens)
-	FROM Compra as c
-	WHERE c.Correo=@correo
-
-	SELECT @usados=count(*)
-	FROM Procesa as p
-	WHERE p.CorreoUsuario=@correo
-
-	set @cantidad = @comprados - @usados
-
-RETURN
-END
-GO
-
-/*Procedimiento para agregar un usuario*/
-go
-create procedure AgregarUsuario
-@correo varchar(50),	
-@nombre varchar(15),
-@apellido varchar(15),
-@fechaNac date,
-@fechaIni date,
-@passHash binary(64),
-@superUser bit
-as
-Insert into usuario (Correo, Nombre, Apellido,FechaNac, FechaIni,PasswordHash,Superuser)
-Values (@correo, @nombre, @apellido, @fechaNac, @fechaIni, @passHash, @superUser)
-go
 
 /****************************/
 /********** Reset ***********/
@@ -168,65 +124,3 @@ Drop type nompais_t
 Drop type correo_t
 */
 
-/*Conexión de Interfaz con la base de datos*/
-
-/*Salt para el uso de contraseñas*/
-Alter table Usuario ADD salt uniqueidentifier
-
-/*Login*/
-/*Usando los mismos metodos de la guía del Lab 5*/
-GO
-CREATE PROCEDURE dbo.Login @CorreoLogin correo_t, @PasswordLogin NVARCHAR(50), @enDB bit=0 OUTPUT
-AS
-BEGIN
-SET NOCOUNT ON
-DECLARE @usuario correo_t
-IF EXISTS (SELECT TOP 1	Correo FROM [dbo].[Usuario] WHERE Correo=@CorreoLogin) BEGIN
-	SET @usuario=(SELECT Correo FROM [dbo].[Usuario] WHERE Correo=@CorreoLogin AND PasswordHash=HASHBYTES('SHA2_512', @PasswordLogin+CAST(salt AS NVARCHAR(36))))
-	IF(@usuario IS NULL)
-		SET @enDB=0
-	ELSE
-		SET @enDB=1
-	END
-ELSE
-	SET @enDB=0
-END
-
-/* AgregarUsuario */
-Go
-CREATE PROCEDURE agregarUsuario  
-@correo varchar(50),	
-@nombre varchar(15),
-@apellido varchar(15),
-@fechaNac date,
-@fechaIni date,
-@pais nvarchar(45),
-@password NVARCHAR(50),
-@superUser bit,
-@estado bit OUTPUT
-AS BEGIN
-    SET NOCOUNT ON
-    DECLARE @salt UNIQUEIDENTIFIER=NEWID()
-    BEGIN TRY
-        Insert into usuario (Correo, Nombre, Apellido,FechaNac, FechaIni, NombrePais ,PasswordHash,Superuser,salt)
-        Values (@correo, @nombre, @apellido, @fechaNac, @fechaIni, @pais, HASHBYTES('SHA2_512', @password+CAST(@salt AS NVARCHAR(36))), @superUser, @salt)
-        SET @estado=1
-    END TRY
-    BEGIN CATCH
-        SET @estado=ERROR_MESSAGE()
-    END CATCH
-END
-
-/*superUser*/
-GO
-CREATE PROCEDURE superUser @CorreoLogin correo_t, @supUser bit = 0 OUTPUT
-AS
-BEGIN
-SET NOCOUNT ON
-IF EXISTS (SELECT TOP 1 Correo FROM Usuario WHERE Correo = @CorreoLogin AND Superuser = 1) BEGIN
-	SET @supUser = 1
-	END
-	ELSE BEGIN
-	SET @supUser = 0
-	END
-END

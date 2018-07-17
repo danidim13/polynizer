@@ -56,7 +56,6 @@
             this.listaUsuariosDGV.Name = "listaUsuariosDGV";
             this.listaUsuariosDGV.Size = new System.Drawing.Size(601, 231);
             this.listaUsuariosDGV.TabIndex = 1;
-            this.listaUsuariosDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaUsuariosDGV_CellContentClick);
             // 
             // label2
             // 

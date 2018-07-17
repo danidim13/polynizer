@@ -31,3 +31,15 @@ as begin
 end
 go
 
+GO
+CREATE PROCEDURE superUser @CorreoLogin correo_t, @supUser bit = 0 OUTPUT
+AS
+BEGIN
+SET NOCOUNT ON
+IF EXISTS (SELECT TOP 1 Correo FROM Usuario WHERE Correo = @CorreoLogin AND Superuser = 1) BEGIN
+	SET @supUser = 1
+	END
+	ELSE BEGIN
+	SET @supUser = 0
+	END
+END
