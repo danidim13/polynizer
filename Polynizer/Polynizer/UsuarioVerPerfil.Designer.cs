@@ -43,6 +43,8 @@
             this.paisTB = new System.Windows.Forms.TextBox();
             this.editarBTN = new System.Windows.Forms.Button();
             this.regresarBTN = new System.Windows.Forms.Button();
+            this.cancelarBTN = new System.Windows.Forms.Button();
+            this.guardarBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dispositivosDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +124,7 @@
             this.dispositivosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dispositivosDGV.Location = new System.Drawing.Point(31, 260);
             this.dispositivosDGV.Name = "dispositivosDGV";
+            this.dispositivosDGV.ReadOnly = true;
             this.dispositivosDGV.Size = new System.Drawing.Size(217, 77);
             this.dispositivosDGV.TabIndex = 7;
             // 
@@ -148,7 +151,6 @@
             this.emailTB.ReadOnly = true;
             this.emailTB.Size = new System.Drawing.Size(145, 20);
             this.emailTB.TabIndex = 10;
-            this.emailTB.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // apellidoTB
             // 
@@ -175,6 +177,7 @@
             this.editarBTN.TabIndex = 13;
             this.editarBTN.Text = "Editar";
             this.editarBTN.UseVisualStyleBackColor = true;
+            this.editarBTN.Click += new System.EventHandler(this.editarBTN_Click);
             // 
             // regresarBTN
             // 
@@ -187,11 +190,37 @@
             this.regresarBTN.UseVisualStyleBackColor = true;
             this.regresarBTN.Click += new System.EventHandler(this.regresarBTN_Click);
             // 
+            // cancelarBTN
+            // 
+            this.cancelarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelarBTN.Location = new System.Drawing.Point(453, 297);
+            this.cancelarBTN.Name = "cancelarBTN";
+            this.cancelarBTN.Size = new System.Drawing.Size(75, 40);
+            this.cancelarBTN.TabIndex = 15;
+            this.cancelarBTN.Text = "Cancelar";
+            this.cancelarBTN.UseVisualStyleBackColor = true;
+            this.cancelarBTN.Visible = false;
+            this.cancelarBTN.Click += new System.EventHandler(this.cancelarBTN_Click);
+            // 
+            // guardarBTN
+            // 
+            this.guardarBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarBTN.Location = new System.Drawing.Point(534, 297);
+            this.guardarBTN.Name = "guardarBTN";
+            this.guardarBTN.Size = new System.Drawing.Size(75, 40);
+            this.guardarBTN.TabIndex = 16;
+            this.guardarBTN.Text = "Guardar";
+            this.guardarBTN.UseVisualStyleBackColor = true;
+            this.guardarBTN.Visible = false;
+            this.guardarBTN.Click += new System.EventHandler(this.guardarBTN_Click);
+            // 
             // UsuarioVerPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 350);
+            this.Controls.Add(this.guardarBTN);
+            this.Controls.Add(this.cancelarBTN);
             this.Controls.Add(this.regresarBTN);
             this.Controls.Add(this.editarBTN);
             this.Controls.Add(this.paisTB);
@@ -233,5 +262,7 @@
         private System.Windows.Forms.TextBox paisTB;
         private System.Windows.Forms.Button editarBTN;
         private System.Windows.Forms.Button regresarBTN;
+        private System.Windows.Forms.Button cancelarBTN;
+        private System.Windows.Forms.Button guardarBTN;
     }
 }

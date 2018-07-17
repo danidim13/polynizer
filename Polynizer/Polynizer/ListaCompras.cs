@@ -15,20 +15,20 @@ namespace Polynizer
         public ListaCompras()
         {
             InitializeComponent();
-            this.llenarListaCompras(listaComprasDGV);
+            this.llenarListaCompras();
         }
 
 
-        private void llenarListaCompras(DataGridView dataGridView)
+        private void llenarListaCompras()
         {
             DataTable tabla = Global.intermediaria.obtenerCompras();
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = tabla;
-            dataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
-            dataGridView.DataSource = bindingSource;
+            listaComprasDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+            listaComprasDGV.DataSource = bindingSource;
             for (int i = 0; i < listaComprasDGV.ColumnCount; i++)
             {
-                dataGridView.Columns[i].Width = 162;
+                listaComprasDGV.Columns[i].Width = 162;
             }
         }
 

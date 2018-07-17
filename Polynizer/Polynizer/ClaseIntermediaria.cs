@@ -75,16 +75,54 @@ namespace Polynizer
             bd = new AccesoBaseDatos();
         }
 
+        /*Actualiza un campo especifico del usuario que tiene la sesion activa*/
+        public int actualizarCampoUsuario(string campo, string valor)
+        {
+            return bd.actualizarDatos("update Usuario Set " + campo + " = '" + valor + "' where Correo = '" + Global.correoUsuario + "'");
+        }
+
+        /*Devuelve el valor de un campo especifico del usuario con la sesion activa*/
+        public SqlDataReader obtenerCampoEspecificoUsuario(string campo)
+        {
+            SqlDataReader valor = null;
+            try
+            {
+                valor = bd.ejecutarConsulta("Select " + campo + " from Usuario where Correo = '" + Global.correoUsuario + "'");
+            }
+            catch (SqlException)
+            {
+
+            }
+            return valor;
+        }
+
+        /*Elimina el usuario especificado por su correo.*/
         public int eliminarUsuario(string correo)
         {
             return bd.actualizarDatos("delete from Usuario where Correo = '" + correo + "'");
         }
 
+        /* Devuelve una tabla con los dispositivos del usuario */
+        public DataTable obtenerDispositivos()
+        {
+            DataTable tabla = null;
+            try
+            {
+                tabla = bd.ejecutarConsultaTabla("select UUID As IMEI from Dispositivo where CorreoUsuario = '" + Global.correoUsuario + "'");
+            }
+            catch (SqlException)
+            {
+
+            }
+            return tabla;
+        }
+
+        /*Devuelve una lista de todos los correos registrados */
         public SqlDataReader obtenerListaCorreos()
         {
             SqlDataReader lista = null;
             try
-            {   
+            {
                 lista = bd.ejecutarConsulta("Select U.Correo from Usuario U");
             }
             catch (SqlException ex)
@@ -93,13 +131,13 @@ namespace Polynizer
             }
             return lista;
         }
-
+        /*Devuelve una tabla de los usuarios filtrados por el correo. */
         public DataTable obtenerUsuarios(string correo)
         {
             DataTable tabla = null;
             try
             {
-                if(correo == "")
+                if (correo == "")
                 {
                     tabla = bd.ejecutarConsultaTabla("select U.Correo, U.Nombre, U.Apellido, U.FechaNac As FechaDeNacimiento, U.FechaIni As FechaDeInscripción, U.NombrePais As Pais, U.Superuser As Administrador from Usuario U");
                 }
@@ -107,7 +145,7 @@ namespace Polynizer
                 {
                     tabla = bd.ejecutarConsultaTabla("select U.Correo, U.Nombre, U.Apellido, U.FechaNac As FechaDeNacimiento, U.FechaIni As FechaDeInscripción, U.NombrePais As Pais, U.Superuser As Administrador from Usuario U where U.Correo = '" + correo + "'");
                 }
-                
+
             }
             catch (SqlException)
             {

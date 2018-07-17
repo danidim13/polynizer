@@ -54,6 +54,7 @@
             this.listaUsuariosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listaUsuariosDGV.Location = new System.Drawing.Point(34, 146);
             this.listaUsuariosDGV.Name = "listaUsuariosDGV";
+            this.listaUsuariosDGV.ReadOnly = true;
             this.listaUsuariosDGV.Size = new System.Drawing.Size(601, 231);
             this.listaUsuariosDGV.TabIndex = 1;
             // 

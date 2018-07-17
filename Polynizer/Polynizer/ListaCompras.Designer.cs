@@ -40,6 +40,7 @@
             this.listaComprasDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listaComprasDGV.Location = new System.Drawing.Point(26, 99);
             this.listaComprasDGV.Name = "listaComprasDGV";
+            this.listaComprasDGV.ReadOnly = true;
             this.listaComprasDGV.Size = new System.Drawing.Size(530, 217);
             this.listaComprasDGV.TabIndex = 3;
             // 
