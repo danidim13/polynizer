@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace Polynizer
         public PincipalAdmin()
         {
             InitializeComponent();
+
+            SqlDataReader reader = Global.intermediaria.obtenerCampoEspecificoUsuario("Nombre");
+            if (reader.Read())
+            {
+                this.labelNombre.Text = Convert.ToString(reader.GetValue(0));
+            }
         }
 
         
@@ -29,15 +36,16 @@ namespace Polynizer
             this.canciones = new System.Windows.Forms.Button();
             this.Usuarios = new System.Windows.Forms.Button();
             this.Estadisticas = new System.Windows.Forms.Button();
-            this.CerrarSesion = new System.Windows.Forms.Button();
+            this.linkLabelCerrarSesion = new System.Windows.Forms.LinkLabel();
+            this.labelNombre = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // canciones
             // 
-            this.canciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.canciones.Location = new System.Drawing.Point(31, 172);
+            this.canciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.canciones.Location = new System.Drawing.Point(29, 156);
             this.canciones.Name = "canciones";
-            this.canciones.Size = new System.Drawing.Size(134, 40);
+            this.canciones.Size = new System.Drawing.Size(518, 67);
             this.canciones.TabIndex = 0;
             this.canciones.Text = "Canciones";
             this.canciones.UseVisualStyleBackColor = true;
@@ -45,10 +53,10 @@ namespace Polynizer
             // 
             // Usuarios
             // 
-            this.Usuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Usuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Usuarios.Location = new System.Drawing.Point(31, 83);
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(134, 40);
+            this.Usuarios.Size = new System.Drawing.Size(518, 67);
             this.Usuarios.TabIndex = 1;
             this.Usuarios.Text = "Usuarios";
             this.Usuarios.UseVisualStyleBackColor = true;
@@ -56,30 +64,42 @@ namespace Polynizer
             // 
             // Estadisticas
             // 
-            this.Estadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Estadisticas.Location = new System.Drawing.Point(31, 259);
+            this.Estadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Estadisticas.Location = new System.Drawing.Point(29, 229);
             this.Estadisticas.Name = "Estadisticas";
-            this.Estadisticas.Size = new System.Drawing.Size(134, 40);
+            this.Estadisticas.Size = new System.Drawing.Size(518, 67);
             this.Estadisticas.TabIndex = 2;
             this.Estadisticas.Text = "Estadísticas";
             this.Estadisticas.UseVisualStyleBackColor = true;
             this.Estadisticas.Click += new System.EventHandler(this.Estadisticas_Click);
             // 
-            // CerrarSesion
+            // linkLabelCerrarSesion
             // 
-            this.CerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CerrarSesion.Location = new System.Drawing.Point(446, 23);
-            this.CerrarSesion.Name = "CerrarSesion";
-            this.CerrarSesion.Size = new System.Drawing.Size(103, 40);
-            this.CerrarSesion.TabIndex = 3;
-            this.CerrarSesion.Text = "Cerrar sesión";
-            this.CerrarSesion.UseVisualStyleBackColor = true;
-            this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
+            this.linkLabelCerrarSesion.AutoSize = true;
+            this.linkLabelCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelCerrarSesion.Location = new System.Drawing.Point(436, 32);
+            this.linkLabelCerrarSesion.Name = "linkLabelCerrarSesion";
+            this.linkLabelCerrarSesion.Size = new System.Drawing.Size(111, 20);
+            this.linkLabelCerrarSesion.TabIndex = 4;
+            this.linkLabelCerrarSesion.TabStop = true;
+            this.linkLabelCerrarSesion.Text = "Cerrar sesión";
+            this.linkLabelCerrarSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCerrarSesion_LinkClicked);
+            // 
+            // labelNombre
+            // 
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.Location = new System.Drawing.Point(28, 35);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(87, 25);
+            this.labelNombre.TabIndex = 5;
+            this.labelNombre.Text = "Nombre";
             // 
             // PincipalAdmin
             // 
-            this.ClientSize = new System.Drawing.Size(570, 401);
-            this.Controls.Add(this.CerrarSesion);
+            this.ClientSize = new System.Drawing.Size(586, 401);
+            this.Controls.Add(this.labelNombre);
+            this.Controls.Add(this.linkLabelCerrarSesion);
             this.Controls.Add(this.Estadisticas);
             this.Controls.Add(this.Usuarios);
             this.Controls.Add(this.canciones);
@@ -87,6 +107,7 @@ namespace Polynizer
             this.Text = "Principal Administrador";
             this.Load += new System.EventHandler(this.PincipalAdmin_Load_1);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,6 +148,14 @@ namespace Polynizer
         private void PincipalAdmin_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabelCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Global.login = new LoginWindow();
+            Global.login.Show();
+            this.Close();
         }
     }
 }

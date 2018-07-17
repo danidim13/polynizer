@@ -22,6 +22,7 @@
         private System.Windows.Forms.Button canciones;
         private System.Windows.Forms.Button Usuarios;
         private System.Windows.Forms.Button Estadisticas;
-        private System.Windows.Forms.Button CerrarSesion;
+        private System.Windows.Forms.LinkLabel linkLabelCerrarSesion;
+        private System.Windows.Forms.Label labelNombre;
     }
 }
