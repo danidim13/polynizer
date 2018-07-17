@@ -355,5 +355,26 @@ namespace Polynizer
                 return -1;
             }
         }
+
+        public bool eliminarCancion(string IDCancion)
+        {
+            int resultado = 0;
+            try
+            {
+                resultado = bd.actualizarDatos("delete from Cancion where ID ='" + IDCancion + "';");
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            if (resultado == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
