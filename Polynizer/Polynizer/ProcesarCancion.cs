@@ -301,22 +301,32 @@ namespace Polynizer
             if(this.radioButtonMp3.Checked)
             {
                 this.SelectMp3();
+      
             }
         }
 
         private void radioButtonMp3_CheckedChanged(object sender, EventArgs e)
         {
             this.ClearInputs();
+            if (this.radioButtonMp3.Checked)
+            {
+                this.textBoxArchivo.Text = "Haz click aquí para seleccionar un archivo.";
+            }
+
         }
 
         private void radioButtonUrl_CheckedChanged(object sender, EventArgs e)
         {
             this.ClearInputs();
+            if (this.radioButtonUrl.Checked)
+            {
+                this.textBoxArchivo.Text = "Ingrese un URL.";
+            }
         }
 
         private void buttonProcesar_Click(object sender, EventArgs e)
         {
-            string warningMsg = "Los tokens no son reembolsables, está seguro que desea procesar esta canción?";
+            string warningMsg = "Para procesar una canción debe usar un token. ¿Está seguro que desea procesar esta canción? Los tokens no son reembolsables.";
             DialogResult dialog = MessageBox.Show(warningMsg, "Procesar", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
