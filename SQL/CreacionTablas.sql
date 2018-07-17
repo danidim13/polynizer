@@ -69,7 +69,7 @@ CREATE TABLE Link
 --https://support.microsoft.com/en-us/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer
 
 CREATE TABLE Metadato
-	( IDCancion int not null FOREIGN KEY REFERENCES Cancion (ID),
+	( IDCancion int not null FOREIGN KEY REFERENCES Cancion (ID) on delete cascade,
 	  Llave varchar(10) not null,
 	  Valor varchar(400),
 	  Primary Key (IDCancion, Llave)

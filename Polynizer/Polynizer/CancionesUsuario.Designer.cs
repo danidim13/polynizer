@@ -104,6 +104,8 @@
             this.Controls.Add(this.texFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CancionesUsuario";
             this.Text = "Canciones usuario";
             this.Load += new System.EventHandler(this.CancionesUsuario_Load);

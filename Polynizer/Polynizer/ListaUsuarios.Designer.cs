@@ -135,6 +135,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listaUsuariosDGV);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ListaUsuarios";
             this.Text = "ListaUsuarios";
             this.Load += new System.EventHandler(this.ListaUsuarios_Load);

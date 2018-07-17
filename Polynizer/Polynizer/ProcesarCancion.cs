@@ -139,6 +139,8 @@ namespace Polynizer
             this.Controls.Add(this.radioButtonUrl);
             this.Controls.Add(this.radioButtonMp3);
             this.Controls.Add(this.buttonCancelar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ProcesaCancion";
             this.Load += new System.EventHandler(this.ProcesaCancion_Load);
             this.ResumeLayout(false);
@@ -286,7 +288,8 @@ namespace Polynizer
                     resultMsg = "¡Cancion procesada con éxito!";
                 } else
                 {
-                    resultMsg = "Hubo un error y no se pudo completar la operación. ¡Tranquilo/a, sus tokens no fueron usados!";
+                    //resultMsg = "Hubo un error y no se pudo completar la operación. ¡Tranquilo/a, sus tokens no fueron usados!";
+                    resultMsg = "Lo sentimos, no le quedan suficientes Tokens para procesar esta canción. Si desea adquirir más Tokens puede utilizar la ventana de compras.";
                 }
                 MessageBox.Show(resultMsg, "Procesar", MessageBoxButtons.OK);
 

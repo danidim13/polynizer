@@ -106,6 +106,8 @@ namespace Polynizer
             this.Controls.Add(this.Estadisticas);
             this.Controls.Add(this.Usuarios);
             this.Controls.Add(this.canciones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "PincipalAdmin";
             this.Text = "Principal Administrador";
             this.Load += new System.EventHandler(this.PincipalAdmin_Load_1);

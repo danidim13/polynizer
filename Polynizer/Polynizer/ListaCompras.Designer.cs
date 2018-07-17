@@ -85,6 +85,8 @@
             this.Controls.Add(this.regresarBTN);
             this.Controls.Add(this.listaComprasDGV);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ListaCompras";
             this.Text = "Compras";
             this.Load += new System.EventHandler(this.ListaCompras_Load);

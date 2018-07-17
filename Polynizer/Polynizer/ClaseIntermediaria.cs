@@ -391,7 +391,7 @@ namespace Polynizer
             try
             {
 
-                tabla = bd.ejecutarConsultaTabla("Select p.IDCancion, m.Llave, m.Valor from metadato m join procesa p on m.IDCancion = p.IDCancion where m.llave like '%" + filtro + "%' and p.CorreoUsuario like '" + Global.correoUsuario + "'");
+                tabla = bd.ejecutarConsultaTabla("Select p.IDCancion, m.Llave, m.Valor from metadato m right outer join procesa p on m.IDCancion = p.IDCancion where (m.Llave like '%" + filtro + "%' and p.CorreoUsuario like '" + Global.correoUsuario + "') or (m.Valor like '%" + filtro + "%' and p.CorreoUsuario like '" + Global.correoUsuario + "') or (p.IDCancion like '%" + filtro + "%' and p.CorreoUsuario like '%" + Global.correoUsuario + "%')");
 
             }
             catch (SqlException ex)

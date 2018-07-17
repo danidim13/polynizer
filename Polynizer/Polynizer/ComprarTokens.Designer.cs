@@ -82,6 +82,8 @@
             this.Controls.Add(this.comprarBTN);
             this.Controls.Add(this.numTokensTB);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ComprarTokens";
             this.Text = "Comprar Tokens";
             this.Load += new System.EventHandler(this.ComprarTokens_Load);
