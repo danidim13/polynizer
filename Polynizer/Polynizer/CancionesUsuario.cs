@@ -54,6 +54,7 @@ namespace Polynizer
         private void button2_Click(object sender, EventArgs e)
         {
             //Regresa a perfil
+            this.Hide();
             Global.usuarioPrincipal = new UsuarioPrincipal();
             Global.usuarioPrincipal.Show();
             this.Close();

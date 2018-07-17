@@ -58,26 +58,15 @@ namespace Polynizer
 
         private void regresarBTN_Click(object sender, EventArgs e)
         {
-            //Regresar a la pantalla ListaCompras
-        }
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            this.Hide();
+            Global.usuarioCompras = new ListaCompras();
+            Global.usuarioCompras.Show();
+            this.Close();
         }
 
         private void ComprarTokens_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void regresarBTN_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            Global.usuarioCompras = new ListaCompras();
-            Global.usuarioCompras.Show();
-            this.Close();
         }
     }
 }

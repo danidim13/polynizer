@@ -19,9 +19,15 @@ namespace Polynizer
 
         private void buttonRegresar_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Global.adminPrincipal = new PincipalAdmin();
             Global.adminPrincipal.Show();
             this.Close();
+        }
+
+        private void Graficos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

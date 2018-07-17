@@ -156,6 +156,9 @@
     <EmbeddedResource Include="PincipalAdmin.resx">
       <DependentUpon>PincipalAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProcesarCancion.resx">
+      <DependentUpon>ProcesarCancion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

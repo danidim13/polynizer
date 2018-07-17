@@ -37,11 +37,19 @@ namespace Polynizer
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void regresarBTN_Click(object sender, EventArgs e)
         {
             this.Hide();
             Global.usuarioPrincipal = new UsuarioPrincipal();
             Global.usuarioPrincipal.Show();
+            this.Close();
+        }
+
+        private void comprarTokensLL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Global.usuarioComprarTokens = new ComprarTokens();
+            Global.usuarioComprarTokens.Show();
             this.Close();
         }
     }

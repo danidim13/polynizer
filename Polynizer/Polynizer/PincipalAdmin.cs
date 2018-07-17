@@ -85,6 +85,7 @@ namespace Polynizer
             this.Controls.Add(this.canciones);
             this.Name = "PincipalAdmin";
             this.Text = "Principal Administrador";
+            this.Load += new System.EventHandler(this.PincipalAdmin_Load_1);
             this.ResumeLayout(false);
 
         }
@@ -93,6 +94,7 @@ namespace Polynizer
 
         private void Usuarios_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Global.adminListaUsuarios = new ListaUsuarios();
             Global.adminListaUsuarios.Show();
             this.Close();
@@ -100,6 +102,7 @@ namespace Polynizer
 
         private void canciones_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Global.adminCanciones = new CancionesAdmin();
             Global.adminCanciones.Show();
             this.Close();
@@ -107,6 +110,7 @@ namespace Polynizer
 
         private void CerrarSesion_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Global.login = new LoginWindow();
             Global.login.Show();
             this.Close();
@@ -114,9 +118,15 @@ namespace Polynizer
 
         private void Estadisticas_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Global.adminGraficos = new Graficos();
             Global.adminGraficos.Show();
             this.Close();
+        }
+
+        private void PincipalAdmin_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

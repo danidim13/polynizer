@@ -17,11 +17,6 @@ namespace Polynizer
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ListaUsuarios_Load(object sender, EventArgs e)
         {
 
@@ -32,18 +27,15 @@ namespace Polynizer
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void EditarBTN_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void agregarLL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
             Global.adminAgregarUsuario = new AgregarUsuario();
             Global.adminAgregarUsuario.Show();
             this.Close();
@@ -51,9 +43,20 @@ namespace Polynizer
 
         private void regresarLL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
             Global.adminPrincipal = new PincipalAdmin();
             Global.adminPrincipal.Show();
             this.Close();
+        }
+
+        private void correosCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EliminarBTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
