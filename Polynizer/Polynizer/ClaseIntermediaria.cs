@@ -96,6 +96,12 @@ namespace Polynizer
             return bd.actualizarDatos("update Usuario Set " + campo + " = '" + valor + "' where Correo = '" + Global.correoUsuario + "'");
         }
 
+        /*Actualiza un campo especifico del usuario con el correo especificado*/
+        public int actualizarCampoOtroUsuario(string campo, string valor, string correo)
+        {
+            return bd.actualizarDatos("update Usuario Set " + campo + " = '" + valor + "' where Correo = '" + correo + "'");
+        }
+
         /*Devuelve el valor de un campo especifico del usuario con la sesion activa*/
         public SqlDataReader obtenerCampoEspecificoUsuario(string campo)
         {
@@ -103,6 +109,21 @@ namespace Polynizer
             try
             {
                 valor = bd.ejecutarConsulta("Select " + campo + " from Usuario where Correo = '" + Global.correoUsuario + "'");
+            }
+            catch (SqlException)
+            {
+
+            }
+            return valor;
+        }
+
+        /*Devuelve el valor de un campo especifico del usuario con el correo especificado*/
+        public SqlDataReader obtenerCampoEspecificoOtroUsuario(string campo, string correo)
+        {
+            SqlDataReader valor = null;
+            try
+            {
+                valor = bd.ejecutarConsulta("Select " + campo + " from Usuario where Correo = '" + correo + "'");
             }
             catch (SqlException)
             {
