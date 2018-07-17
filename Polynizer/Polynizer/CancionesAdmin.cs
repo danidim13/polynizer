@@ -153,6 +153,22 @@ namespace Polynizer
                     if (resultado)
                     {
                         MessageBox.Show("Se eliminó la canción exitosamente", "Eliminar Canción", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        if (comboBoxFiltro.Text == "General")
+                        {
+                            llenarTabla(0, textBoxBuscar.Text);
+                        }
+                        else
+                        {
+                            if (comboBoxFiltro.Text == "Correo")
+                            {
+                                llenarTabla(1, textBoxBuscar.Text);
+                            }
+                            else
+                            {
+                                llenarTabla(2, textBoxBuscar.Text);
+                            }
+                        }
+                        llenarComboBoxMetadatos();
                     }
                     else
                     {
