@@ -74,7 +74,47 @@ namespace Polynizer
             bd = new AccesoBaseDatos();
         }
 
-        
+        public int eliminarUsuario(string correo)
+        {
+            return bd.actualizarDatos("delete from Usuario where Correo = '" + correo + "'");
+        }
+
+        public SqlDataReader obtenerListaCorreos()
+        {
+            SqlDataReader lista = null;
+            try
+            {   
+                lista = bd.ejecutarConsulta("Select U.Correo from Usuario U");
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            return lista;
+        }
+
+        public DataTable obtenerUsuarios(string correo)
+        {
+            DataTable tabla = null;
+            try
+            {
+                if(correo == "")
+                {
+                    tabla = bd.ejecutarConsultaTabla("select U.Correo, U.Nombre, U.Apellido, U.FechaNac As FechaDeNacimiento, U.FechaIni As FechaDeInscripción, U.NombrePais As Pais, U.Superuser As Administrador from Usuario U");
+                }
+                else
+                {
+                    tabla = bd.ejecutarConsultaTabla("select U.Correo, U.Nombre, U.Apellido, U.FechaNac As FechaDeNacimiento, U.FechaIni As FechaDeInscripción, U.NombrePais As Pais, U.Superuser As Administrador from Usuario U where U.Correo = '" + correo + "'");
+                }
+                
+            }
+            catch (SqlException)
+            {
+
+            }
+            return tabla;
+        }
+
         /* Metodo que inserta en la tabla Compra una tupla asociada al correo del usuario actual con la cantidad de tokens pasados por parámetro.*/
         public int comprarTokens(int numTokens)
         {

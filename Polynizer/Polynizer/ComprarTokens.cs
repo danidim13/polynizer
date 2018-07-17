@@ -39,6 +39,10 @@ namespace Polynizer
                         if (0 == Global.intermediaria.comprarTokens(i))
                         {
                             MessageBox.Show("¡Su compra fue exitosa!", "Comprar Tokens", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            this.Hide();
+                            Global.usuarioCompras = new ListaCompras();
+                            Global.usuarioCompras.Show();
+                            this.Close();
                         }
                         else
                         {

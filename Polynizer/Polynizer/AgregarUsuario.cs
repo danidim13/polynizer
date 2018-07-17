@@ -74,6 +74,11 @@ namespace Polynizer
                     textBoxApellido.Clear();
                     textBoxContraseñaUsuario.Clear();
                     comboBoxPais.SelectedIndex = 0;
+
+                    this.Hide();
+                    Global.adminListaUsuarios = new ListaUsuarios();
+                    Global.adminListaUsuarios.Show();
+                    this.Close();
                 }
                 else
                 {
