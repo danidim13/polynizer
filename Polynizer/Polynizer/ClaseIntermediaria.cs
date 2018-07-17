@@ -33,6 +33,7 @@ namespace Polynizer
 
         public static ClaseIntermediaria intermediaria = new ClaseIntermediaria();
 
+        private static bool exit = false;
 
         public static LoginWindow StartApp()
         {
@@ -58,13 +59,19 @@ namespace Polynizer
 
         public static void ConfirmExit(ref FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (!exit)
             {
-                Application.Exit();
-            } else
-            {
-                e.Cancel = true;
+                if (MessageBox.Show("¿Está seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    exit = true;
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
+
 
         }
 
