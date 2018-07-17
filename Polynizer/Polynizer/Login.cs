@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,7 @@ namespace Polynizer
                         this.Hide();
                         Global.adminPrincipal = new PincipalAdmin();
                         Global.adminPrincipal.Show();
+                        this.continueRunning = true;
                         this.Close();
                     }
                     else
@@ -47,6 +49,7 @@ namespace Polynizer
                         this.Hide();
                         Global.usuarioPrincipal = new UsuarioPrincipal();
                         Global.usuarioPrincipal.Show();
+                        this.continueRunning = true;
                         this.Close();
                     }
                 }
@@ -68,6 +71,20 @@ namespace Polynizer
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+
+        private void LoginWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void LoginWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.continueRunning)
+            {
+                Application.Exit();
+            }
         }
     }
 }
