@@ -13,7 +13,13 @@ AS BEGIN
 	FROM Procesa as p
 	WHERE p.CorreoUsuario=@correo
 
-	set @cantidad = @comprados - @usados
+	if (@comprados is null) begin
+		set @cantidad = 0
+	end else if (@usados is null) begin
+		set @cantidad = @comprados;
+	end else begin
+		set @cantidad = @comprados - @usados
+	end
 
 RETURN
 END
