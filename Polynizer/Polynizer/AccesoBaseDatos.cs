@@ -1,4 +1,6 @@
-﻿using System;
+﻿/*Esta clase es la misma clase que se utilizó en el laboratorio del curso para establecer la conexión con la base de datos, con algunos metodos nuevos para diferentes tipos de consultas*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
