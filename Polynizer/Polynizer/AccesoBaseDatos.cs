@@ -15,10 +15,10 @@ namespace Polynizer
     class AccesoBaseDatos
     {
         /*Para conectarse a la base de datos desde la ecci.*/
-        //String conexion = "Data Source=10.1.4.55; Initial Catalog=DB_INTELLECT; Integrated Security=SSPI";
+        String conexion = "Data Source=10.1.4.55; Initial Catalog=DB_INTELLECT; Integrated Security=SSPI";
 
         /*Para conectarse a la base de datos desde una conexión remota.*/
-        string conexion = "Data Source=10.1.4.55;User ID=x; Password=x; Initial Catalog=DB_INTELLECT; Integrated Security=false";
+        //string conexion = "Data Source=10.1.4.55;User ID=x; Password=x; Initial Catalog=DB_INTELLECT; Integrated Security=false";
         
         /**
          * Constructor de la clase
