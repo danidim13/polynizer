@@ -211,8 +211,10 @@ namespace Polynizer
                         else
                         {
                             correosCB.SelectedIndex = 0;
+                            correosCB.Items.Clear();
+                            correosCB.Items.Add("Todos");
+                            llenarComboBoxCorreos();
                         }
-                        correosCB.SelectedIndex = 0;
 
                     }
                     else
