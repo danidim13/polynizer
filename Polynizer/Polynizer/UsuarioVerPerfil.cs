@@ -90,6 +90,7 @@ namespace Polynizer
         {
             nombreTB.ReadOnly = false;
             apellidoTB.ReadOnly = false;
+            emailTB.ReadOnly = false;
             fechaNacTB.Hide();
             paisTB.ReadOnly = false;
 
@@ -113,6 +114,7 @@ namespace Polynizer
 
             nombreTB.ReadOnly = true;
             apellidoTB.ReadOnly = true;
+            emailTB.ReadOnly = true;
             fechaNacTB.Show();
             paisTB.ReadOnly = true;
 
@@ -128,6 +130,7 @@ namespace Polynizer
         {
             nombreTB.ReadOnly = true;
             apellidoTB.ReadOnly = true;
+            emailTB.ReadOnly = true;
             fechaNacTB.Show();
             paisTB.ReadOnly = true;
 
@@ -165,6 +168,22 @@ namespace Polynizer
                     apellido = apellidoTB.Text;
                 }
             }
+
+
+            if (email != emailTB.Text)
+            {
+                if (0 != Global.intermediaria.actualizarCampoUsuario("Correo", emailTB.Text))
+                {
+                    MessageBox.Show("Hubo un error cambiando el correo", "Editar Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ++errores;
+                }
+                else
+                {
+                    email = emailTB.Text;
+                    Global.setCorreoUsuario(email);
+                }
+            }
+
 
             if (fecha != fechaDTP.Value.ToString("dd/MM/yyyy"))
             {

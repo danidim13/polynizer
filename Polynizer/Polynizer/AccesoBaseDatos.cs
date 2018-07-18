@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.Configuration;
-// Namespace de acceso a base de datos
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 
-/*Cambiar el namespace para que funcione!!*/
 namespace Polynizer
 {
     class AccesoBaseDatos
@@ -19,7 +17,6 @@ namespace Polynizer
 
         /*Para conectarse a la base de datos desde una conexión remota.*/
         //string conexion = "Data Source=10.1.4.55;User ID=x; Password=x; Initial Catalog=DB_INTELLECT; Integrated Security=false";
-        /*CAMBIAR PASSWORD Y USER*/
         
         /**
          * Constructor de la clase
@@ -79,8 +76,8 @@ namespace Polynizer
 
         /**
          * Método para ejecutar un insert, update o delete
-         * Recibe: la sentencia sql a 
-         * Modifica: realiza el cambio en la base de datos de acuerdo al tipo de sentencia 
+         * Recibe: la sentencia sql a ejecutar
+         * Modifica: realiza el cambio en la base de datos de acuerdo al tipo de sentencia sql
          * Retorna: el tipo de error que generó la consulta o cero si la ejecución fue exitosa
          */
         public int actualizarDatos(String consulta)
@@ -113,10 +110,10 @@ namespace Polynizer
         }
 
         /**
-         * Método para llamar al procedimiento almacenado que permite agregar un nuevo 
-         * Recibe: el usuario y la contraseña del nuevo usuario así como la cédula del estudiante a quién se asocia ese 
+         * Método para llamar al procedimiento almacenado que permite agregar un nuevo usuario
+         * Recibe: el usuario y la contraseña del nuevo usuario así como la cédula del estudiante a quién se asocia ese usuario
          * Modifica: Agrega en la base de datos un nuevo 
-         * Retorna: 1 si se pudo guardar el nuevo usuario, un número diferente a cero que corresponde al número de 
+         * Retorna: 1 si se pudo guardar el nuevo usuario, un número diferente a cero que corresponde al número de error
          * si no se pudo insertar
          */
         public int agregarUsuario(string correo, string nombre, string apellido, string fechaNac, string fechaIni, string pais, string password, bool superUser)
@@ -150,7 +147,7 @@ namespace Polynizer
                         /*Se abre la conexión*/
                         con.Open();
 
-                        //Se ejecuta el procedimiento almacenado
+                        /*Se ejecuta el procedimiento almacenado*/
                         cmd.ExecuteNonQuery();
 
                         /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
@@ -191,7 +188,7 @@ namespace Polynizer
                         /*Se abre la conexión*/
                         con.Open();
 
-                        //Se ejecuta el procedimiento almacenado
+                        /*Se ejecuta el procedimiento almacenado*/
                         cmd.ExecuteNonQuery();
 
                         /*Se convierte en un valor entero lo que se devuelve el procedimiento*/
@@ -211,7 +208,7 @@ namespace Polynizer
         /**
          * Método para llamar al procedimiento almacenado para comprobar que un usuario está en la base de datos
          * Recibe: El usuario y contraseña que se desea verificar que está en la base de datos
-         * Modifica: Busca el usuario con esa contraseña en la base de 
+         * Modifica: Busca el usuario con esa contraseña en la base de datos
          * Retorna: true si está en la base de datos, false sino
          */
         public bool login(string correo, string contraseña)
@@ -383,13 +380,13 @@ namespace Polynizer
             return tokens;
         }
 
-                        /** 
-                         * Metodo que verifica si el correo utilizado para iniciar sesión tiene permisos de administrador
-                         * Recibe: El correo del usuario a verificar
-                         * Modifica: Busca el bit de supUser en la base de datos
-                         * Retorna: true si el usuario tiene permisos de administrador
-                         */
-                        public bool superUser (string correo)
+        /** 
+         * Metodo que verifica si el correo utilizado para iniciar sesión tiene permisos de administrador
+         * Recibe: El correo del usuario a verificar
+         * Modifica: Busca el bit de supUser en la base de datos
+         * Retorna: true si el usuario tiene permisos de administrador
+         */
+        public bool superUser(string correo)
         {
             using (SqlConnection con = new SqlConnection(conexion))
             {

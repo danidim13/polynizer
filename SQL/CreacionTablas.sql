@@ -35,7 +35,7 @@ create table Dispositivo
 	( UUID				uniqueidentifier	not null,
 	  CorreoUsuario		correo_t			not null,
 	  Primary key(UUID),
-	  Foreign key(CorreoUsuario) References Usuario(correo) on update cascade
+	  Foreign key(CorreoUsuario) References Usuario(correo) on update cascade on delete cascade
 	)
 	   
 
@@ -95,7 +95,7 @@ PrecioToken float not null
 
 Primary key (Correo, Fecha, Hora),
 Foreign key (Correo) references Usuario(Correo)
-on delete cascade,
+on update cascade on delete cascade,
 
 );
 
